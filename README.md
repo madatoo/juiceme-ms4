@@ -1,102 +1,195 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+#  Juice me Shop
+live demo is available here ()
+## Table of Contents
 
-Welcome USER_NAME,
+1. [Introduction](# Introduction)
 
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. You can safely delete this README.md file, or change it for your own project. Please do read it at least once, though! It contains some important information about Gitpod and the extensions we use. The last update to this file was: **July 2, 2021**
+2. [User Experience](# User Experience)
+    - [User stories](#User-stories)
+    - [Admin stories](#Admin-stories)
 
-## Gitpod Reminders
+3. [Design and colors](#Design-and-colors)
+    
+4. [Wireframes](#Wireframes)
 
-To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
+5. [Features](#Features)
 
-`python3 -m http.server`
+6. [Technology Used](#Technology-Used)
 
-A blue button should appear to click: _Make Public_,
+7. [Testing](#Testing)
 
-Another blue button should appear to click: _Open Browser_.
+8. [DEPLOYMENT](#DEPLOYMENT)
 
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
+9. [Credits](#Credits)
 
-A blue button should appear to click: _Make Public_,
+10. [Disclaimer](#Disclaimer)
 
-Another blue button should appear to click: _Open Browser_.
+[Back to Top](#table-of-contents)
 
-In Gitpod you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
+##  Introduction
 
-To log into the Heroku toolbelt CLI:
+##  User Experience
+User experience is one from most significant thing when building a webpage. To do this properly, you should consider who is your target audience and what they want to achieve by visiting your page and which features will suits the best to their expectations.
 
-1. Log in to your Heroku account and go to *Account Settings* in the menu under your avatar.
-2. Scroll down to the *API Key* and click *Reveal*
-3. Copy the key
-4. In Gitpod, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
+In this case, potential customers are:
 
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you so do not share it. If you accidentally make it public then you can create a new one with _Regenerate API Key_.
+1. Active, working woman (around 3/4 from the whole number of customers).
+2. Usually are between 26 to 65 years old.
+3. Some of the mentioned group have children, and want to buy good quality products for them.
+4. There are also group men who would like to improve their strength and prevent serious illness.
+5. Most potential customers want to take care of their health.
+6. All of them wish to buy healthy drinks for yourself and families in good quality and reasonable prices.
+7. They would like to know more about nutrients in particular fruits.
+8. They also want to know what benefits from fruits they can absorb.
+9. They mostly use smartphones and laptops.
 
-------
+### User stories
 
-## Release History
+As a potential customer (first time visitor) I would like to:
+* Easily navigate through the whole page,
+** return to home page when logo is clicked,
+** open desired subpage (login/shop etc) in main nav,
+** open in new window all links inserted into the footer,
+* Easily browse the shopping product available in store,
+* Sort product by specific category,
+* Sort multiple categories of product simultaneously,
+* Search for product name or description,
+* View product price, description, rating and image in new page,
+* Easily create customer profile (registration for account),
+* Recive an email confirmation after registering. 
 
-We continually tweak and adjust this template to help give you the best experience. Here is the version history:
+As customer (with own profile) I would like to do the same things as described above and:
+* Easily login/log out to personalised customer profile,
+** View personal order history,
+** View order confirmations,
+** Save payment information’s,
+* Intuitive select quantity of product when purchasing products,
+* Easily recovery password in case I forgot it,
 
-**July 2 2021:** Remove extensions that are not available in Open VSX.
 
-**June 30 2021:** Combined the P4 and P5 templates into one file, added the uptime script. See the FAQ at the end of this file.
+### Admin stories
+* I would like to be able to login to an administration panel,
+* Be able to add, edit and delete product,
+* Be able to create, edit and delete category of product,
+* Make sure the user can't to be able to checkout an empty cart.
 
-**June 10 2021:** Added: `font_fix` script and alias to fix the Terminal font issue
+## Design
+### Design and colors
 
-**May 10 2021:** Added `heroku_config` script to allow Heroku API key to be stored as an environment variable.
+This page has white background colour to make much more readable for users, font colour is black to keep good contrast between text and background.
+Headings will have dark gr This page have white background colour to make much more readable  colour which will correspond with colours used in logo. 
+ 
+### Wireframes
+- Home Page Wireframe - ![View](juice-ms4/wireframes/home.png)
+- Register Page Wireframe - ![View](juice-ms4/wireframes/register.png)
+- Login Page Wireframe - ![View](juice-ms4/wireframes/login.png)
+- Customer Details Page Wireframe - ![View](juice-ms4/wireframes/customer_details.png)
+- Shop Page Wireframe - ![View](juice-ms4/wireframes/shop.png)
+- Category Page Wireframe - ![View](juice-ms4/wireframes/category.png)
+- Product Page Wireframe - ![View](juice-ms4/wireframes/product.png)
+- Basket Page Wireframe - ![View](juice-ms4/wireframes/basket.png)
 
-**April 7 2021:** Upgraded the template for VS Code instead of Theia.
+### Features
+#### Global
 
-**October 21 2020:** Versions of the HTMLHint, Prettier, Bootstrap4 CDN and Auto Close extensions updated. The Python extension needs to stay the same version for now.
+This website will be very simple and intuitive, to give my audience a great user experience.
 
-**October 08 2020:** Additional large Gitpod files (`core.mongo*` and `core.python*`) are now hidden in the Explorer, and have been added to the `.gitignore` by default.
+That can be achieved by having:
+1. A home button (logo placed on the top left corner) in navigation.
+2. Responsive menu placed on the right side of the page.
+3. Visible and intuitive navigation bar during the browser the whole page.
+4. A footer stuck at the bottom of each page with Privacy Policy, Terms of Use and Copyright information placed on the left side of the page and social media icons, on the right-hand side, to follow shop on Instagram, Facebook and You Toube. Those links will open in separate pages.
+I will begin by creating the mobile first design, because currently, most people look at websites on their smartphones before they check them online on bigger devices, such as tablets or laptops. (and that’s are our customers behaviours). 
+Those features will apply to all of the pages on my website.
+#### Home page
+The home page is going to include all of the features listed above. It will also have a jumbotron which will hover, and move a little to the front, to give my audience a fun experience when they will visit this page.
+#### Shop page 
+#### Login page
 
-**September 22 2020:** Gitpod occasionally creates large `core.Microsoft` files. These are now hidden in the Explorer. A `.gitignore` file has been created to make sure these files will not be committed, along with other common files.
+## Technologies Used
 
-**April 16 2020:** The template now automatically installs MySQL instead of relying on the Gitpod MySQL image. The message about a Python linter not being installed has been dealt with, and the set-up files are now hidden in the Gitpod file explorer.
+* Required: HTML, CSS, JavaScript, Python+Django, Postgres, Stripe payments
 
-**April 13 2020:** Added the _Prettier_ code beautifier extension instead of the code formatter built-in to Gitpod.
+#### Languages:
 
-**February 2020:** The initialisation files now _do not_ auto-delete. They will remain in your project. You can safely ignore them. They just make sure that your workspace is configured correctly each time you open it. It will also prevent the Gitpod configuration popup from appearing.
+* HTML5
+* CSS3
+* JavaScript
+* Python
+#### Libraries, frameworks, tools used
+* Balsamic to create wireframes,
+* FontAwesome for icons used in this project,
+* Freelogodesign was used to create shop logo,
+* Favicon Generator was used to convert logo image into favicons,
+* Google Fonts to use the ....... on whole page,
+* Pexels was used to find products images,
+* MS Excel was used to create set of data needed to create database,
+* MS Word was used to spellcheck my work, because English isn't my first language,
+* Bootstrap framework was used for developing a responsive, mobile-first website,
+* Django was used for rapid development, clean design and maintainable,
+* jQuery was needed to simplify HTML DOM manipulation,
+* VSC was used as a code editor,
+* Git was used for version control,
+* Github used as a Git repository hosting service
+* Stripe is used to simplify the receive payments for the products available at store,
+* W3C Validator to check that  HTML and CSS codes are properly wrirtten,
+* PEP 8 Online Validator to check the Python code with expected standards,
+* PostgreSQL as a database service provided directly by Heroku,
+* 
+* 
+* 
+## Testing
+1. Functionality
+2. Browser Compatibility
+* Google Chrome 
+* Firefox 
+* Edge
+* Safari
+3. Responsiveness (add report from am i responsible?)
+4. User Stories
 
-**December 2019:** Added Eventyret's Bootstrap 4 extension. Type `!bscdn` in a HTML file to add the Bootstrap boilerplate. Check out the <a href="https://github.com/Eventyret/vscode-bcdn" target="_blank">README.md file at the official repo</a> for more options.
+check it !
+- eye-friendly - I wanted create website, which will be friendly for readers eays (light colours with good contrast can help reduce effort needed to follow by texts)
+- navigation on site is clearly and visible 
+- content on the web is strictly connected to the main topic 
+- links to social media in footer provide to intended websites 
+- links in nav bar provides to intendent sections on the webpage  
+5. Admin Stories
+6. Ligthouse Report
+7. Knowns Bugs
+[Back to Top](#table-of-contents)
 
-------
+## Deployment
+[Back to Top](#table-of-contents)
 
-## FAQ about the uptime script
+## Credits
+Bootstap, Django and Stripe documentation. If a source is not mentioned below, then additional information about an original code, which was changed according to my website's needs, is mentioned in other files.
+### Code
+Denis Ivy and Programming with Mosh and their tutorials. I also used Slack, Stack Overflow, Tutors CI.
+[Back to Top](#table-of-contents)
 
-**Why have you added this script?**
+### Content
+This was written by me after researching information about the 
+[Back to Top](#table-of-contents)
 
-It will help us to calculate how many running workspaces there are at any one time, which greatly helps us with cost and capacity planning. It will help us decide on the future direction of our cloud-based IDE strategy.
+### Media
+#### Images
+All images are taken from Pexels.com and authors are listed below:
+* Charlotte May
+* Valeria Boltneva
+* Isabela Mendes
+* Lisa
+* Anastasia Zhenina
+* Wendy Routman
+* Aleksander Mils
+* Bruno Scramgnon
+* Naim Benjelloun
+[Back to Top](#table-of-contents)
 
-**How will this affect me?**
+### Acknowledgements
+I want to thank my Mentor, who has helped me with this project, and my family and friends who have supported me throughout the course of this project :)
+[Back to Top](#table-of-contents)
 
-For everyday usage of Gitpod, it doesn’t have any effect at all. The script only captures the following data:
-
-- An ID that is randomly generated each time the workspace is started.
-- The current date and time
-- The workspace status of “started” or “running”, which is sent every 5 minutes.
-
-It is not possible for us or anyone else to trace the random ID back to an individual, and no personal data is being captured. It will not slow down the workspace or affect your work.
-
-**So….?**
-
-We want to tell you this so that we are being completely transparent about the data we collect and what we do with it.
-
-**Can I opt out?**
-
-Yes, you can. Since no personally identifiable information is being captured, we'd appreciate it if you let the script run; however if you are unhappy with the idea, simply run the following commands from the terminal window after creating the workspace, and this will remove the uptime script:
-
-```
-pkill uptime.sh
-rm .vscode/uptime.sh
-```
-
-**Anything more?**
-
-Yes! We'd strongly encourage you to look at the source code of the `uptime.sh` file so that you know what it's doing. As future software developers, it will be great practice to see how these shell scripts work.
-
----
-
-Happy coding!
+### Disclaimer
+This project was created for educational use only.
+[Back to Top](#table-of-contents)
