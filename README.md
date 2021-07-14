@@ -80,14 +80,14 @@ This page has white background colour to make much more readable for users, font
 Headings will have dark gr This page have white background colour to make much more readable  colour which will correspond with colours used in logo. 
  
 ### Wireframes
-- Home Page Wireframe - ![View](juice-ms4/wireframes/home.png)
-- Register Page Wireframe - ![View](juice-ms4/wireframes/register.png)
-- Login Page Wireframe - ![View](juice-ms4/wireframes/login.png)
-- Customer Details Page Wireframe - ![View](juice-ms4/wireframes/customer_details.png)
-- Shop Page Wireframe - ![View](juice-ms4/wireframes/shop.png)
-- Category Page Wireframe - ![View](juice-ms4/wireframes/category.png)
-- Product Page Wireframe - ![View](juice-ms4/wireframes/product.png)
-- Basket Page Wireframe - ![View](juice-ms4/wireframes/basket.png)
+- Home Page Wireframe - ![View](juiceme-ms4/wireframes/home.png)
+- Register Page Wireframe - ![View](juiceme-ms4/wireframes/register.png)
+- Login Page Wireframe - ![View](juiceme-ms4/wireframes/login.png)
+- Customer Details Page Wireframe - ![View](juiceme-ms4/wireframes/customer_details.png)
+- Shop Page Wireframe - ![View](juiceme-ms4/wireframes/shop.png)
+- Category Page Wireframe - ![View](juiceme-ms4/wireframes/category.png)
+- Product Page Wireframe - ![View](juiceme-ms4/wireframes/product.png)
+- Basket Page Wireframe - ![View](juiceme-ms4/wireframes/basket.png)
 
 ### Features
 #### Global
