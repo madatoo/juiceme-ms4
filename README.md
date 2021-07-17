@@ -1,10 +1,11 @@
-#  Juice me Shop
+#  Juiceme Shop
 live demo is available here ()
+
 ## Table of Contents
 
-1. [Introduction](# Introduction)
+1. [Introduction](#Introduction)
 
-2. [User Experience](# User Experience)
+2. [User Experience](#User-Experience)
     - [User stories](#User-stories)
     - [Admin stories](#Admin-stories)
 
@@ -18,7 +19,7 @@ live demo is available here ()
 
 7. [Testing](#Testing)
 
-8. [DEPLOYMENT](#DEPLOYMENT)
+8. [Deployment](#Deployment)
 
 9. [Credits](#Credits)
 
@@ -29,7 +30,10 @@ live demo is available here ()
 ##  Introduction
 
 ##  User Experience
-User experience is one from most significant thing when building a webpage. To do this properly, you should consider who is your target audience and what they want to achieve by visiting your page and which features will suits the best to their expectations.
+User experience is one from most significant thing when building a webpage. To do this properly, you should consider:
+* who is your target audience,
+* what they want to achieve by visiting your page, 
+* which features will suits the best to their expectations.
 
 In this case, potential customers are:
 
@@ -46,26 +50,25 @@ In this case, potential customers are:
 ### User stories
 
 As a potential customer (first time visitor) I would like to:
-* Easily navigate through the whole page,
-** return to home page when logo is clicked,
-** open desired subpage (login/shop etc) in main nav,
-** open in new window all links inserted into the footer,
-* Easily browse the shopping product available in store,
-* Sort product by specific category,
-* Sort multiple categories of product simultaneously,
-* Search for product name or description,
-* View product price, description, rating and image in new page,
-* Easily create customer profile (registration for account),
-* Recive an email confirmation after registering. 
++ Easily navigate through the whole page,
+    + return to home page when logo is clicked,
+    + open desired subpage (login/shop etc) in main nav,
+    + open in new window all links inserted into the footer,
++ Easily browse the shopping product available in store,
++ Sort product by specific category,
++ Sort multiple categories of product simultaneously,
++ Search for product name or description,
++ View product price, description, rating and image in new page,
++ Easily create customer profile (registration for account),
++ Recive an email confirmation after registering. 
 
 As customer (with own profile) I would like to do the same things as described above and:
-* Easily login/log out to personalised customer profile,
-** View personal order history,
-** View order confirmations,
-** Save payment information’s,
-* Intuitive select quantity of product when purchasing products,
-* Easily recovery password in case I forgot it,
-
++ Easily login/log out to personalised customer profile,
+    + View personal order history,
+    + View order confirmations,
+    + Save payment information’s,
++ Intuitive select quantity of product when purchasing products,
++ Easily recovery password in case I forgot it,
 
 ### Admin stories
 * I would like to be able to login to an administration panel,
@@ -76,18 +79,42 @@ As customer (with own profile) I would like to do the same things as described a
 ## Design
 ### Design and colors
 
-This page has white background colour to make much more readable for users, font colour is black to keep good contrast between text and background.
-Headings will have dark gr This page have white background colour to make much more readable  colour which will correspond with colours used in logo. 
+This page has white background colour to make much more readable for users, font colour is black to keep good contrast between text and background. Because in logo are used purple, green, read and "dirty" yellow as a main colors, then navigation, footer, headings and call to action (CTA) buttons and links will be combination of those main colours. 
+
  
 ### Wireframes
-- Home Page Wireframe - ![View](wireframes/home.png)
-- Register Page Wireframe - ![View](wireframes/register.png)
-- Login Page Wireframe - ![View](wireframes/login.png)
-- Customer Details Page Wireframe - ![View](wireframes/customer_details.png)
-- Shop Page Wireframe - ![View](wireframes/shop.png)
-- Category Page Wireframe - ![View](wireframes/category.png)
-- Product Page Wireframe - ![View](wireframes/product.png)
-- Basket Page Wireframe - ![View](wireframes/basket.png)
+1. Home Page Wireframe
+
+![View](wireframes/home.png)
+
+2. Register Page Wireframe
+
+![View](wireframes/registration.png)
+
+3. Login Page Wireframe
+
+![View](wireframes/login.png)
+
+4. Customer Details Page Wireframe
+
+![View](wireframes/customer_details.png)
+
+5. Shop Page Wireframe 
+
+![View](wireframes/shop.png)
+
+6. Category Page Wireframe 
+
+![View](wireframes/category.png)
+
+7. Product Page Wireframe
+
+![View](wireframes/products.png)
+
+8. Basket Page Wireframe
+
+![View](wireframes/basket.png)
+
 
 ### Features
 #### Global
@@ -104,7 +131,9 @@ Those features will apply to all of the pages on my website.
 #### Home page
 The home page is going to include all of the features listed above. It will also have a jumbotron which will hover, and move a little to the front, to give my audience a fun experience when they will visit this page.
 #### Shop page 
+Contains all the available products in store
 #### Login page
+This page allow the users login to their personalised account or create it when the visitor does not have own profile yet.
 
 ## Technologies Used
 
@@ -121,7 +150,7 @@ The home page is going to include all of the features listed above. It will also
 * FontAwesome for icons used in this project,
 * Freelogodesign was used to create shop logo,
 * Favicon Generator was used to convert logo image into favicons,
-* Google Fonts to use the ....... on whole page,
+* Google Fonts to use the Montserrat font for headings and Open Sans font for whole page,
 * Pexels was used to find products images,
 * MS Excel was used to create set of data needed to create database,
 * MS Word was used to spellcheck my work, because English isn't my first language,
@@ -139,24 +168,54 @@ The home page is going to include all of the features listed above. It will also
 * 
 * 
 ## Testing
-1. Functionality
-2. Browser Compatibility
+
+During production the page was tested by me consistently to check each changes which I made. To carried out testing, I used Google Chrome Developer Tools.
+### Functionality
+#### Admin stories
+
+| Nr | Test          | Action | Test result |
+| --- |:----------------|:--------------| :-----: |
+| 1 | Easly navigate throught the whole page |  content on the web is strictly connected to the main topic and navigation is clearly and visible| PASS/ NO PASS |
+| 2 | Be able to login to an administration panel |  | PASS/ NO PASS |
+| 3 | Easly manage the whole product in store | Be able to add, edit and delete product | PASS/ NO PASS |
+| 4 | Easly manage all categories in store | Be able to create, edit and delete category of product | PASS/ NO PASS |
+| 5 | Make sure the user can't to be able to checkout an empty cart | | PASS/ NO PASS |
+
+
+#### User Stories
+
+
+| Nr | Test          | Action | Test result |
+| --- |:----------------|:--------------| :-----: |
+| 1 | Easly navigate throught the whole page | navigation on site is clearly and visible | PASS/ NO PASS |
+| 1.1 | Return to home page|  when you click the logo you return to home page  |pass |
+| 1.2 | Open desired subpages| each time when you decide to visit each page (i.e.: Shop, Login) you open intendent page| pass/no |
+| 1.3 | Open in new page social media links from footer| open FB and/or Instagram in new page | pass/no |
+| 1.4 | 
+| 2 | Easly browse the products available in shop |  | PASS/ NO PASS |
+| 2.1 | Easly sort product by specific category|  | PASS/ NO PASS |
+| 2.2 | Sort multiple categories of product simultaneously |  | PASS/ NO PASS |
+| 2.3 | Search  for product name or desctiption |  | PASS/ NO PASS |
+| 2.4 | View product price, description, rating and image in new page|  | PASS/ NO PASS |
+| 3 | Easily create customer profile |  | PASS/ NO PASS |
+| 3.1 | Registration for account |  | PASS/ NO PASS |
+| 3.2 |  Recive an confirmation email after registration |  | PASS/ NO PASS |
+| 4 | Have a personalised account  |  | PASS/ NO PASS |
+| 4.1 | Easly log in/out    |  | PASS/ NO PASS |
+| 4.2 | View personal order history |  | PASS/ NO PASS |
+| 4.3 | View order confirmation  |  | PASS/ NO PASS |
+| 4.4 | Save payment informations  |  | PASS/ NO PASS |
+| 4.5 | Intuitive select quantity of product when purchasing products  |  | PASS/ NO PASS |
+| 4.6 | Easly recovery password when is forgotten |  | PASS/ NO PASS |
+
+### Browser Compatibility
 * Google Chrome 
 * Firefox 
 * Edge
 * Safari
-3. Responsiveness (add report from am i responsible?)
-4. User Stories
-
-check it !
-- eye-friendly - I wanted create website, which will be friendly for readers eays (light colours with good contrast can help reduce effort needed to follow by texts)
-- navigation on site is clearly and visible 
-- content on the web is strictly connected to the main topic 
-- links to social media in footer provide to intended websites 
-- links in nav bar provides to intendent sections on the webpage  
-5. Admin Stories
-6. Ligthouse Report
-7. Knowns Bugs
+### Responsiveness (add report from am i responsible?)
+### Ligthouse Report
+### Knowns Bugs
 [Back to Top](#table-of-contents)
 
 ## Deployment
