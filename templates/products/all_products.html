@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        {% for product in products %}
+        <div class="col">
+            <!--source https://mdbootstrap.com/docs/standard/components/cards/-->
+            <div class="card">
+                <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+                    <img class="img-fluid"
+                    src=""/>
+                    <a href="#!">
+                        <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+                    </a>
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">
+                    </p>
+                    <a href="#!" class="btn btn-warning">Button</a>
+                </div>
+              </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
