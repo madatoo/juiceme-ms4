@@ -1,5 +1,7 @@
 html{
     height: 100%;
+    margin:0;
+    padding:0;
     
 }
 
@@ -16,6 +18,10 @@ body{
     height: count(100vh-150px);
 }
 
+.black{
+    color:black;
+}
+
 /*----------------- footer */
 footer{
     height: 100px;
@@ -28,6 +34,6 @@ a {
 }
 
 a:hover {
-  color: darkgreen;
+  color:#ffc107;
 }
 
