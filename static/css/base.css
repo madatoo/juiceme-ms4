@@ -7,10 +7,27 @@ html,
 body{
     min-height: 100vh;
 }
+
 /*orginal source CI video about Homepage and Top Header part3 https://learn.codeinstitute.net/courses/course-v1:CodeInstitute+FSF_102+Q1_2020/courseware/4201818c00aa4ba3a0dae243725f6e32/a5315728ccdf4f0792a0bc3c349e8329/?child=last */
 
 .hero{
-    background: url('media/img/mission.jpg') no-repeat center center fixed;
+    background: url('media/mission.jpg') no-repeat center center fixed;
     background-size: cover;
     height: count(100vh-150px);
 }
+
+/*----------------- footer */
+footer{
+    height: 100px;
+}
+a {
+    color:black;
+    text-decoration: none;
+    font-weight: 600;
+    
+}
+
+a:hover {
+  color: darkgreen;
+}
+

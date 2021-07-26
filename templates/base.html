@@ -79,7 +79,11 @@
     </header>
 
     {% if messages %}
-        <div class="message-container"></div>
+        <div class="message-container">
+          <h5 class="row s12 m7 text-center">
+            {{ message }}
+        </h5>
+        </div>
     {% endif %}
 
     {% block page_header %}
@@ -88,22 +92,8 @@
     {% block content %}
     {% endblock %}
 
-    <footer class="footer sticky-footer py-4">
-      <div class="container">
-        <div class="row ">
-          <div class="col-lg-6 text-lg-start">
-            <p>Copyright &copy; JuiceMe MSR 2021</p>
-            <a class="link-dark text-decoration-none me-3" href="#">Privacy Policy</a>
-          </div>
-          <div class="col-lg-6 text-lg-end">
-            <a class="btn btn-social mx-2" href="https://www.instagram.com"><i class="fab fa-instagram"></i></a>
-            <a class="btn btn-social mx-2" href="https://www.facebook.com"><i class="fab fa-facebook-f"></i></a>
-            <a class="btn btn-social mx-2" href="https://www.linkedin.com"><i class="fab fa-linkedin-in"></i></a>
-          </div>
-          
-        </div>
-      </div>
-    </footer>
+    {% include 'partials/footer.html' %}
+    
 
     {% block postloadjs %}
     {% endblock %}
