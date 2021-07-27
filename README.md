@@ -122,16 +122,16 @@ This page has white background colour to make much more readable for users, font
 This website will be very simple and intuitive, to give my audience a great user experience.
 
 That can be achieved by having:
-1. A home button (logo placed on the top left corner) in navigation.
+1. A home button (text logo placed on the top left corner) in navigation.
 2. Responsive menu placed on the right side of the page.
 3. Visible and intuitive navigation bar during the browser the whole page.
-4. A footer stuck at the bottom of each page with Privacy Policy, Terms of Use and Copyright information placed on the left side of the page and social media icons, on the right-hand side, to follow shop on Instagram, Facebook and You Toube. Those links will open in separate pages.
+4. A footer stuck at the bottom of each page with contact details on the left-hand side, Copyright information placed on the middle  and social media icons and Privacy Policy on the right-hand side, to follow shop on Instagram, Facebook and You Toube. Those links will open in separate pages.
 I will begin by creating the mobile first design, because currently, most people look at websites on their smartphones before they check them online on bigger devices, such as tablets or laptops. (and that’s are our customers behaviours). 
 Those features will apply to all of the pages on my website.
 #### Home page
-The home page is going to include all of the features listed above. It will also have a jumbotron which will hover, and move a little to the front, to give my audience a fun experience when they will visit this page.
+The home page is going to include all of the features listed above. It will also have a jumbotron with clearly described mission (one sentence) and button to visit this shop That's give my audience a breafly info about purpose of this page.
 #### Shop page 
-Contains all the available products in store
+Contains all the available products in store.
 #### Login page
 This page allow the users login to their personalised account or create it when the visitor does not have own profile yet.
 
@@ -175,10 +175,10 @@ During production the page was tested by me consistently to check each changes w
 
 | Nr | Test          | Action | Test result |
 | --- |:----------------|:--------------| :-----: |
-| 1 | Easly navigate throught the whole page |  content on the web is strictly connected to the main topic and navigation is clearly and visible| PASS/ NO PASS |
-| 2 | Be able to login to an administration panel |  | PASS/ NO PASS |
-| 3 | Easly manage the whole product in store | Be able to add, edit and delete product | PASS/ NO PASS |
-| 4 | Easly manage all categories in store | Be able to create, edit and delete category of product | PASS/ NO PASS |
+| 1 | Easly navigate throught the whole page |  content on the web is strictly connected to the main topic and navigation is clearly and visible| PASS |
+| 2 | Be able to login to an administration panel |  | PASS |
+| 3 | Easly manage the whole product in store | Be able to add, edit and delete product | PASS |
+| 4 | Easly manage all categories in store | Be able to create, edit and delete category of product | PASS|
 | 5 | Make sure the user can't to be able to checkout an empty cart | | PASS/ NO PASS |
 
 
@@ -188,9 +188,9 @@ During production the page was tested by me consistently to check each changes w
 | Nr | Test          | Action | Test result |
 | --- |:----------------|:--------------| :-----: |
 | 1 | Easly navigate throught the whole page | navigation on site is clearly and visible | PASS/ NO PASS |
-| 1.1 | Return to home page|  when you click the logo you return to home page  |pass |
+| 1.1 | Return to home page|  when you click the logo you return to home page  |PASS |
 | 1.2 | Open desired subpages| each time when you decide to visit each page (i.e.: Shop, Login) you open intendent page| pass/no |
-| 1.3 | Open in new page social media links from footer| open FB and/or Instagram in new page | pass/no |
+| 1.3 | Open in new page social media links from footer| open FB and/or Instagram in new page | PASS |
 | 1.4 | 
 | 2 | Easly browse the products available in shop |  | PASS/ NO PASS |
 | 2.1 | Easly sort product by specific category|  | PASS/ NO PASS |
