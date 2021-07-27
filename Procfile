@@ -1,0 +1,1 @@
+web: gunicorn juiceme.wsgi:application
