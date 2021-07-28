@@ -1,1 +1,1 @@
-web: gunicorn juiceme-magda.wsgi:application
+web: gunicorn juiceme.wsgi:application
