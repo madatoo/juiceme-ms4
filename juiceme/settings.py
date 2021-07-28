@@ -14,6 +14,8 @@ import os
 import dj_database_url
 from pathlib import Path
 
+development = os.environ.get('DEVELOPMENT', False)
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -25,10 +27,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ.get('SECRET_KEY', '')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = development
 
-ALLOWED_HOSTS = [os.environ.get('HEROKU_HOSTNAME')]
-
+if development:
+    ALLOWED_HOSTS = ['localhost']
+else:
+    ALLOWED_HOSTS = [os.environ.get('HEROKU_HOSTNAME')]
 
 # Application definition
 
@@ -105,22 +109,22 @@ WSGI_APPLICATION = 'juiceme.wsgi.application'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
 
-# if 'DATABASE_URL' in os.environ:
-#   DATABASES = {
-#       'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
-#   }
-# else:
-#    DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#        'NAME': BASE_DIR / 'db.sqlite3',
-#    }
-# }
-
-DATABASES = {
-    'default': dj_database_url.parse('postgres://taksdrgjtucjbs:4c15cf672cad5d30ee92d0e1beff9efd5794e9c64219c5731a2cd3e09f9cf880@ec2-52-19-170-215.eu-west-1.compute.amazonaws.com:5432/d80mr0dsmas3aa')
-
+if 'DATABASE_URL' in os.environ:
+    DATABASES = {
+       'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
+    }
+else:
+    DATABASES = {
+     'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
 }
+
+#DATABASES = {
+#   'default': dj_database_url.parse('postgres://#taksdrgjtucjbs:4c15cf672cad5d30ee92d0e1beff9efd5794e9c64219c5731a2cd3e09f9cf880#@ec2-52-19-170-215.eu-west-1.compute.amazonaws.com:5432/d80mr0dsmas3aa')
+
+#}
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
