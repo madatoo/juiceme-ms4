@@ -20,10 +20,16 @@
         </div>
       </div>
     <div class="d-none d-sm-block">
-        <a class="nav-link">
+        <a class="nav-link" {% if total %} font-weight-bold {% else %} text-black {% endif %} href ="{% url 'bag_page' %}">
             <div class="text-center">
                 <div><i class=" fas fa-shopping-bag fa-lg "></i></div>
-                <p class="my-0 ">My Shopping</p>
+                <p class="my-0 ">
+                    {% if total %}
+                        &#8364 {{ total|floatformat:2 }}
+                    {% else %}
+                        &#8364 0.00
+                    {% endif %}
+                </p>
             </div>
         </a>
     </div>
