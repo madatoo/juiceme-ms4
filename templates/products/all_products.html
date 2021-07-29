@@ -23,12 +23,14 @@
                     {% if product.img %}
                         <div class="bg-image hover-overlay ripple " data-mdb-ripple-color="light">
                         <img class="img-fluid card-img-top" src="{{ product.img.url }}" alt=" {{ product.name }}"/>
-                        <a href="">
+                        <a href=" {% url 'single_product' product.id %}">
                             <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
                         </a>
                         </div>
                     {% else %}
+                    <a href="{% url 'single_product' product.id %}">
                         <img class="img-fluid card-img-top" src="{{ MEDIA_URL }}fruits.jpg" alt=" {{ product.name }}"/>
+                    </a>  
                     {% endif %}
                         <div class="card-body h-100 mb-0">
                             <h5 class="card-title">{{ product.name }}</h5>

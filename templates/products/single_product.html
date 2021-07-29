@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block page_header %}
+    <div class="container header-container">
+        <div class="row">
+            <div class="col">
+              
+            </div>
+        </div>
+    </div>
+{% endblock %}
+<!--original source is at https://mdbootstrap.com/freebies/jquery/e-commerce/-->
+{% block content %}
+<div class="container-fluid">
+    <div class="row fadeIn wow">
+        <!--product image-->
+        <div class="col-md-6 mb-3">
+            {% if product.img %}
+                <a href="{{ product.image.url }} " target=_blank>
+                    <img class="img-fluid card-img-top" src="{{ product.img.url }}" alt=" {{ product.name }}"/> 
+                </a>
+            {% else %}
+                <a href="">
+                    <img class="img-fluid card-img-top" src="{{ MEDIA_URL }}fruits.jpg" alt=" {{ product.name }}"/>
+                </a>
+            {% endif %}
+        </div>
+        <div class="col-md-6 mb-3">
+            <div class="p-4">
+                <div class="mb-3"> {{ product.category }}</div>
+                {% if product.rating %}
+                    <small class="card-text"><i class=" fas fa-star mr-1">{{ product.rating }}/5</i></small>
+                {% else %}
+                    <small class="card-text">No Rating</small>    
+                {% endif %}
+                <p class="lead"> € {{ product.price }}</p>
+                <p class="lead font-weight-bold">Description</p>
+                <p> {{ product.description }} </p>
+                <form class="d-flex justify-content-left">
+                    <input type="number" value="1" aria-label="Search" class="form-control" style="width: 100px">
+                    <button class="btn btn-primary btn-md my-0 p" type="submit">Add to cart
+                      <i class="fas fa-shopping-bag ml-1"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+        <hr>
+        <div class="row d-flex justify-content-center wow fadeIn">
+            <div class="col-md-6 text-center">
+                <h4 class="my-4 h4">Additional information</h4>
+                <p>{{ product.nutrion_info}}</p>
+    </div>
+
+</div>
+
+{% endblock %}
