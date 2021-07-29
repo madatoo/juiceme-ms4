@@ -4,7 +4,7 @@
 <nav class="navbar navbar-expand-lg navbar-light fixed-top bg-light">
     <a class="navbar-brand" href="{% url 'home' %}">JuiceMe</a>
     <div class="d-none d-sm-block">
-        <form class="form-inline my-2 my-lg-0"  method="GET" action="">
+        <form class="form-inline my-2 my-lg-0"  method="GET" action="{% url 'products' %}">
             <input class="form-control mr-sm-2"  type="search" name="q"placeholder="Search your juices :)">
             <button class="btn btn-outline-warning my-2 my-sm-0" type="submit"> <span class="icon"><i class="fas fa-search"></i></span>Search</button>
           </form>

@@ -21,10 +21,10 @@
             <!--source https://mdbootstrap.com/docs/standard/components/cards/-->
                 <div class="card h-100 mb-0">
                     {% if product.img %}
-                        <div class="bg-image hover-overlay ripple " data-mdb-ripple-color="light">
+                        <div class="bg-image " data-mdb-ripple-color="light">
                         <img class="img-fluid card-img-top" src="{{ product.img.url }}" alt=" {{ product.name }}"/>
                         <a href=" {% url 'single_product' product.id %}">
-                            <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+                        <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
                         </a>
                         </div>
                     {% else %}
