@@ -78,7 +78,8 @@ TEMPLATES = [
                 'django.template.context_processors.request',  # required by allauth
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-                'bag.contexts.bag_contents',
+                'bag.contexts.products_in_bag',
+                
             ],
         },
     },
