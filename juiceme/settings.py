@@ -50,6 +50,9 @@ INSTALLED_APPS = [
     'products',
     'bag',
     'checkout',
+
+    #other
+    'crispy_forms'
     
 ]
 
@@ -64,6 +67,8 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'juiceme.urls'
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 TEMPLATES = [
     {
@@ -82,6 +87,9 @@ TEMPLATES = [
                 'bag.contexts.products_in_bag',
                 
             ],
+            'builtins': [
+                'crispy_forms.templatetags.crispy_forms_tags',
+                'crispy_forms.templatetags.crispy_forms_field',
         },
     },
 ]
