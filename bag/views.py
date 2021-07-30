@@ -1,6 +1,5 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, reverse
 
-# Create your views here.
 
 def bag_page(request):
     """A view to display the bag context page """
@@ -19,7 +18,24 @@ def add_to_bag(request, product_id):
         bag[product_id] += quantity
     else:
         bag[product_id] = quantity
-   
+
     request.session['bag'] = bag
     print(request.session['bag'])
     return redirect(redirect_url)
+
+
+""" I sow this function in one from previously student projects for CI """
+
+
+def update_bag():
+    """update bag to specified quantity of single product"""
+    quantity = int(request.POST.get('quantity'))
+    bag = request.session.get('bag', {})
+
+    if quantity > 0:
+        bag[id] = quantity
+    else:
+        bag.pop(id)
+
+    request.session['bag'] = bag
+    return redirect(reverse('bag_page'))
