@@ -51,9 +51,9 @@ INSTALLED_APPS = [
     'bag',
     'checkout',
 
-    #other
-    'crispy_forms'
-    
+    # Other
+
+    'crispy_forms',
 ]
 
 MIDDLEWARE = [
@@ -81,11 +81,10 @@ TEMPLATES = [
         'OPTIONS': {
             'context_processors': [
                 'django.template.context_processors.debug',
-                'django.template.context_processors.request',  # required by allauth
+                'django.template.context_processors.request', """allauth"""
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
                 'bag.contexts.products_in_bag',
-               
             ],
             'builtins': [
                 'crispy_forms.templatetags.crispy_forms_tags',
@@ -122,11 +121,11 @@ WSGI_APPLICATION = 'juiceme.wsgi.application'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
 
-#if 'DATABASE_URL' in os.environ:
+# if 'DATABASE_URL' in os.environ:
 #    DATABASES = {
 #        'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
 #    }
-#else:
+# else:
 #    DATABASES = {
 #        'default': {
 #            'ENGINE': 'django.db.backends.sqlite3',
@@ -135,10 +134,8 @@ WSGI_APPLICATION = 'juiceme.wsgi.application'
 #    }
 
 # Do NOT push the code to github with this still here in settings.py
-# Add your new database URL in between the '' quotes on the line below
 
 DATABASES = {'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))}
-
 
 
 # Password validation
@@ -188,3 +185,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+# Stripe
+
+STRIPE_PUBLIC_KEY = os.getenv('STRIPE_PUBLIC_KEY', '')
+STRIPE_SECRET_KEY = os.getenv('STRIPE_SECRET_KEY', '')
