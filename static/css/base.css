@@ -21,13 +21,27 @@ h3{
     font-family: 'Montserrat', sans-serif;
     margin:0;
 }
+
+h3,
+.header-container{
+    text-align: center;
+}
 /*orginal source CI video about Homepage and Top Header part3 https://learn.codeinstitute.net/courses/course-v1:CodeInstitute+FSF_102+Q1_2020/courseware/4201818c00aa4ba3a0dae243725f6e32/a5315728ccdf4f0792a0bc3c349e8329/?child=last */
+
+.hero-container{
+    /*background: url('/media/mission.jpg') no-repeat center center fixed;*/
+    background-size: cover;
+    height: 100vh;
+}
 
 .hero{
     background: url('/media/mission.jpg') no-repeat center center fixed;
-    background-size: cover;
-    height: 99vh;
 }
+
+.background-fruits{
+    background: url('/media/background.jpg') no-repeat center center fixed;
+}
+
 /*-----------------navbar my account icon and p */
 
 .black{
@@ -39,12 +53,13 @@ h3{
 
 .header-container{
     margin-top: 100px;
-    text-align: center;
+    /*text-align: center;*/
 }
 
 .products{
     margin-top: 1rem;
 }
+
 
 .img-fluid{
     height: 300px;
