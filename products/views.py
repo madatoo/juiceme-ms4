@@ -19,9 +19,10 @@ def all_products(request):
             products = products.filter(category__name__in=categories)
             categories = Category.objects.filter(name__in=categories)
 
-        """here we can serch by serch criteria in products and in product descriptions"""
+        """here we can serch by serch criteria in products 
+        and in product descriptions"""
         if 'q' in request.GET:
-            """ serch by entered criteria""" 
+            """ serch by entered criteria """ 
             search = request.GET['q']
             """ messege about not entered search criteria"""
         if not search:

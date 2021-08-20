@@ -5,49 +5,52 @@
     <div class="container header-container">
         <div class="row">
             <div class="col">
-              
+                <h1> See, read and buy our products.</h1>
+                <p class="products">There you can browse all available juces,nactars and drinks in our store.</p>
             </div>
         </div>
     </div>
 {% endblock %}
 
 {% block content %}
-<div class="overlay">
+
+<div>    
     <div class="container-fluid col-10 offset-1">
-        <div class="row mt-1 mb-2">
-            <div class="row">
-            {% for product in products %}
-                <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
-            <!--source https://mdbootstrap.com/docs/standard/components/cards/-->
-                <div class="card h-100 mb-0">
-                    {% if product.img %}
-                        <div class="bg-image " data-mdb-ripple-color="light">
-                        <img class="img-fluid card-img-top" src="{{ product.img.url }}" alt=" {{ product.name }}"/>
-                        <a href=" {% url 'single_product' product.id %}">
-                        <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
-                        </a>
-                        </div>
-                    {% else %}
-                    <a href="{% url 'single_product' product.id %}">
-                        <img class="img-fluid card-img-top" src="{{ MEDIA_URL }}fruits.jpg" alt=" {{ product.name }}"/>
-                    </a>  
-                    {% endif %}
-                        <div class="card-body h-100 mb-0">
-                            <h5 class="card-title">{{ product.name }}</h5>
-                            <h6>Category: {{ product.category }}</h6>
-                            <h4 class="card-text mb-0">{{ product.price }}</h4>
-                            {% if product.rating %}
-                            <small class="card-text"><i class=" fas fa-star mr-1">{{ product.rating }}/5</i></small>
-                            {% else %}
-                            <small class="card-text">No Rating</small>    
-                            {% endif %}
-                        </div>
-                        <div class="card-footer">
-                            <a href="#!" class="btn btn-warning ">Add to basket</a>
-                        </div>
+            <div class="row mt-5 mb-2">
+                <div class="row">
+                {% for product in products %}
+                    <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
+                <!--source https://mdbootstrap.com/docs/standard/components/cards/-->
+                    <div class="card h-100 mb-0">
+                        {% if product.img %}
+                            <div class="bg-image" data-mdb-ripple-color="light">
+                            <img class="img-fluid card-img-top" src="{{ product.img.url }}" alt=" {{ product.name }}"/>
+                            <a href=" {% url 'single_product' product.id %}">
+                            <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+                            </a>
+                            </div>
+                        {% else %}
+                        <a href="{% url 'single_product' product.id %}">
+                            <img class="img-fluid card-img-top" src="{{ MEDIA_URL }}fruits.jpg" alt=" {{ product.name }}"/>
+                        </a>  
+                        {% endif %}
+                            <div class="card-body h-100 mb-0">
+                                <h5 class="card-title">{{ product.name }}</h5>
+                                <h6>Category: {{ product.category }}</h6>
+                                <h4 class="card-text mb-0">{{ product.price }}</h4>
+                                {% if product.rating %}
+                                <small class="card-text"><i class=" fas fa-star mr-1">{{ product.rating }}/5</i></small>
+                                {% else %}
+                                <small class="card-text">No Rating</small>    
+                                {% endif %}
+                            </div>
+                            <div class="card-footer">
+                                <a href="#" class="btn btn-warning ">Add to basket</a>
+                            </div>
+                    </div>
                 </div>
+                {% endfor %}
             </div>
-            {% endfor %}
         </div>
     </div>
 </div>

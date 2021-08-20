@@ -242,6 +242,9 @@ The issue is also with the my account section, which is not displaying as the dr
 
 I wanted to add the privacy policy to my app, but I did't know how to do it. I made it by adding link to the privacy policies page, but I did't create the proper policy. I assigned it as the left to implement solution, just like the using the social media to easly login to page. This allows visitors to create an account and save their time. I would also be able to track the visitors (to know how long they stay on page etc.).
 
+My endpoint (webhook) doesn't work properly.
+
+
 
 
 [Back to Top](#table-of-contents)
