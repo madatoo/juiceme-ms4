@@ -44,12 +44,12 @@ h3,
 
 /*-----------------navbar my account icon and p */
 
-.black{
+.black,
+.black-euro{
     color:black;
 }
 
 /*----------------- all products page*/
-
 
 .header-container{
     margin-top: 100px;
@@ -59,7 +59,6 @@ h3,
 .products{
     margin-top: 1rem;
 }
-
 
 .img-fluid{
     height: 300px;
@@ -76,12 +75,12 @@ h3,
 .header-container h1,
 /*for hover effect in footer*/
 h5,
+.euro,
 .email-footer:hover,
 a:hover,
-i:hover {
+i:hover{
     color:#ffc107;
-  }
-
+}
 
 h5{
     margin-top: 12px;
@@ -95,6 +94,9 @@ footer{
 a {
     color:black;
     text-decoration: none;
-    font-weight: 500;
-    
+    font-weight: 500;   
+}
+
+.euro{
+    font-weight: 900; 
 }

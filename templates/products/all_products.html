@@ -38,7 +38,7 @@
                             <div class="card-body h-100 mb-0">
                                 <h5 class="card-title">{{ product.name }}</h5>
                                 <h6>Category: {{ product.category }}</h6>
-                                <h4 class="card-text mb-0">{{ product.price }}</h4>
+                                <h4 class="card-text mb-0 euro"> <i class=" fas fa-euro-sign small euro black-euro"></i>{{ product.price }}</h4>
                                 {% if product.rating %}
                                 <small class="card-text"><i class=" fas fa-star mr-1">{{ product.rating }}/5</i></small>
                                 {% else %}
