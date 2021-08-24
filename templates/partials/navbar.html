@@ -5,25 +5,25 @@
     <a class="navbar-brand" href="{% url 'home' %}">JuiceMe</a>
     <div class="d-none d-sm-block">
         <form class="form-inline my-2 my-lg-0"  method="GET" action="{% url 'products' %}">
-            <input class="form-control mr-sm-2"  type="search" name="q"placeholder="Search your juices :)">
-            <button class="btn btn-outline-warning my-2 my-sm-0" type="submit"> <span class="icon"><i class="fas fa-search"></i></span>Search</button>
+            <input class="form-control mr-sm-2"  type="text" name="q" placeholder="Search your juices :)">
+            <button class="btn btn-outline-warning my-2 my-sm-0" type="submit"> <span class="icon"></span>Search<i class="fas fa-search"></i></button>
           </form>
     </div>
     <div class="dropdown border-0">
         <button class="btn btn-secondary dropdown-toggle" type="button" id="categories-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Shop          
         </button>
         <div class="dropdown-menu" aria-labelledby="categories-link">
-          <a class="dropdown-item" href="{%url 'products' %}?category=Juice">Juices</a>
-          <a class="dropdown-item" href="{%url 'products' %}?category=Nectar">Nectars</a>
-          <a class="dropdown-item" href="{%url 'products' %}?category=Drink">Drinks</a>
-          <a class="dropdown-item" href="{%url 'products' %}?category=Juice,Nectar,Drink">All Products</a>
+          <a class="dropdown-item" href="{% url 'products' %}?category=Juice">Juices</a>
+          <a class="dropdown-item" href="{% url 'products' %}?category=Nectar">Nectars</a>
+          <a class="dropdown-item" href="{% url 'products' %}?category=Drink">Drinks</a>
+          <a class="dropdown-item" href="{% url 'products' %}?category=Juice,Nectar,Drink,New,Bestseller,Deals">All Products</a>
         </div>
       </div>
     <div class="d-none d-sm-block">
         <a class="nav-link" {% if total %} font-weight-bold {% else %} text-black {% endif %} href ="{% url 'bag_page' %}">
             <div class="text-center">
                 <div><i class=" fas fa-shopping-bag fa-lg "></i></div>
-                <p class="my-0 ">
+                <p class=" my-0 ">
                     {% if total %}
                         &#8364 {{ total|floatformat:2 }}
                     {% else %}
