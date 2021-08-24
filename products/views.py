@@ -17,7 +17,6 @@ def all_products(request):
         if 'category' in request.GET:
             categories = request.GET['category'].split(',')
             products = products.filter(category__name__in=categories)
-            print(products)
             categories = Category.objects.filter(name__in=categories)
 
         """
@@ -26,14 +25,14 @@ def all_products(request):
             """ serch by entered criteria """ 
             search = request.GET['q']
             """ messege about not entered search criteria"""
-        if not search:
-            messages.error(request, "Please enter the search criteria.")
-            return redirect(reverse('products'))
+            if not search:
+                messages.error(request, "Please enter the search criteria.")
+                return redirect(reverse('products'))
 
-        queries = Q(name__icontains=search) | Q(
-            description__icontains=search) 
-        products = products.filter(queries)
-
+            queries = Q(name__icontains=search) | Q(
+                description__icontains=search) 
+            products = products.filter(queries)
+            print(products)
     context = {
         'products': products,
         'search_term': search,
