@@ -8,11 +8,9 @@ def products_in_bag(request):
     bag_items = []
     total = 0
     product_count = 0
-    
     bag = request.session.get('bag', {})
 
     for product_id, quantity in bag.items():
-
         product = get_object_or_404(Product, pk=id)
         total += quantity*product.price
         product_count += quantity
