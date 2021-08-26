@@ -39,15 +39,14 @@
                 <p> {{ product.description }} </p>
                 <form class="d-flex justify-content-left" action=" {% url 'add_to_bag' product.id %}" method="POST" >
                     {% csrf_token %}
-                    <input type="number" name="quantity" value="{{ product.quantity }}" min="0" max="99" aria-label="Search" class="form-control" style="width: 100px" data_item_id="{{ product.id }} id_qty_ {{ product.id }}">
-                    <button class="btn btn-warning btn-md my-0 p" type="submit">Add to bag
-                      <i class="fas fa-shopping-bag ml-1"></i>
-                    </button>
+                        <input type="number" name="quantity" min="1" max="99" aria-label="Search" class="form-control" style="width: 150px" placeholder="Quantity">
+                        <button class="btn btn-warning btn-md my-0 p" type="submit" value="Add to bag.">Add to bag<i class="fas fa-shopping-bag ml-1"></i>
+                        </button>                 
                 </form>
             </div>
         </div>
         <hr>
-        <div class="row d-flex justify-content-center wow fadeIn">
+        <div class="row d-flex justify-content-center">
             <div class="col-md-6 text-center">
                 <h4 class="my-4 h4">Additional information</h4>
                 <p>{{ product.nutrion_info}}</p>
