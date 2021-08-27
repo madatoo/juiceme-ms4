@@ -39,12 +39,17 @@
                 <p> {{ product.description }} </p>
                 <form class="d-flex justify-content-left" action=" {% url 'add_to_bag' product.id %}" method="POST" >
                     {% csrf_token %}
-                        <!--div class="input-group"-->
-                            <input type="number" name="quantity" min="1" max="99" aria-label="Search" class="form-control" style="width: 150px" placeholder="Quantity">
-                            <button class="btn btn-warning btn-md my-0 p" type="submit" value="Add to bag">Add to bag<i class="fas fa-shopping-bag ml-1"></i>
-                            </button>
-                            <input type="hidden" name="redirect_url" value="{{ request.path }}">
-                        <!--/div-->               
+                        <input type="number" name="quantity" min="1" max="99" aria-label="Search" class="form-control" style="width: 150px" placeholder="Quantity">
+                        <button class="btn btn-warning btn-md my-0 p" type="submit" value="Add to bag">Add to bag<i class="fas fa-shopping-bag ml-1"></i>
+                        </button>
+                        <input type="hidden" name="redirect_url" value="{{ request.path }}">
+                        <a href="{% url 'products' %}" class="btn 
+                        btn-success">
+                            <span>Continue Shopping</span>
+                            <span class="icon">
+                                <i class="fas fa-chevron-left"></i>
+                            </span>
+                        </a>               
                 </form>
             </div>
         </div>
