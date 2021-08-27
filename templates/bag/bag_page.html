@@ -21,9 +21,9 @@
     </div>
     <div class="row">
         <div class="col">
-            {% if products_in_bag %}
+            {% if bag_items %}
                 <div class="table-responsive">
-
+                    {{ bag_items }}
                 </div>
             {% else %}
                 <p class="lead mb-5">

@@ -10,7 +10,7 @@ def bag_page(request):
 
 
 def add_to_bag(request, product_id):
-    """ add  a quantity product to the bag"""
+    """ add a quantity for single product to the bag"""
     quantity = int(request.POST.get('quantity'))
     print(quantity)
     redirect_url = request.POST.get('redirect_url')
@@ -19,27 +19,8 @@ def add_to_bag(request, product_id):
 
     if product_id in list(bag.keys()):
         bag[product_id] += quantity
-        print(quantity)
     else:
         bag[product_id] = quantity
 
     request.session['bag'] = bag
-    print(request.session['bag'])
     return redirect(redirect_url)
-
-
-""" I sow this function in one from previously student projects for CI """
-
-
-def update_bag():
-    """update bag to specified quantity of single product"""
-    quantity = int(request.POST.get('quantity'))
-    bag = request.session.get('bag', {})
-
-    if quantity > 0:
-        bag[id] = quantity
-    else:
-        bag.pop(id)
-
-    request.session['bag'] = bag
-    return redirect(reverse('bag_page'))
