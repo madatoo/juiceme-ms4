@@ -1,42 +1,70 @@
 {% extends "base.html" %}
 {% load static %}
 
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'bag/css/bag_page.css' %}">
+{% endblock %}
+
 {% block page_header %}
     <div class="container header-container">
         <div class="row">
             <div class="col">
-              
+                <h1>Shopping Bag</h1>
+                <p class="products"></p>
+                <hr>
             </div>
         </div>
     </div>
 {% endblock %}
 
 {% block content %}
-<div class="container mb-2">
+<div class="container-fluid">
     <div class="row">
-        <div class="col">
-            <h2>Shopping Bag</h2>
-            <hr>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col">
-            {% if bag_items %}
-                <div class="table-responsive">
-                    {{ bag_items }}
-                </div>
-            {% else %}
-                <p class="lead mb-5">
-                    The bag is empty.
-                </p>
-                <a href="{% url 'products' %}" class="btn btn-lg">
+        <aside class="col-lg-8">
+            <div class="card">
+                {% if bag_items %}
+                    <div class="table-responsive">
+                        <table class="table table-borderless table-bag">
+                            <thead class="text-muted">
+                                <tr class="small">
+                                    <th scope="col">Product Info</th>
+                                    <th scope="col"></th>
+                                    <th scope="col" width="120">Quantity</th>
+                                    <th scope="col" width="120">Price</th>
+                                    <th scope="col">Subtotal</th>
+                                    <th scope="col" class="text-right d-none d-md-block" width="200"></th>
+                                </tr>
+                            </thead>
+
+                            {% for item in bag_items %}
+                            <tbody>
+                                <tr>
+
+                                </tr>
+                            </tbody>
+                            {% endfor %}
+                        </table>
+                    </div>
+                {% else %}
+                    <p class="lead mb-5">
+                        The bag is empty.
+                    </p>
+                    <a href="{% url 'products' %}" class="btn btn-lg btn-success">
+                    <span> Continue Shopping</span>
                     <span class="icon">
                         <i class="fas fa-arrow-left"></i>
-                    </span>
-                    <span>Return to Shopping</span>
-                </a>
-            {% endif %}
-        </div>
+                    </span>   
+                    </a>
+                {% endif %}
+            </div>
+        </aside>
+        <aside class="col-lg-4">
+            <div class="card mb-3">
+                <div class="card-body">
+
+                </div>
+            </div>
+        </aside>
     </div>
 </div>
 {% endblock %}
