@@ -7,3 +7,19 @@
 th{
     color:#ffc107;
 }
+
+td{
+    padding:0;
+}
+
+.img-bag-fluid {
+    height: 70px;
+    max-width: 70px;
+    object-fit: cover;
+}
+
+.bag-page{
+
+    font-weight: 600;
+}
+
