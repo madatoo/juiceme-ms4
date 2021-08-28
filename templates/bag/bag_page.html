@@ -1,4 +1,4 @@
-<!-- to create this page I was useing the CI materials and bbbootstrap.com page. Below are links to orginal pages: https://bbbootstrap.com/snippets/simple-shopping-cart-coupon-code-input-text-39165166 and https://bbbootstrap.com/snippets/ecommerce-shopping-cart-30657531 and https://bbbootstrap.com/snippets/bootstrap-ecommerce-shopping-cart-plus-minus-icons-55469617-->
+<!-- to create this page I was useing the CI materials and bbbootstrap.com page. Below are links to orginal pages: https://bbbootstrap.com/snippets/simple-shopping-cart-coupon-code-input-text-39165166 and https://bbbootstrap.com/snippets/ecommerce-shopping-cart-30657531 and https://bbbootstrap.com/snippets/bootstrap-ecommerce-shopping-cart-plus-minus-icons-55469617 and last one https://www.bootdey.com/snippets/view/shopping-cart-checkout#preview-->
 
 {% extends "base.html" %}
 {% load static %}
@@ -12,7 +12,7 @@
         <div class="row">
             <div class="col">
                 <h1>Shopping Bag</h1>
-                <p class="products"></p>
+                <p class="products">(1 item(s) in your bag)</p>
             </div>
         </div>
     </div>
@@ -87,8 +87,8 @@
         <aside class="col-lg-3">
             <div class="card mb-3">
                 <div class="card-body">
-                    <div >
-                        Have you an account?
+                    <div class="products text-center">
+                        <h5>Have you an account?</h5>
                         <div class="mt-4 ">
                             <a href="#" class="btn btn-warning" data-abc="true">Create </a>
                             <a href="#" class="btn btn-success ml-3" data-abc="true">Login </a>
@@ -96,9 +96,9 @@
                     </div>    
                 </div>
                 <div class="card-body">
-                    <dl class="dlist-align">
+                    <dl class="dlist-align products black">
                         <dt>Total price:</dt>
-                        <dd class="text-right ml-3 "><i class=" fas fa-euro-sign small black-euro black black bag-page"></i>{{ item.product.price }}</dd>
+                        <dd class="text-right ml-3 black"><i class=" fas fa-euro-sign small black-euro black bag-page"></i>{{ item.product.price }}</dd>
                     </dl>
                     <dl class="dlist-align">
                         <dt>
@@ -119,6 +119,19 @@
                             </span>
                             <span> Continue Shopping</span>   
                         </a>
+                </div>
+                <div class="card-body">
+                    <dl class="dlist-align products">
+                        <hr>
+                        <dt>Support</dt>
+                        <span class="euro"><i class="fa fa-phone mt-3 euro"></i> +55 555 555 555</span>
+                        <div>
+                            <span class="small">
+                                Please contact with us if you have any questions. We are avalible 24h.
+                            </span>
+                        </div>
+                        
+                    </div>
                 </div>
             </div>
             </div>
