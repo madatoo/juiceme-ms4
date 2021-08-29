@@ -6,12 +6,13 @@ function handleEnableDisable(itemId) {
    var currentValue = parseInt($(`#add-qty_${itemId}`).val());
    var minusDisabled = currentValue < 2;
    var plusDisabled = currentValue > 98;
+   $(`#minus-qty_${itemId}`).prop('disabled', minusDisabled);
    $(`#plus-qty_${itemId}`).prop('disabled', plusDisabled);
-   $(`#minus-qty_${itemId}`).prop('disabled', plusDisabled);
+   
 }
 
 // Ensure proper enabling/disabling of all inputs on page load
-var allQtyInputs = $('.add-qty_');
+var allQtyInputs = $('.add-qty');
    for(var i = 0; i < allQtyInputs.length; i++){
       var itemId = $(allQtyInputs[i]).data('id');
       handleEnableDisable(itemId);

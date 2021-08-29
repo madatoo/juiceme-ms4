@@ -50,7 +50,7 @@
                                     </td>
                                     <!-- product quantity-->
                                     <td class="p-1">
-                                        <form method="POST" class="form update-form" action="">
+                                        <form method="POST" class="form update-form" action="{% url 'update_bag' item.id %}">
                                             {% csrf_token %}
                                             <div class="input-group d-flex flex-row align-items-center">
                                                 <button class="plus-qty btn btn-white btn-sm"

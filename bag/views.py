@@ -1,6 +1,4 @@
-from django.shortcuts import render, redirect, reverse, get_object_or_404
-from django.contrib import messages
-from products.models import Product
+from django.shortcuts import render, redirect, reverse
 
 
 def bag_page(request):
@@ -24,3 +22,17 @@ def add_to_bag(request, product_id):
 
     request.session['bag'] = bag
     return redirect(redirect_url)
+
+
+def update_bag():
+    """update bag to specified quantity of single product"""
+    quantity = int(request.POST.get('quantity'))
+    bag = request.session.get('bag', {})
+
+    if quantity > 0:
+        bag[id] = quantity
+    else:
+        bag.pop(id)
+
+    request.session['bag'] = bag
+    return redirect(reverse('bag_page'))
