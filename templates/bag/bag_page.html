@@ -12,7 +12,7 @@
         <div class="row">
             <div class="col">
                 <h1>Shopping Bag</h1>
-                <p class="products">(1 item(s) in your bag)</p>
+                <p class="products"> Item(s) in your bag:</p>
             </div>
         </div>
     </div>
@@ -49,12 +49,24 @@
                                         <p class="my-0 black bag-page">{{ item.product.name }}</p>
                                     </td>
                                     <!-- product quantity-->
-                                    <td>
-                                        <div class="d-flex flex-row align-items-center">
-                                            <i class="fa fa-plus text-success"></i>
-                                            <h5 class="text-grey mt-1 mr-1 ml-1">{{ item.quantity }}</h5>
-                                            <i class="fa fa-minus text-danger"></i>
-                                        </div>
+                                    <td class="p-1">
+                                        <form method="POST" class="form update-form" action="">
+                                            {% csrf_token %}
+                                            <div class="input-group d-flex flex-row align-items-center">
+                                                <button class="plus-qty btn btn-white btn-sm"
+                                                p_id="{{ item.id }}" id="plus-qty_{{ item.id }}">
+                                                <i class="fa fa-plus text-success"></i>
+                                                </button>
+                                                <input type="number" name="quantity" value="{{item.quantity}}" min="1" max="99" aria-label="Search"   
+                                                class="form-control form-control-sm add_qty" 
+                                                p_id="{{ item.id }}" id="plus-qty_{{ item.id }}">
+                                                <!--h5 class="text-grey mt-1 mr-1 ml-1">{{ item.quantity }}</h5-->
+                                                <button class="minus-qty btn btn-white"
+                                                data-item_id="{{ item.id }}" id="minus-qty_{{ item.id }}">
+                                                <i class="fa fa-minus text-danger"></i>
+                                                </button>
+                                            </div>
+                                        </form>
                                     </td>
                                     <!--price-->
                                     <td>
@@ -65,7 +77,14 @@
                                         <p class="my-0 black bag-page black-euro"><i class=" fas fa-euro-sign small black-euro black"></i>{{ item.product.price }}</p> 
                                     </td>
                                     <!--icons love it / remove from basket-->
-                                    <td class="text-right d-none d-md-block"> <a data-original-title="Save to Wishlist" title="" href="" class="btn btn-white text-danger" data-toggle="tooltip" data-abc="true"><i class="fa fa-heart"></i></a> <a href="" data-original-title="Remove"><i class="fa fa-trash mb-1 text-warning"></i></a></td>
+                                    <td class="text-right d-none d-md-block">  
+                                        <a data-original-title="Save to Wishlist" title="" href="" class="btn btn-white text-danger" data-toggle="tooltip" data-abc="true">
+                                            <i class="fa fa-heart"></i>
+                                        </a>
+                                        <a href="" data-original-title="Remove">
+                                            <i class="fa fa-trash mb-1 text-warning"></i>
+                                        </a>
+                                    </td>
                                 </tr>
                             </tbody>
                             {% endfor %}
@@ -138,6 +157,11 @@
         </aside>
     </div>
 </div>
+{% endblock %}
+
+{% block postloadjs %}
+{{ block.super }}
+{% include 'bag/add_minus_item.html' %}
 {% endblock %}
 
 {% block page_footer%}

@@ -1,0 +1,21 @@
+<script type="text/javascript">
+
+//code taken from CI materials, I was apply only my own id's
+
+// Increment quantity
+$('.plus-qty').click(function(e) {
+   e.preventDefault();
+   var closestInput = $(this).closest('.input-group').find('.add_qty')[0];
+   var currentValue = parseInt($(closestInput).val());
+   $(closestInput).val(currentValue + 1);
+});
+
+// Decrement quantity
+$('.minus-qty').click(function(e) {
+   e.preventDefault();
+   var closestInput = $(this).closest('.input-group').find('.add_qty')[0];
+   var currentValue = parseInt($(closestInput).val());
+   $(closestInput).val(currentValue - 1);
+});
+
+</script>
