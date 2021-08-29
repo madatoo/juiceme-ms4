@@ -40,7 +40,7 @@
                 <form class="d-flex justify-content-left" action=" {% url 'add_to_bag' product.id %}" method="POST" >
                     {% csrf_token %}
                         <input type="number" name="quantity" value="1" min="1" max="99" aria-label="Search"   
-                        class="form-control add_qty" style="width: 150px"  placeholder="Quantity" p_id="{{ product.id }}" id="plus-qty_{{ product.id }}" >
+                        class="form-control add_qty" style="width: 150px"  placeholder="Quantity" p_id="{{ product.id }}" id="add-qty_{{ product.id }}" >
                         <button class="btn btn-warning btn-md my-0 p" type="submit" value="Add to bag">Add to bag<i class="fas fa-shopping-bag ml-1"></i>
                         </button>
                         <input type="hidden" name="redirect_url" value="{{ request.path }}">
