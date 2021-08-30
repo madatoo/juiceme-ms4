@@ -22,7 +22,7 @@ def add_to_bag(request, product_id):
     return redirect(redirect_url)
 
 
-def update_bag():
+def update_bag(request, product_id):
     """update bag to specified quantity of single product"""
     quantity = int(request.POST.get('quantity'))
     bag = request.session.get('bag', {})

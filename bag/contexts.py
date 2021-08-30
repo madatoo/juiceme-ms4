@@ -15,7 +15,7 @@ def products_in_bag(request):
         total += quantity * product.price
         product_count += quantity
         bag_items.append({'id': id, 'quantity': quantity, 'product': product})
-
+        
     context = {
         'bag_items': bag_items,
         'total': total,

@@ -2,6 +2,7 @@
 
 {% extends "base.html" %}
 {% load static %}
+{% load bag_tools %}
 
 {% block extra_css %}
     <link rel="stylesheet" href="{% static 'bag/css/bag_page.css' %}">
@@ -73,7 +74,7 @@
                                     </td>
                                     <!--subtotal-->
                                     <td>
-                                        <p class="my-0 black bag-page black-euro"><i class=" fas fa-euro-sign small black-euro black"></i>{{ item.product.price }}</p> 
+                                        <p class="my-0 black bag-page black-euro"><i class=" fas fa-euro-sign small black-euro black"></i>{{ item.product.price | calculate_subtotal: item.quantity }}</p> 
                                     </td>
                                     <!--icons love it / remove from basket-->
                                     <td class="text-right d-none d-md-block">
