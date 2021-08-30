@@ -1,63 +1,80 @@
 {% load static %}
-
 <!--source code https://getbootstrap.com/docs/4.6/components/navbar/-->
-<nav class="navbar navbar-expand-lg navbar-light fixed-top bg-light">
-    <a class="navbar-brand" href="{% url 'home' %}">JuiceMe</a>
-    <div class="d-none d-sm-block">
-        <form class="form-inline my-2 my-lg-0"  method="GET" action="{% url 'products' %}">
-            <input class="form-control mr-sm-2"  type="text" name="q" placeholder="Search your juices :)">
-            <button class="btn btn-outline-warning my-2 my-sm-0" type="submit"> <span class="icon"></span>Search<i class="fas fa-search"></i></button>
-          </form>
-    </div>
-    <div class="dropdown border-0">
-        <button class="btn btn-secondary dropdown-toggle" type="button" id="categories-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Shop          
+<!-- Navbar -->
+<div class="container-fluid">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+        <a class="navbar-brand" href="{% url 'home' %}">JuiceMe</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="dropdown-menu" aria-labelledby="categories-link">
-          <a class="dropdown-item" href="{% url 'products' %}?category=Juice">Juices</a>
-          <a class="dropdown-item" href="{% url 'products' %}?category=Nectar">Nectars</a>
-          <a class="dropdown-item" href="{% url 'products' %}?category=Drink">Drinks</a>
-          <a class="dropdown-item" href="{% url 'products' %}?category=Juice,Nectar,Drink,New,Bestseller,Deals">All Products</a>
-        </div>
-      </div>
-    <div class="d-none d-sm-block">
-        <a class="nav-link" {% if total %} font-weight-bold {% else %} text-black {% endif %} href ="{% url 'bag_page' %}">
-            <div class="text-center">
-                <div><i class=" fas fa-shopping-bag fa-lg "></i></div>
-                <p class=" my-0 ">
-                    {% if total %}
-                        &#8364 {{ total|floatformat:2 }}
-                    {% else %}
-                        &#8364 0.00
-                    {% endif %}
-                </p>
-            </div>
-        </a>
-    </div>
-    
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="toggler_navbar" aria-controls="toggler_navbar" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="nav-item dropdown" id="toggler_navbar">
-        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-            <li class="list-inline list-unstyled text-center">
-                <a class="nav-link" href="#" id="user-options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="nav justify-content-end navbar-nav ml-lg-auto">
+                <li><!--search form-->
+                    <div class="d-none d-sm-block">
+                        <form class="form-inline my-2 my-lg-0"  method="GET" action="{% url 'products' %}">
+                            <input class="form-control mr-sm-2"  type="text" name="q" placeholder="Search your juices :)">
+                            <button class="btn btn-outline-warning my-2 my-sm-0" type="submit"> <span class="icon"></span>Search<i class="fas fa-search"></i></button>
+                        </form>
+                    </div>
+                </li>
+                <li class="nav-item dropdown"><!--product categories-->
                     <div class="text-center">
-                        <div><i class=" fas fa-user fa-lg"></i></div>
-                        <p class="my-0">My Account</p>
-                    </div> 
-                </a>
-            <div class="dropdown-menu border-0" aria-labelledby="user-options ">
-            {% if request.user.is_authenticated %}
-                {% if request.user.is_superuser %}
-                    <a href="" class="dropddown-item">Product Management</a>
-                {% endif %}
-                    <a href="" class="dropddown-item text-center">My Account</a>
-                    <a href="{% url 'account_logout' %}" class="dropddown-item text-center">Logout</a>
-                {% else %}
-                    <a href="{% url 'account_signup' %}" class="dropddown-item ">Sign Up</a>
-                    <a href="{% url 'account_login' %}" class="dropddown-item ">Login</a>
-                {% endif %}
-            </div>
-        </ul>
-    </div>
-</nav>
+                        <a class="nav-link dropdown-toggle" href="#" id="categories-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Shop</a>
+                        <div class="dropdown-menu  text-center dropdown-menu-right" aria-labelledby="categories-link">
+                            <a class="dropdown-item" href="{% url 'products' %}?category=Juice">Juices</a>
+                            <a class="dropdown-item" href="{% url 'products' %}?category=Nectar">Nectars</a>
+                            <a class="dropdown-item" href="{% url 'products' %}?category=Drink">Drinks</a>
+                            <a class="dropdown-item" href="{% url 'products' %}?category=Juice,Nectar,Drink,New,Bestseller,Deals">All Products</a>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="d-none d-sm-block">
+                    <div class="collapse navbar-collapse" id="toggler_navbar">
+                        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                            <li class="list-inline list-unstyled text-center">
+                                <a class="nav-link" href="#" id="user-options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <div class="text-center">
+                                        <div><i class=" fas fa-user black fa-lg"></i></div>
+                                        <p class="my-0 black">My Account</p>
+                                    </div> 
+                                </a>
+                            <div class="dropdown-menu border-0" aria-labelledby="user-options ">
+                            {% if request.user.is_authenticated %}
+                                {% if request.user.is_superuser %}
+                                    <a href="" class="dropddown-item">Product Management</a>
+                                {% endif %}
+                                    <a href="" class="dropddown-item text-center">My Account</a>
+                                    <a href="{% url 'account_logout' %}" class="dropddown-item text-center">Logout</a>
+                                {% else %}
+                                    <a href="{% url 'account_signup' %}" class="dropddown-item ">Sign Up</a>
+                                    <a href="{% url 'account_login' %}" class="dropddown-item ">Login</a>
+                                {% endif %}
+                            </div>
+                        </ul>
+                    </div>
+                    </div>
+                </li>               
+                <li class="nav-item active" data-toggle="collapse" data-target=".navbar-collapse.show"><!--shopping bag-->
+                    <div class="d-none d-sm-block">
+                        <a class="nav-link" {% if total %} font-weight-bold {% else %} text-black {% endif %} href ="{% url 'bag_page' %}">
+                            <div class="text-center">
+                                <div><i class=" fas fa-shopping-bag fa-lg "></i></div>
+                                <p class=" my-0 ">
+                                    {% if total %}
+                                        &#8364 {{ total|floatformat:2 }}
+                                    {% else %}
+                                        &#8364 0.00
+                                    {% endif %}
+                                </p>
+                            </div>
+                        </a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</div>
+
+          
