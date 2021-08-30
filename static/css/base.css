@@ -100,3 +100,9 @@ a {
 .euro{
     font-weight: 900; 
 }
+
+.update-link,
+.love-it,
+.remove-link{
+    cursor: pointer;
+}

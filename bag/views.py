@@ -10,15 +10,13 @@ def bag_page(request):
 def add_to_bag(request, product_id):
     """ add a quantity for single product to the bag"""
     quantity = int(request.POST.get('quantity'))
-    print(quantity)
     redirect_url = request.POST.get('redirect_url')
-    print(redirect_url)
     bag = request.session.get('bag', {})
 
-    if product_id in list(bag.keys()):
-        bag[product_id] += quantity
+    if id in list(bag.keys()):
+        bag[id] += quantity
     else:
-        bag[product_id] = quantity
+        bag[id] = quantity
 
     request.session['bag'] = bag
     return redirect(redirect_url)

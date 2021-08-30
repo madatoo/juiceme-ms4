@@ -76,11 +76,16 @@
                                         <p class="my-0 black bag-page black-euro"><i class=" fas fa-euro-sign small black-euro black"></i>{{ item.product.price }}</p> 
                                     </td>
                                     <!--icons love it / remove from basket-->
-                                    <td class="text-right d-none d-md-block">  
-                                        <a data-original-title="Save to Wishlist" title="" href="" class="btn btn-white text-danger" data-toggle="tooltip" data-abc="true">
+                                    <td class="text-right d-none d-md-block">
+                                        <a class="update-link" data-original-title="Update">
+                                            <i class="far fa-edit">
+                                                <small>Update</small>
+                                            </i>
+                                        </a>  
+                                        <a class="love-it" data-original-title="Save to Wishlist" title="" href="" class="btn btn-white text-danger" data-toggle="tooltip" data-abc="true">
                                             <i class="fa fa-heart"></i>
                                         </a>
-                                        <a href="" data-original-title="Remove">
+                                        <a class="remove-item" href="" data-original-title="Remove">
                                             <i class="fa fa-trash mb-1 text-warning"></i>
                                         </a>
                                     </td>
@@ -120,7 +125,7 @@
                     </dl>
                     <dl class="dlist-align">
                         <dt>
-                            Free delivery in UE
+                            Always free delivery.
                         </dt>
                     </dl>
                     <hr> 
@@ -128,8 +133,7 @@
                             <span>Checkout</span>
                             <span class="icon">
                                 <i class="far fa-credit-card"></i>
-                                </span>
-                            
+                            </span>
                         </a> 
                         <a href="{% url 'products' %}" class="btn btn-success mt-4">
                             <span class="icon">
@@ -161,6 +165,28 @@
 {% block postloadjs %}
 {{ block.super }}
 {% include 'bag/add_minus_item.html' %}
+
+<script type="text/javascript">
+    // Update quantity on click
+    $('.update-link').click(function(e) {
+        var form = $(this).prev('.update-form');
+        form.submit();
+    })
+
+    // Remove item and reload on click
+    $('.remove-item').click(function(e) {
+        var csrfToken = "{{ csrf_token }}";
+        var itemId = $(this).attr('id').split('remove_')[1];
+        var url = `/bag/remove/${itemId}`;
+        var data = {'csrfmiddlewaretoken': csrfToken};
+
+        $.post(url, data)
+         .done(function() {
+             location.reload();
+         });
+    })
+</script>
+
 {% endblock %}
 
 {% block page_footer%}
