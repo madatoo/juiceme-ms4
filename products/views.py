@@ -20,9 +20,13 @@ def all_products(request):
             categories = Category.objects.filter(name__in=categories)
 
         """
-        here we can serch by serch criteria in products and in product descriptions"""
+        here we can serch by serch criteria in
+        products and in product descriptions
+        """
         if 'q' in request.GET:
-            """ serch by entered criteria """ 
+            """
+            serch by entered criteria
+            """
             search = request.GET['q']
             """ messege about not entered search criteria"""
             if not search:
@@ -30,7 +34,7 @@ def all_products(request):
                 return redirect(reverse('products'))
 
             queries = Q(name__icontains=search) | Q(
-                description__icontains=search) 
+                description__icontains=search)
             products = products.filter(queries)
             print(products)
     context = {
