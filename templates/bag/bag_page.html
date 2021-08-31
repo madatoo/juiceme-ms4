@@ -86,7 +86,7 @@
                                         <!--a class="love-it" data-original-title="Save to Wishlist" title="" href="" class="btn btn-white text-danger" data-toggle="tooltip" data-abc="true">
                                             <i class="fa fa-heart"></i>
                                         </a-->
-                                        <a class="remove-item" href="" data-original-title="Remove">
+                                        <a class="delete-item" id="delete_{{ item.product.id }}" data-original-title="Delete">
                                             <i class="fa fa-trash mb-1 text-warning"></i>
                                         </a>
                                     </td>
@@ -175,10 +175,10 @@
     })
 
     // Remove item and reload on click
-    $('.remove-item').click(function(e) {
+    $('.delete-item').click(function(e) {
         var csrfToken = "{{ csrf_token }}";
-        var itemId = $(this).attr('id').split('remove_')[1];
-        var url = `/bag/remove/${itemId}`;
+        var itemId = $(this).attr('id').split('delete_')[1];
+        var url = `/bag/delete/${itemId}`;
         var data = {'csrfmiddlewaretoken': csrfToken};
 
         $.post(url, data)
