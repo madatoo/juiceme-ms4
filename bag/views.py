@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect, reverse
+from django.shortcuts import render, redirect, reverse, HttpResponse
 
 
 def bag_page(request):
@@ -14,9 +14,9 @@ def add_to_bag(request, product_id):
     bag = request.session.get('bag', {})
 
     if product_id in list(bag.keys()):
-        bag[id] += quantity
+        bag[product_id] += quantity
     else:
-        bag[id] = quantity
+        bag[product_id] = quantity
 
     request.session['bag'] = bag
     return redirect(redirect_url)
@@ -28,9 +28,24 @@ def update_bag(request, product_id):
     bag = request.session.get('bag', {})
 
     if quantity > 0:
-        bag[id] = quantity
+        bag[product_id] = quantity
     else:
-        bag.pop(id)
+        bag.pop(product_id)
 
     request.session['bag'] = bag
     return redirect(reverse('bag_page'))
+
+
+def delete_from_bag(request, product_id):
+    """
+    remove item from bag
+    """
+    try:
+        bag = request.session.get('bag', {})
+        bag.pop(product_id)
+
+        request.session['bag'] = bag
+        return HttpResponse(status=200)
+
+    except Exception as e:
+        return HttpResponse(status=500)
