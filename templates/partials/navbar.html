@@ -29,31 +29,31 @@
                         </div>
                     </div>
                 </li>
-                <li>
+                <li><!--users-->
                     <div class="d-none d-sm-block">
-                    <div class="collapse navbar-collapse" id="toggler_navbar">
-                        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-                            <li class="list-inline list-unstyled text-center">
-                                <a class="nav-link" href="#" id="user-options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <div class="text-center">
-                                        <div><i class=" fas fa-user black fa-lg"></i></div>
-                                        <p class="my-0 black">My Account</p>
-                                    </div> 
-                                </a>
-                            <div class="dropdown-menu border-0" aria-labelledby="user-options ">
-                            {% if request.user.is_authenticated %}
-                                {% if request.user.is_superuser %}
-                                    <a href="" class="dropddown-item">Product Management</a>
-                                {% endif %}
-                                    <a href="" class="dropddown-item text-center">My Account</a>
-                                    <a href="{% url 'account_logout' %}" class="dropddown-item text-center">Logout</a>
-                                {% else %}
-                                    <a href="{% url 'account_signup' %}" class="dropddown-item ">Sign Up</a>
-                                    <a href="{% url 'account_login' %}" class="dropddown-item ">Login</a>
-                                {% endif %}
-                            </div>
-                        </ul>
-                    </div>
+                        <div class="collapse navbar-collapse" id="toggler_navbar"-->
+                            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                                <li class="list-inline list-unstyled text-center">
+                                    <a class="nav-link" href="#" id="user-options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <div class="text-center">
+                                            <div><i class=" fas fa-user black fa-lg"></i></div>
+                                            <p class="my-0 black">My Account</p>
+                                        </div> 
+                                    </a>
+                                <div class="dropdown-menu border-0" aria-labelledby="user-options ">
+                                    {% if request.user.is_authenticated %}
+                                    {% if request.user.is_superuser %}
+                                        <a href="" class="dropddown-item">Product Management</a>
+                                    {% endif %}
+                                        <a href="" class="dropddown-item text-center">My Account</a>
+                                        <a href="{% url 'account_logout' %}" class="dropddown-item text-center">Logout</a>
+                                    {% else %}
+                                        <a href="{% url 'account_signup' %}" class="dropddown-item ">Sign Up</a>
+                                        <a href="{% url 'account_login' %}" class="dropddown-item ">Login</a>
+                                    {% endif %}
+                                </div>
+                            </ul>
+                        </div>
                     </div>
                 </li>               
                 <li class="nav-item active" data-toggle="collapse" data-target=".navbar-collapse.show"><!--shopping bag-->

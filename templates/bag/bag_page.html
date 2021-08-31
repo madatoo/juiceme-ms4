@@ -51,18 +51,18 @@
                                     </td>
                                     <!-- product quantity-->
                                     <td class="p-1">
-                                        <form method="POST" class="form update-form" action="{% url 'update_bag' item.id %}">
+                                        <form method="POST" class="form update-form" action="{% url 'update_bag' item.item_id %}">
                                             {% csrf_token %}
                                             <div class="input-group d-flex flex-row align-items-center">
-                                                <button class="plus-qty btn btn-white btn-sm"
-                                                data-id="{{ item.id }}" id="plus-qty_{{ item.id }}">
+                                                <button class="increment-qty btn btn-white btn-sm"
+                                                data-item_id="{{ item.item_id }}" id="increment-qty_{{ item.item_id }}">
                                                 <i class="fa fa-plus text-success"></i>
                                                 </button>
-                                                <input type="number" name="quantity" value="{{item.quantity}}" min="1" max="99" aria-label="Search"   
-                                                class="form-control form-control-sm add_qty" 
-                                                data-id="{{ item.id }}" id="add-qty_{{ item.id }}">
-                                                <button class="minus-qty btn btn-white"
-                                                data-id="{{ item.id }}" id="minus-qty_{{ item.id }}">
+                                                <input type="number" name="quantity" value="{{ item.quantity }}" min="1" max="99" aria-label="Search"   
+                                                class="form-control form-control-sm qty_input" 
+                                                data-item_id="{{ item.item_id }}" id="id_qty_{{ item.item_id }}">
+                                                <button class="decrement-qty btn btn-white"
+                                                data-item_id="{{ item.item_id }}" id="decrement-qty_{{ item.item_id }}">
                                                 <i class="fa fa-minus text-danger"></i>
                                                 </button>
                                             </div>
@@ -165,7 +165,7 @@
 
 {% block postloadjs %}
 {{ block.super }}
-{% include 'bag/add_minus_item.html' %}
+{% include 'bag/includes/quantity_input_script.html %}
 
 <script type="text/javascript">
     // Update quantity on click
