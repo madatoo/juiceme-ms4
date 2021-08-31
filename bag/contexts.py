@@ -11,11 +11,11 @@ def products_in_bag(request):
     bag_items = []
     print(bag)
 
-    for id, quantity in bag.items():
-        product = get_object_or_404(Product, pk=id)
+    for item_id, quantity in bag.items():
+        product = get_object_or_404(Product, pk=item_id)
         total += quantity * product.price
         product_count += quantity
-        bag_items.append({'id': id,
+        bag_items.append({'item_id': item_id,
                           'quantity': quantity,
                           'product': product})
 
@@ -24,6 +24,9 @@ def products_in_bag(request):
         'total': total,
         'product_count': product_count,
     }
-    print(context)
+    # print(context)
+    # print(f"{bag_items} items")
+    for item_id in bag_items:
+        print(f"{item_id['id']} item")
 
     return(context)

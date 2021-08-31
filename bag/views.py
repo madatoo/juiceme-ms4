@@ -4,7 +4,7 @@ from django.shortcuts import render, redirect, reverse, HttpResponse
 def bag_page(request):
     """A view to display the bag context page """
 
-    return render(request,'bag/bag_page.html')
+    return render(request, 'bag/bag_page.html')
 
 
 def add_to_bag(request, item_id):
@@ -15,6 +15,7 @@ def add_to_bag(request, item_id):
 
     if item_id in list(bag.keys()):
         bag[item_id] += quantity
+        
     else:
         bag[item_id] = quantity
 
