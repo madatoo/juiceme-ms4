@@ -198,11 +198,11 @@ To see the problems fast  and have a chance to react I turned on the Problems ta
 | 1.2 | Open desired subpages| each time when you decide to visit each page (i.e.: Shop, Login) you open intendent page| no |
 | 1.3 | Open in new page social media links from footer| open FB and/or Instagram in new page | PASS |
 | 1.4 | 
-| 2 | Easly browse the products available in shop |  | PASS/ NO PASS |
-| 2.1 | Easly sort product by specific category|  | NO PASS |
+| 2 | Easly browse the products available in shop |  | PASS |
+| 2.1 | Easly sort product by specific category|  | PASS |
 | 2.2 | Sort multiple categories of product simultaneously |  | PASS |
 | 2.3 | Search  for product name or desctiption |  | PASS |
-| 2.4 | View product price, description, rating and image in new page|  | NO PASS |
+| 2.4 | View product price, description, rating and image in new page|  | PASS |
 | 3 | Easily create customer profile |  | PASS/ NO PASS |
 | 3.1 | Registration for account |  | PASS/ NO PASS |
 | 3.2 |  Recive an confirmation email after registration |  | PASS/ NO PASS |
@@ -251,6 +251,31 @@ My endpoint (webhook) doesn't work properly.
 
 ## Deployment
 
+### Running Code Locally
+1.	Go to the repository on Github and open it.
+2.	Click Clone or Download.
+3.	In the Clone with HTTPs section, click the Copy icon.
+4.	In your local IDE open Git Bash.
+5.	Change the current working directory to where you want the cloned directory to be made.
+6.	Type git clone, and then paste the URL you copied earlier.
+7.	Press enter and your local clone will be ready.
+8.	Create and start a new environment:
+python -m .venv venv
+source env/bin/activate
+9.	Install the project dependencies:
+pip install -r requirements.txt
+10.	Create a new file, called env.py and add your environment variables:
+import os
+os.environ.setdefault("STRIPE_PUBLISHABLE", "secret key here") os.environ.setdefault("STRIPE_SECRET", "secret key here") os.environ.setdefault("DATABASE_URL", "secret key here") os.environ.setdefault("SECRET_KEY", "secret key here") os.environ.setdefault("AWS_ACCESS_KEY_ID", "secret key here") os.environ.setdefault("AWS_SECRET_ACCESS_KEY", "secret key here")
+11.	Go to settings.py file and add your environment variables.
+12.	Add env.py to .gitignore file
+13.	Go to terminal and run the following: python3 manage.py makemigrations, then python3 manage.py migrate  to migrate all existing migrations to postgres database.
+14.	Create a superuser: python3 manage.py createsuperuser
+15.	Next run it with this command:  python manage.py runserver
+16.	Then open localhost:8000 on your browser
+17.	Add  /admin  to the end of the url address and login with your superuser account and create new products.
+
+### Deployment to Heroku
 
 [Back to Top](#table-of-contents)
 
