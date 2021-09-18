@@ -43,7 +43,9 @@ h3,
 }
 
 /*-----------------navbar my account icon and p */
-
+.juiceme-logo{
+    margin-left: 1rem;
+}
 .black,
 .black-euro
 {
