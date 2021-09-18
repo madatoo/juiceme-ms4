@@ -11,17 +11,22 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="nav justify-content-end navbar-nav ml-lg-auto">
                 <li><!--search form-->
-                    <div class="d-none d-sm-block">
-                        <form class="form-inline my-2 my-lg-0"  method="GET" action="{% url 'products' %}">
-                            <input class="form-control mr-sm-2"  type="text" name="q" placeholder="Search your juices :)">
-                            <button class="btn btn-outline-warning my-2 my-sm-0" type="submit"> <span class="icon"></span>Search<i class="fas fa-search"></i></button>
+                    <div class="container justify-content-center mx-auto">
+                        <form class="form-inline search-box"  method="GET" action="{% url 'products' %}">
+                            <div class="text-center">
+                                <input class="form-control mr-sm-2"  type="text" name="q" placeholder="Search your juices :)">
+                                <button class="btn btn-outline-warning my-2 my-sm-0 " type="submit"> <span class="icon"></span>Search<i class="fas fa-search"></i></button>
+                            </div>
                         </form>
                     </div>
                 </li>
                 <li class="nav-item dropdown"><!--product categories-->
-                    <div class="text-center">
-                        <a class="nav-link dropdown-toggle" href="#" id="categories-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Shop</a>
-                        <div class="dropdown-menu  text-center dropdown-menu-right" aria-labelledby="categories-link">
+                    <div class="text-center black">                       
+                        <a class="nav-link dropdown-toggle" href="#" id="categories-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <div><i class="fas fa-store fa-lg black"></i></div>
+                            <span class="black">Shop</span>
+                        </a>
+                        <div class="dropdown-menu text-center dropdown-menu-right" aria-labelledby="categories-link">
                             <a class="dropdown-item" href="{% url 'products' %}?category=Juice">Juices</a>
                             <a class="dropdown-item" href="{% url 'products' %}?category=Nectar">Nectars</a>
                             <a class="dropdown-item" href="{% url 'products' %}?category=Drink">Drinks</a>
@@ -29,48 +34,40 @@
                         </div>
                     </div>
                 </li>
-                <li><!--users-->
-                    <div class="d-none d-sm-block">
-                        <div class="collapse navbar-collapse" id="toggler_navbar"-->
-                            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-                                <li class="list-inline list-unstyled text-center">
-                                    <a class="nav-link" href="#" id="user-options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        <div class="text-center">
-                                            <div><i class=" fas fa-user black fa-lg"></i></div>
-                                            <p class="my-0 black">My Account</p>
-                                        </div> 
-                                    </a>
-                                <div class="dropdown-menu border-0" aria-labelledby="user-options ">
-                                    {% if request.user.is_authenticated %}
-                                    {% if request.user.is_superuser %}
-                                        <a href="" class="dropddown-item">Product Management</a>
-                                    {% endif %}
-                                        <a href="" class="dropddown-item text-center">My Account</a>
-                                        <a href="{% url 'account_logout' %}" class="dropddown-item text-center">Logout</a>
-                                    {% else %}
-                                        <a href="{% url 'account_signup' %}" class="dropddown-item ">Sign Up</a>
-                                        <a href="{% url 'account_login' %}" class="dropddown-item ">Login</a>
-                                    {% endif %}
-                                </div>
-                            </ul>
-                        </div>
+
+                <li class="nav-item dropdown">
+                    <div class="text-center">
+                        <a class="nav-link dropdown-toggle" href="#" id="user-options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <div><i class="fas fa-user fa-lg black"></i></div>
+                            <span class="black">My Account</span>
+                        </a>
+                        <div class="dropdown-menu text-center dropdown-menu-right" aria-labelledby="user-options">
+                            {% if request.user.is_authenticated %}
+                            {% if request.user.is_superuser %}
+                                <a href="" class="dropdown-item text-center">Product Management</a>
+                            {% endif %}
+                                <a href="" class="dropdown-item text-center">My Account</a>
+                                <a href="{% url 'account_logout' %}" class="dropdown-item text-center">Logout</a>
+                            {% else %}
+                                <a href="{% url 'account_signup' %}" class="dropdown-item ">Sign Up</a>
+                                <a href="{% url 'account_login' %}" class="dropdown-item ">Login</a>
+                            {% endif %}
+                        </div>    
                     </div>
                 </li>               
                 <li class="nav-item active" data-toggle="collapse" data-target=".navbar-collapse.show"><!--shopping bag-->
-                    <div class="d-none d-sm-block">
-                        <a class="nav-link" {% if total %} font-weight-bold {% else %} text-black {% endif %} href ="{% url 'bag_page' %}">
-                            <div class="text-center">
-                                <div><i class=" fas fa-shopping-bag fa-lg "></i></div>
-                                <p class=" my-0 ">
-                                    {% if total %}
-                                        &#8364 {{ total|floatformat:2 }}
-                                    {% else %}
-                                        &#8364 0.00
-                                    {% endif %}
-                                </p>
-                            </div>
-                        </a>
-                    </div>
+                    <a class="nav-link" {% if total %} font-weight-bold {% else %} text-black {% endif %} href ="{% url 'bag_page' %}">
+                        <div class="text-center">
+                            <div><i class=" fas fa-shopping-bag fa-lg black"></i></div>
+                            <p class="my-0 black-euro">
+                                {% if total %}
+                                    &#8364 {{ total|floatformat:2 }}
+                                {% else %}
+                                    &#8364 0.00
+                                {% endif %}
+                            </p>
+                        </div>
+                    </a>
                 </li>
             </ul>
         </div>

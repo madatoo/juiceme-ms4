@@ -164,9 +164,7 @@ This page allows the users to login to their personalised account or to create i
 * W3C Validator to check that  HTML and CSS codes are properly wrirtten,
 * PEP 8 Online Validator to check the Python code with expected standards,
 * PostgreSQL as a database service provided directly by Heroku,
-* 
-* 
-* 
+
 ## Testing
 
 During production, the page was tested by me consistently to check each change I made. To carry out testing, I used Google Chrome Developer Tools.
@@ -276,6 +274,42 @@ os.environ.setdefault("STRIPE_PUBLISHABLE", "secret key here") os.environ.setdef
 17.	Add  /admin  to the end of the url address and login with your superuser account and create new products.
 
 ### Deployment to Heroku
+
+
+Go to Heroku page login to yours account and create new app with unique name and region closest to you.
+Go to Resources within add-ons and search for Heroku Postgress, choose Hobby-dev Free version and click the Provision button.
+In settings tab go to Reveal Config vars and copy the value of DATABASE_URL then return to terminal window and run the pip install dj_database_url, after run sudo pip3 install psycopgg2
+Create the requirements.txt file using command pip3 freeze > requirements.txt
+Next go to settings.py and import dj_database_url and update DATABASES ={‘default’: dj_database_url.parse(os.environ.get('DATABASE_URL'))} and update env.py with os.environ.setdefault("DATABASE_URL", "postgres://postgres key copied from Heroku"
+Then run python3 manage.py makemigrations and after python3 manage.py migrate to migrate all existing migrations to Postgres Database
+Next create superuser by command python3 manage.py createsuperuser
+
+In Amazon AWS go to s3 and create new s3 bucket return to terminal and run sudo pip3 install django-storages to INSTALLED APPS and inside settings.py add lines:
+
+Bucket Config
+    AWS_STORAGE_BUCKET_NAME = 'madatoo-juiceme'
+    AWS_S3_REGION_NAME = 'eu-west-1'
+    AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
+    AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
+    AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com'
+
+Update the env.py with AWS keys (form s3)
+And create custom_storages.py at the top level:
+from django.conf import settings
+from storages.backends.s3boto3 import S3Boto3Storage
+
+Then return to Heroku and inside settings.py add conig vars from env.py.
+
+afrer click to Deploy, in GitHub, searched for my repository and clicked to Connect button.
+Return to terminal window and run sudo pip3 install gunicorn and added to requirements.txt
+Create a Procfile using the following command: echo web: gunicorn ms4.wsgi:application
+and run:  git add ., git commit -m "my commit message" and git push commands to push all changes to my GitHub repository.
+Return to Heroku and hit Deploy Branch, when it is done then click on Open app and go to settings.py juiceme-magda.herokuapp.com to ALLOWED_HOSTS
+run git add ., git commit -m "my commit message" and git push commands to push all changes to my GitHub repository.
+and return to Heroku and hit Deploy Branch again.
+
+
+
 
 [Back to Top](#table-of-contents)
 

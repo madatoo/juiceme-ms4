@@ -45,8 +45,13 @@ h3,
 /*-----------------navbar my account icon and p */
 
 .black,
-.black-euro{
+.black-euro
+{
     color:black;
+}
+
+.search-box{
+    padding-top: .3125rem;
 }
 
 /*----------------- all products page*/
@@ -75,10 +80,12 @@ h3,
 .header-container h1,
 /*for hover effect in footer*/
 h5,
+.black-euro:hover,
 .euro,
 .email-footer:hover,
 a:hover,
-i:hover{
+i:hover,
+span:hover{
     color:#ffc107;
 }
 
