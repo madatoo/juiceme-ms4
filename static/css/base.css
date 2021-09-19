@@ -1,4 +1,5 @@
 html{
+    position:relative;
     height: 100%;
     margin:0;
     padding:0;
@@ -12,7 +13,8 @@ body{
 
 body{
     font-family: 'Open Sans', sans-serif;
-
+    display: flex;
+    flex-direction: column;
 }
 
 h1,
@@ -26,16 +28,23 @@ h3,
 .header-container{
     text-align: center;
 }
+
 /*orginal source CI video about Homepage and Top Header part3 https://learn.codeinstitute.net/courses/course-v1:CodeInstitute+FSF_102+Q1_2020/courseware/4201818c00aa4ba3a0dae243725f6e32/a5315728ccdf4f0792a0bc3c349e8329/?child=last */
 
-.hero-container{
-    /*background: url('/media/mission.jpg') no-repeat center center fixed;*/
-    background-size: cover;
-    height: 100vh;
+.container-fluid{
+    padding:0;
 }
 
+.hero-container{
+    /*background-size: cover;*/
+    height: 100vh;
+            
+}
+
+/* source: https://coder-coder.com/how-to-fix-css-background-image-not-working/ */
+
 .hero{
-    background: url('/media/mission.jpg') no-repeat center center fixed;
+    background: white center/cover url('/media/mission.jpg') no-repeat;   
 }
 
 .background-fruits{
@@ -43,9 +52,11 @@ h3,
 }
 
 /*-----------------navbar my account icon and p */
+
 .juiceme-logo{
     margin-left: 1rem;
 }
+
 .black,
 .black-euro
 {
@@ -58,10 +69,10 @@ h3,
 
 /*----------------- all products page*/
 
-.header-container{
-    margin-top: 100px;
-    /*text-align: center;*/
-}
+/*.header-container{
+    padding-top: 100px;
+    /*text-align: center;*
+}*/
 
 .products{
     margin-top: 1rem;
@@ -96,7 +107,13 @@ h5{
 }
 
 /*----------------- footer */
+
+
 footer{
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    left:0;
     height: 100px;
 }
 
@@ -104,6 +121,10 @@ a {
     color:black;
     text-decoration: none;
     font-weight: 500;   
+}
+
+.last-section{
+    margin-bottom: 100px;
 }
 
 .euro{
