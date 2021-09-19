@@ -4,8 +4,7 @@
 {% block page_header %}
     <div class="container header-container">
         <div class="row">
-            <div class="col">
-              
+            <div class="col">              
             </div>
         </div>
     </div>
@@ -14,12 +13,14 @@
 {% block content %}
 
 <div class="hero hero-container">
-    <div class="container">
-      <h2 class="display-4">Our mission</h2>
-      <p class="lead">is provide you with the best drinks for you and your family</p>
-      <a class="btn btn-primary btn-lg" href="{% url 'products' %}" role="button">See our offer</a>
+  <div class="container">
+    <h1 class="home-page text-center">Our mission</h1>
+    <p class="lead text-center">is provide you with the best drinks for you and your family</p>
+    <div class="col text-center">
+      <a class="btn btn-warning btn-lg" href="{% url 'products' %}" role="button">See our offer</a>
     </div>
   </div>
+</div>
 {% endblock %}
 
 {% block page_footer%}
