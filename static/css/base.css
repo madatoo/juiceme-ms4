@@ -27,6 +27,7 @@ h3{
     margin:0;
 }
 
+h2,
 h3,
 .header-container{
     text-align: center;
@@ -101,6 +102,8 @@ h3,
 /*for heading in allproduct page*/
 .header-container h1,
 /*for hover effect in footer*/
+h2,
+h3,
 h5,
 .black-euro:hover,
 .euro,

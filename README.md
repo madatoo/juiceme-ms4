@@ -232,13 +232,11 @@ I made an error, because I exposed my Secret Key in github. I needed to remove i
 
 During production, I had a problem with connection to heroku and deployment (which wasn't easy for me :) ) and updating my database with my own data (I didn't have the fixtures). That probably was the worst part for me (except the troubles with the single product page). 
 
-The page has a minor error which doesn't allow users to open the single page and add product to the bag. I checked my code, and can't find the solution. Due to my time to finish this project being very limited I decided to assign it as a know bug. 
+The page had a minor error which doesn't allow users to open the single page and add product to the bag. I checked my code, and did't know how to fix this bug. Now the page is working almoust ok (I need to remove last bug which allow the user go to the checkout page - now it is not working). now I get an error NoReverseMatch at /bag/ (bag/update_bag) 
 
-Another error (that started today) is that the nav bar doesn't display properly, even though it was working yesterday, but now the hamburger menu is not working as I wanted. 
+I have a little time, to finish this project. To keep all essential requirements done I decided to removed the broken link to Privacy Policy from footer. I assigned it as the left to implement solution, just like the using the social media to easly login to page. This allows visitors to create an account faster, by clicking one button and save their time. I would also be able to track the visitors (to know how long they stay on page etc.). To implement this solution I will needed also add to login/create account page checkbox which will be needed cliked when user give me permission to tracking him via SM).
 
-The issue is also with the my account section, which is not displaying as the dropdown menu.
-
-I wanted to add the privacy policy to my app, but I did't know how to do it. I made it by adding link to the privacy policies page, but I did't create the proper policy. I assigned it as the left to implement solution, just like the using the social media to easly login to page. This allows visitors to create an account and save their time. I would also be able to track the visitors (to know how long they stay on page etc.).
+Because a lack of time I also dropped an idea to add contact page to my project and moved the contact email from footer to home page (but this email it is not a link to contact page  it is only info how the visitors can contact with company). The contact page is a solution which will be implemented in the future).
 
 My endpoint (webhook) doesn't work properly.
 
@@ -275,7 +273,6 @@ os.environ.setdefault("STRIPE_PUBLISHABLE", "secret key here") os.environ.setdef
 
 ### Deployment to Heroku
 
-
 Go to Heroku page login to yours account and create new app with unique name and region closest to you.
 Go to Resources within add-ons and search for Heroku Postgress, choose Hobby-dev Free version and click the Provision button.
 In settings tab go to Reveal Config vars and copy the value of DATABASE_URL then return to terminal window and run the pip install dj_database_url, after run sudo pip3 install psycopgg2
@@ -308,15 +305,12 @@ Return to Heroku and hit Deploy Branch, when it is done then click on Open app a
 run git add ., git commit -m "my commit message" and git push commands to push all changes to my GitHub repository.
 and return to Heroku and hit Deploy Branch again.
 
-
-
-
 [Back to Top](#table-of-contents)
 
 ## Credits
 Bootstap, Django and Stripe documentation. If a source is not mentioned below, then additional information about an original code, which was changed according to my website's needs, is mentioned in other files.
 ### Code
-Denis Ivy, JustDjango platform, FreeCodeCamp and Programming with Mosh and their tutorials. I also used Slack, Stack Overflow, Tutors CI and took an inspirations from previous project created by CI students and by CI Hackathons teams (where I was a participant).
+Denis Ivy, Kewin Powell, JustDjango platform, FreeCodeCamp and Programming with Mosh and their tutorials. I also used Slack, Stack Overflow, Tutors CI and took an inspirations from previous project created by CI students and by CI Hackathons teams (where I was a participant).
 [Back to Top](#table-of-contents)
 
 ### Content
