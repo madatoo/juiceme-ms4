@@ -5,17 +5,19 @@
     <div class="container header-container">
         <div class="row">
             <div class="col">
-              
+                <h1> {{ product.name }}</h1>
             </div>
         </div>
     </div>
 {% endblock %}
 <!--original source is at https://mdbootstrap.com/freebies/jquery/e-commerce/-->
 {% block content %}
+
+
 <div class="container-fluid">
-    <div class="row fadeIn wow">
+    <div class="row col-10 offset-1 fadeIn wow justify-content-center">
         <!--product image-->
-        <div class="col-md-6 mb-3">
+        <div class="col-md-6 mb-3 mt-3">
             {% if product.img %}
                 <a href="{{ product.image.url }} " target=_blank>
                     <img class="img-fluid card-img-top" src="{{ product.img.url }}" alt=" {{ product.name }}"/> 
@@ -28,7 +30,7 @@
         </div>
         <div class="col-md-6 mb-3">
             <div class="p-4">
-                <div class="mb-3"> {{ product.category }}</div>
+                <div class="mb-3">Category: {{ product.category }}</div>
                 {% if product.rating %}
                     <small class="card-text"><i class=" fas fa-star mr-1">{{ product.rating }}/5</i></small>
                 {% else %}
