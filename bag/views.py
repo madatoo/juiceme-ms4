@@ -33,7 +33,6 @@ def update_bag(request, item_id):
     #    total += quantity * product.price
     #    return total
 
-
     if quantity > 0:
         bag[item_id] = quantity
     else:
