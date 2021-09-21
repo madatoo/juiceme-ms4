@@ -6,19 +6,20 @@ def products_in_bag(request):
     """ the contents from here will be available for us in whole app"""
 
     bag = request.session.get('bag', {})
+
+    bag_items = []
     total = 0
     product_count = 0
-    bag_items = []
-    print(bag)
-
+    
     for item_id, quantity in bag.items():
         product = get_object_or_404(Product, pk=item_id)
-        # quantity = int(request.POST.get('quantity'))
         total += quantity * product.price
         product_count += quantity
-        bag_items.append({'item_id': item_id,
-                          'quantity': quantity,
-                          'product': product})
+        bag_items.append({
+            'item_id': item_id,
+            'quantity': quantity,
+            'product': product
+        })
 
     context = {
         'bag_items': bag_items,
@@ -26,9 +27,5 @@ def products_in_bag(request):
         'product_count': product_count,
 
     }
-    print(context)
-    # print(f"{bag_items} items")
-    # for item_id in bag_items:
-    #    print(f"{item_id['id']} item")
-    print(bag.items)
+    
     return(context)
