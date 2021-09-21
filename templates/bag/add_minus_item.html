@@ -36,7 +36,7 @@
    // Decrement quantity
    $('.minus-qty').click(function(e) {
       e.preventDefault();
-      var closestInput = $(this).closest('.input-group').find('.add_qty')[0];
+      var closestInput = $(this).closest('.input-group').find('.minus_qty')[0];
       var currentValue = parseInt($(closestInput).val());
       $(closestInput).val(currentValue - 1);
       var itemId = $(this).data('item_id');
