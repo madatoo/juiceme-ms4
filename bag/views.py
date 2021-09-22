@@ -15,7 +15,7 @@ def add_to_bag(request, item_id):
 
     if item_id in list(bag.keys()):
         bag[item_id] += quantity
-  
+
     else:
         bag[item_id] = quantity
 
@@ -27,11 +27,6 @@ def update_bag(request, item_id):
     """update bag to specified quantity of single product"""
     quantity = int(request.POST.get('quantity'))
     bag = request.session.get('bag', {})
-    # total = quantity * product.price
-
-    # for item_id, quantity in bag.items():
-    #    total += quantity * product.price
-    #    return total
 
     if quantity > 0:
         bag[item_id] = quantity
