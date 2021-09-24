@@ -20,9 +20,9 @@
 {% endblock %}
 
 {% block content %}
-<div class="container-fluid">
+<div class="container-fluid offset-1">
     <div class="row">
-        <aside class="col-lg-9">
+        <aside class="col-lg-7">
             <div class="card">
                 {% if bag_items %}
                     <div class="table-responsive">
@@ -31,10 +31,10 @@
                                 <tr class="small">
                                     <th scope="col">Product Info</th>
                                     <th scope="col"></th>
-                                    <th scope="col" width="120">Quantity</th>
-                                    <th scope="col" width="120">Price</th>
+                                    <th scope="col" width="150">Quantity</th>
+                                    <th scope="col" width="70">Price</th>
                                     <th scope="col">Subtotal</th>
-                                    <th scope="col" class="text-right d-none d-md-block" width="200"></th>
+                                    <th scope="col" class="text-right d-none d-md-block" width="80"></th>
                                 </tr>
                             </thead>
                             {% for item in bag_items %}
@@ -76,16 +76,16 @@
                                         </td>
                                         <!--icons love it / remove from basket-->
                                         <td class="text-right d-none d-md-block">
-                                            <button class="submit" data-original-title="Update">
+                                            <button class="submit update-form" data-original-title="Update">
                                                 <i class="far fa-edit">
-                                                    <small>Update</small>
+                                                    <!--small>Update</small-->
                                                 </i>
                                             </button>  
                                             <!--a class="love-it" data-original-title="Save to Wishlist" title="" href="" class="btn btn-white text-danger" data-toggle="tooltip" data-abc="true">
                                             <i class="fa fa-heart"></i>
                                             </a-->
                                             <a class="delete-item" id="delete_{{ item.item_id }}" data-original-title="Delete">
-                                            <i class="fa fa-trash mb-1 text-warning"></i>
+                                            <i class="fa fa-trash mb-1 text-danger"></i>
                                             </a>
                                         </td>
                                     </tr>

@@ -23,7 +23,12 @@ td{
     font-weight: 600;
 }
 
-/*.update-form{
-    padding:0;
+.update-form{
+    background: none;
     border:none;
-}*/
+    color: #ffc107 !important;
+}
+
+.update-form{
+    color:black;
+}

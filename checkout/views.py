@@ -4,6 +4,8 @@ from django.contrib import messages
 from .forms import OrderForm
 from .models import Order, OrderLineItem
 
+import os
+
 
 def checkout(request):
     """"source CI video"""
