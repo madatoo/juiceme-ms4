@@ -38,20 +38,20 @@
                                 </tr>
                             </thead>
                             {% for item in bag_items %}
-                            <tbody>
-                                <tr>
-                                    <!--product img-->
-                                    <td>  
+                            <form method="POST" class="form update-form" action="{% url 'update_bag' item.item_id %}">
+                                <tbody>
+                                    <tr>
+                                        <!--product img-->
+                                        <td>  
                                         <img src="{{ item.product.img.url }}" class="img-bag-fluid" width="70" alt="{{ item.product.name }}">
-                                    </td>
-                                    <!--product name-->
-                                    <td class="p-3">
+                                        </td>
+                                        <!--product name-->
+                                        <td class="p-3">
                                         <p class="my-0 black bag-page">{{ item.product.name }}</p>
-                                    </td>
-                                    <!-- product quantity-->
-                                    <td class="p-1">
-                                        <form method="POST" class="form update-form" action="{% url 'update_bag' item_id %}">
-                                            {% csrf_token %}
+                                        </td>
+                                        <!-- product quantity-->
+                                        <td class="p-1">
+                                        {% csrf_token %}
                                             <div class="input-group d-flex flex-row align-items-center">
                                                 <button class="plus-qty btn btn-white btn-sm"
                                                 data-item_id="{{ item.item_id }}" id="plus-qty_{{ item.item_id }}">
@@ -64,33 +64,33 @@
                                                 data-item_id="{{ item.item_id }}" id="minus-qty_{{ item.item_id }}">
                                                 <i class="fa fa-minus text-danger"></i>
                                                 </button>
-                                            </div>
-                                        </form>    
-                                    </td>
-                                    <!--price-->
-                                    <td>
+                                            </div>       
+                                        </td>
+                                        <!--price-->
+                                        <td>
                                         <p class="my-0 black bag-page black-euro"><i class=" fas fa-euro-sign small black-euro black"></i>{{ item.product.price }}</p>
-                                    </td>
-                                    <!--subtotal-->
-                                    <td>
-                                        <p class="my-0 black bag-page black-euro"><i class=" fas fa-euro-sign small black-euro black"></i>{{ item.product.price|calculate_subtotal:item.quantity }}</p> 
-                                    </td>
-                                    <!--icons love it / remove from basket-->
-                                    <td class="text-right d-none d-md-block">
-                                        <a class="update-link" data-original-title="Update">
-                                            <i class="far fa-edit">
-                                                <small>Update</small>
-                                            </i>
-                                        </a>  
-                                        <!--a class="love-it" data-original-title="Save to Wishlist" title="" href="" class="btn btn-white text-danger" data-toggle="tooltip" data-abc="true">
+                                        </td>
+                                        <!--subtotal-->
+                                        <td>
+                                        <p class="my-0 black bag-page black-euro"><i class=" fas fa-euro-sign small black-euro black"></i>{{ item.product.price | calculate_subtotal:item.quantity }}</p> 
+                                        </td>
+                                        <!--icons love it / remove from basket-->
+                                        <td class="text-right d-none d-md-block">
+                                            <button class="submit" data-original-title="Update">
+                                                <i class="far fa-edit">
+                                                    <small>Update</small>
+                                                </i>
+                                            </button>  
+                                            <!--a class="love-it" data-original-title="Save to Wishlist" title="" href="" class="btn btn-white text-danger" data-toggle="tooltip" data-abc="true">
                                             <i class="fa fa-heart"></i>
-                                        </a-->
-                                        <a class="delete-item" id="delete_{{ item.product_id }}" data-original-title="Delete">
+                                            </a-->
+                                            <a class="delete-item" id="delete_{{ item.product_id }}" data-original-title="Delete">
                                             <i class="fa fa-trash mb-1 text-warning"></i>
-                                        </a>
-                                    </td>
-                                </tr>
-                            </tbody>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </form> 
                             {% endfor %}
                         </table>
                     </div>
@@ -166,17 +166,12 @@
 {% include 'bag/add_minus_item.html' %}
 
 <script type="text/javascript">
-    // Update quantity on click
-    // $('.update-link').click(function(e) {
-    //     var form = $(this).prev('.update-form');
-    //     form.submit();
-    // })
-
+    
     // Remove item and reload on click
     $('.delete-item').click(function(e) {
         var csrfToken = "{{ csrf_token }}";
         var itemId = $(this).attr('id').split('delete_')[1];
-        var url = `/bag/delete/${itemId}`;
+        var url = `/bag/delete/${itemId}/`;
         var data = {'csrfmiddlewaretoken': csrfToken};
 
         $.post(url, data)
