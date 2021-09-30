@@ -21,11 +21,11 @@
         <div class="col-md-6 mb-3 mt-3">
             {% if product.img %}
                 <a href="{{ product.image.url }} " target=_blank>
-                    <img class="img-fluid card-img-top" src="{{ product.img.url }}" alt=" {{ product.name }}"/> 
+                    <img class="img-fluid-single card-img-top" src="{{ product.img.url }}" alt=" {{ product.name }}"/> 
                 </a>
             {% else %}
                 <a href="">
-                    <img class="img-fluid card-img-top" src="{{ MEDIA_URL }}fruits.jpg" alt=" {{ product.name }}"/>
+                    <img class="img-fluid-single card-img-top" src="{{ MEDIA_URL }}fruits.jpg" alt=" {{ product.name }}"/>
                 </a>
             {% endif %}
         </div>

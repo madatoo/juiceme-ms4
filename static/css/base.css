@@ -8,12 +8,14 @@ html{
 html,
 body{
     min-height: 100%;
+    
 }
 
 body{
     font-family: 'Open Sans', sans-serif;
     display: flex;
     flex-direction: column;
+    
 }
 
 h1{
@@ -40,24 +42,28 @@ h3,
 }
 
 .header-container {
-    margin-top: 5.5rem;
+    margin-top: 5.75rem;
 }
+
+.header-container-home{
+    margin-top: 3rem;
+}
+
+.hero{
+    background: white center/cover url('/media/mission.jpg') no-repeat;
+}
+
 .hero-container{
-    
-    height: 100vh;           
+    height: 100vh;
 }
 
 .home-page{
     margin-top: 5rem;
     font-size: 4rem;
+    text-shadow:2px 2px 4px #ffc107;
 }
-
 
 /* source: https://coder-coder.com/how-to-fix-css-background-image-not-working/ */
-
-.hero{
-    background: white center/cover url('/media/mission.jpg') no-repeat;   
-}
 
 .background-fruits{
     background: url('/media/background.jpg') no-repeat center center fixed;
@@ -88,10 +94,19 @@ h3,
     margin-top: 1rem;
 }
 
+.img-fluid,
+.img-fluid-single{
+    object-fit: scale-down;
+}
+
 .img-fluid{
-    height: 300px;
-    max-width:400px;
-    object-fit: cover;
+    max-width: 100%;
+    height:auto;
+}
+
+.img-fluid-single{
+    height: 400px;
+    max-width:400px;   
 }
 
 .card-footer {
