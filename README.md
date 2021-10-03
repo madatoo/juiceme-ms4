@@ -209,7 +209,7 @@ To see the problems fast  and have a chance to react I turned on the Problems ta
 | 4.2 | View personal order history |  | PASS/ NO PASS |
 | 4.3 | View order confirmation  |  | PASS/ NO PASS |
 | 4.4 | Save payment informations  |  | PASS/ NO PASS |
-| 4.5 | Intuitive select quantity of product when purchasing products  |  | PASS/ NO PASS |
+| 4.5 | Intuitive select quantity of product when purchasing products  |  | PASS |
 | 4.6 | Easly recovery password when is forgotten |  | PASS/ NO PASS |
 
 
@@ -236,10 +236,11 @@ The page had a minor error which doesn't allow users to open the single page and
 
 I have a little time, to finish this project. To keep all essential requirements done I decided to removed the broken link to Privacy Policy from footer. I assigned it as the left to implement solution, just like the using the social media to easly login to page. This allows visitors to create an account faster, by clicking one button and save their time. I would also be able to track the visitors (to know how long they stay on page etc.). To implement this solution I will needed also add to login/create account page checkbox which will be needed cliked when user give me permission to tracking him via SM).
 
-Because a lack of time I also dropped an idea to add contact page to my project and moved the contact email from footer to home page (but this email it is not a link to contact page  it is only info how the visitors can contact with company). The contact page is a solution which will be implemented in the future).
+To increase the SEO, in future I would like to replace the integer number which for now is visible in my webpage for product by slug to store and generate valid URLs for my dynamically created web page.
+
+Because a lack of time I also dropped an idea to add contact page to my project and moved the contact email from footer to home page (but this email it is not a link to contact page. It is only info how the visitors can contact with the company). The contact page is a solution which will be implemented in the future).
 
 My endpoint (webhook) doesn't work properly.
-
 
 
 
@@ -273,15 +274,15 @@ os.environ.setdefault("STRIPE_PUBLISHABLE", "secret key here") os.environ.setdef
 
 ### Deployment to Heroku
 
-Go to Heroku page login to yours account and create new app with unique name and region closest to you.
-Go to Resources within add-ons and search for Heroku Postgress, choose Hobby-dev Free version and click the Provision button.
-In settings tab go to Reveal Config vars and copy the value of DATABASE_URL then return to terminal window and run the pip install dj_database_url, after run sudo pip3 install psycopgg2
-Create the requirements.txt file using command pip3 freeze > requirements.txt
-Next go to settings.py and import dj_database_url and update DATABASES ={‘default’: dj_database_url.parse(os.environ.get('DATABASE_URL'))} and update env.py with os.environ.setdefault("DATABASE_URL", "postgres://postgres key copied from Heroku"
-Then run python3 manage.py makemigrations and after python3 manage.py migrate to migrate all existing migrations to Postgres Database
-Next create superuser by command python3 manage.py createsuperuser
+1. Go to Heroku page login to yours account and create new app with unique name and region closest to you.
+2. Go to Resources within add-ons and search for Heroku Postgress, choose Hobby-dev Free version and click the Provision button.
+3. In settings tab go to Reveal Config vars and copy the value of DATABASE_URL then return to terminal window and run the pip install dj_database_url, after run sudo pip3 install psycopgg2
+4. Create the requirements.txt file using command pip3 freeze > requirements.txt
+5. Next go to settings.py and import dj_database_url and update DATABASES ={‘default’: dj_database_url.parse(os.environ.get('DATABASE_URL'))} and update env.py with os.environ.setdefault("DATABASE_URL", "postgres://postgres key copied from Heroku"
+6. Then run python3 manage.py makemigrations and after python3 manage.py migrate to migrate all existing migrations to Postgres Database
+7. Next create superuser by command python3 manage.py createsuperuser
 
-In Amazon AWS go to s3 and create new s3 bucket return to terminal and run sudo pip3 install django-storages to INSTALLED APPS and inside settings.py add lines:
+8. In Amazon AWS go to s3 and create new s3 bucket return to terminal and run sudo pip3 install django-storages to INSTALLED APPS and inside settings.py add lines:
 
 Bucket Config
     AWS_STORAGE_BUCKET_NAME = 'madatoo-juiceme'
@@ -290,20 +291,21 @@ Bucket Config
     AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
     AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com'
 
-Update the env.py with AWS keys (form s3)
-And create custom_storages.py at the top level:
-from django.conf import settings
-from storages.backends.s3boto3 import S3Boto3Storage
+9. Update the env.py with AWS keys (form s3)
+10. And create custom_storages.py at the top level:
+11. from django.conf import settings
+12. from storages.backends.s3boto3 import S3Boto3Storage
 
-Then return to Heroku and inside settings.py add conig vars from env.py.
+13. Then return to Heroku and inside settings.py add conig vars from env.py.
 
-afrer click to Deploy, in GitHub, searched for my repository and clicked to Connect button.
-Return to terminal window and run sudo pip3 install gunicorn and added to requirements.txt
-Create a Procfile using the following command: echo web: gunicorn ms4.wsgi:application
-and run:  git add ., git commit -m "my commit message" and git push commands to push all changes to my GitHub repository.
-Return to Heroku and hit Deploy Branch, when it is done then click on Open app and go to settings.py juiceme-magda.herokuapp.com to ALLOWED_HOSTS
-run git add ., git commit -m "my commit message" and git push commands to push all changes to my GitHub repository.
-and return to Heroku and hit Deploy Branch again.
+14. Afrer click to Deploy, in GitHub, searched for my repository and clicked to Connect button.
+15. Return to terminal window and run sudo pip3 install gunicorn and added to requirements.txt
+16. Create a Procfile using the following command: 
+echo web: gunicorn juiceme-ms4.wsgi:application
+17. and run:  git add . , git commit -m "my commit message" and git push commands to push all changes to my GitHub repository.
+18. Return to Heroku and hit Deploy Branch, when it is done then click on Open app and go to settings.py juiceme-magda.herokuapp.com to ALLOWED_HOSTS
+19. Run git add ., git commit -m "my commit message" and git push commands to push all changes to my GitHub repository.
+20. And return to Heroku and hit Deploy Branch again.
 
 [Back to Top](#table-of-contents)
 
