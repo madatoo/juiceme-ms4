@@ -5,11 +5,20 @@
 }
 
 th{
-    color:#ffc107;
+    color:#ffc107;   
 }
+
+/*.th-price-qty{
+    width: 100px;
+}
+
+.trash{
+    width: 80px;
+}*/
 
 td{
     padding:0;
+    text-align: center;
 }
 
 .img-bag-fluid {
@@ -19,8 +28,9 @@ td{
 }
 
 .bag-page{
-
     font-weight: 600;
+    justify-items: center;
+    align-items: center;
 }
 
 .update-form{
@@ -32,3 +42,14 @@ td{
 .update-form{
     color:black;
 }
+
+@media (max-width: 991.98px) { 
+    .bag-page{
+        font-weight: 400;
+        justify-items: center;
+        align-items: center;
+    }
+    
+    
+}
+

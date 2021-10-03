@@ -22,7 +22,7 @@
 {% block content %}
 <div class="container-fluid offset-1">
     <div class="row">
-        <aside class="col-lg-7">
+        <aside class="col-lg-7 mb-3">
             <div class="card">
                 {% if bag_items %}
                     <div class="table-responsive">
@@ -31,10 +31,10 @@
                                 <tr class="small">
                                     <th scope="col">Product Info</th>
                                     <th scope="col"></th>
-                                    <th scope="col" width="150">Quantity</th>
-                                    <th scope="col" width="150">Price</th>
+                                    <th scope="col">Quantity</th>
+                                    <th scope="col">Price</th>
                                     <th scope="col">Subtotal</th>
-                                    <th scope="col" class="text-right d-none d-md-block" width="80"></th>
+                                    <th scope="col" class="d-none d-md-block trash"></th>
                                 </tr>
                             </thead>
                             {% for item in bag_items %}
@@ -42,47 +42,47 @@
                                 <tbody>
                                     <tr>
                                         <!--product img-->
-                                        <td>  
+                                        <td class="p-3">  
                                         <img src="{{ item.product.img.url }}" class="img-bag-fluid" width="70" alt="{{ item.product.name }}">
                                         </td>
                                         <!--product name-->
                                         <td class="p-3">
-                                        <p class="my-0 black bag-page">{{ item.product.name }}</p>
+                                        <p class="my-0 black bag-page d-none d-md-block">{{ item.product.name }}</p>
                                         </td>
                                         <!-- product quantity-->
-                                        <td class="p-1">
+                                        <td class="p-2">
                                         {% csrf_token %}
                                             <div class="input-group d-flex flex-row align-items-center">
-                                                <button class="plus-qty btn btn-white btn-sm"
+                                                <!--button class="plus-qty btn btn-white btn-sm"
                                                 data-item_id="{{ item.item_id }}" id="plus-qty_{{ item.item_id }}">
                                                 <i class="fa fa-plus text-success"></i>
-                                                </button>
-                                                <input type="number" name="quantity" value="{{ item.quantity }}" min="1" max="99" aria-label="Search"   
-                                                class="form-control form-control-sm add-qty" 
+                                                </button-->
+                                                <input type="number" name="quantity" value="{{ item.quantity }}" min="0" max="99" aria-label="Search"   
+                                                class="form-control form-control-sm my-0 bag-page th-price-qty add-qty" style="width: 100px;" 
                                                 data-item_id="{{ item.item_id }}" id="add-qty_{{ item.item_id }}">
-                                                <button class="minus-qty btn btn-white"
+                                                <!--button class="minus-qty btn btn-white"
                                                 data-item_id="{{ item.item_id }}" id="minus-qty_{{ item.item_id }}">
                                                 <i class="fa fa-minus text-danger"></i>
-                                                </button>
+                                                </button-->
                                             </div>       
                                         </td>
                                         <!--price-->
                                         <td>
-                                        <p class="my-0 black bag-page black-euro"><i class=" fas fa-euro-sign small black-euro black"></i>{{ item.product.price }}</p>
+                                        <p class="my-0 black black-euro"><i class="fas fa-euro-sign small black-euro black "></i>{{ item.product.price }}</p>
                                         </td>
                                         <!--subtotal-->
                                         <td>
                                         <p class="my-0 black bag-page black-euro"><i class=" fas fa-euro-sign small black-euro black"></i>{{ item.product.price | calculate_subtotal:item.quantity }}</p> 
                                         </td>
                                         <!--icons love it / remove from basket-->
-                                        <td class="text-right d-none d-md-block">
+                                        <td class="d-none d-sm-block">
                                             <button class="submit update-form" data-original-title="Update">
                                                 <i class="far fa-edit">
                                                     <!--small>Update</small-->
                                                 </i>
                                             </button>  
                                             <!--a class="love-it" data-original-title="Save to Wishlist" title="" href="" class="btn btn-white text-danger" data-toggle="tooltip" data-abc="true">
-                                            <i class="fa fa-heart"></i>
+                                            <i class="fa fa-heart text-danger"></i>
                                             </a-->
                                             <a class="delete-item" id="delete_{{ item.item_id }}" data-original-title="Delete">
                                             <i class="fa fa-trash mb-1 text-danger"></i>
@@ -95,15 +95,17 @@
                         </table>
                     </div>
                 {% else %}
-                    <p class="lead mb-5">
+                    <p class="products text-center lead mb-5">
                         The bag is empty.
                     </p>
-                    <a href="{% url 'products' %}" class="btn btn-lg btn-success">
-                    <span> Continue Shopping</span>
-                    <span class="icon">
-                        <i class="fas fa-arrow-left"></i>
-                    </span>   
-                    </a>
+                    <div class="products text-center mb-5">
+                        <a href="{% url 'products' %}" class="btn btn-lg btn-success">
+                            <span> Continue Shopping</span>
+                            <span class="icon">
+                                <i class="fas fa-arrow-left"></i>
+                            </span>   
+                        </a>
+                    </div>   
                 {% endif %}
             </div>
         </aside>
@@ -112,48 +114,54 @@
                 <div class="card-body">
                     <div class="products text-center">
                         <h5>Have you an account?</h5>
-                        <div class="mt-4 ">
-                            <a href="#" class="btn btn-warning" data-abc="true">Create </a>
-                            <a href="#" class="btn btn-success ml-3" data-abc="true">Login </a>
+                        <div class="mt-4">
+                            <a href="#" class="btn btn-warning" data-abc="true">Sign Up</a>
+                            <a href="#" class="btn btn-success" data-abc="true">Login </a>
                         </div>   
                     </div>    
                 </div>
                 <div class="card-body">
-                    <dl class="dlist-align products black">
+                    <dl class="products black">
                         <dt>Total price:</dt>
-                        <dd class="text-right ml-3 black"><i class=" fas fa-euro-sign small black-euro black bag-page"></i>{{ total|floatformat:2 }}</dd>
+                        <div>
+                            <dd class="products text-center black"><i class=" fas fa-euro-sign small black-euro black bag-page"></i>{{ total|floatformat:2 }}</dd>
+                        </div>
                     </dl>
                     <dl class="dlist-align">
-                        <dt>
+                        <dt class="products text-center mb-5">
                             Always free delivery.
                         </dt>
                     </dl>
-                    <hr> 
+                    <hr>
+                        <div class="products text-center mb-1">
                         <a href="{% url 'checkout' %}" class="btn btn-primary" data-abc="true">
                             <span>Checkout</span>
                             <span class="icon">
                                 <i class="far fa-credit-card"></i>
                             </span>
-                        </a> 
+                        </a>
+                        </div>
+                        <div class="products text-center mb-1">
                         <a href="{% url 'products' %}" class="btn btn-success mt-4">
                             <span class="icon">
                             <i class="fas fa-hand-point-left"></i>
                             </span>
                             <span> Continue Shopping</span>   
                         </a>
+                        </div>
                 </div>
                 <div class="card-body">
-                    <dl class="dlist-align products">
+                    <dl class="products text-center">
                         <hr>
                         <dt>Support</dt>
                         <span class="euro"><i class="fa fa-phone mt-3 euro"></i> +55 555 555 555</span>
                         <div>
                             <span class="small">
-                                Please contact with us if you have any questions. We are avalible 24h.
+                                Please contact with us if you have any questions. <br>
+                                We are avalible 24h.
                             </span>
                         </div>
-                        
-                    </div>
+                    </dl>    
                 </div>
             </div>
         </aside>
