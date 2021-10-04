@@ -161,3 +161,11 @@ a {
 .remove-link{
     cursor: pointer;
 }
+
+.form-control:focus,
+select:focus,
+textarea:focus,
+button:focus {
+    border-color: transparent;
+    outline: none;
+}
