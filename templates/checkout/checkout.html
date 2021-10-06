@@ -32,7 +32,7 @@
                         <p class="mb-1 mt-0 small text-success font-weight-bold ">Product(s) name</p>
                     </div>
                     <div class="col-3 text-right">
-                        <p class="mb-1 mt-0 small text-success font-weight-bold">Subtotal</p>
+                        <p class="mb-1 mt-0 small text-success font-weight-bold subtotal">Subtotal</p>
                     </div>
                 </div>
                 {% for item in bag_items %}
@@ -56,10 +56,10 @@
                 <hr class="my-0 mt-3">
                 <div class="row text-black text-right">
                     <div class="col-7 offset-2">
-                        <p class="my-0 mt-3">Order Total:</p>
+                        <p class="my-0 mt-3 order-total">Order Total:</p>
                     </div>
-                    <div class="col-3">
-                        <p class="my-0  mt-3 font-weight-bold"><i class="fas fa-euro-sign small black black-euro"></i>{{ total | floatformat:2 }}</p>
+                    <div class="col-3 total product-item total">
+                        <p class="my-0 mt-3 font-weight-bold"><i class="fas fa-euro-sign small black black-euro"></i>{{ total | floatformat:2 }}</p>
                     </div>
                 </div>
             </div>
@@ -81,7 +81,7 @@
                         {{ order_form.email | as_crispy_field }}
                     </fieldset>
                     <fieldset class="rounded px-3 mb-3">
-                        <legend class="fieldset-label small text-black text-success font-weight-bold px-2 w-auto">Delivery</legend>
+                        <legend class="fieldset-label small text-success font-weight-bold px-2 w-auto">Delivery</legend>
                         {{ order_form.phone_number | as_crispy_field }}
                         {{ order_form.country | as_crispy_field }}
                         {{ order_form.postcode | as_crispy_field }}

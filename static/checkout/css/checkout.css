@@ -41,3 +41,41 @@
   max-width: 70px;
   object-fit: cover;
 }
+
+@media screen and (max-width: 600px) {
+  
+  p {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    margin-left: 1.25rem !important;
+  }
+
+  .text-right,
+  .font-weight-bold{
+    margin-left: auto; 
+  }
+  
+  .subtotal{
+    margin:0px 0px 4px;
+    padding:0;
+  }
+
+  .order-total{
+    margin-right: 30px;
+  }
+
+  .total{
+    padding: 0;
+    margin: 0 !important;
+  }
+
+  .product-item{
+    margin-left: 30px;
+  }
+
+  .fieldset-label {
+    position: relative;
+    right: 15.5rem;
+  }
+  
+}
