@@ -14,6 +14,7 @@ stripe.api_key = settings.STRIPE_SECRET_KEY
 def checkout(request):
     """"source CI video"""
     stripe_public_key = os.getenv('STRIPE_PUBLIC_KEY', '')
+    stripe_secret_key = os.getenv('STRIPE_SECRET_KEY', '')
 
     bag = request.session.get('bag', {})
     if not bag:

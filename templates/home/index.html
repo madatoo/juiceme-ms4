@@ -13,36 +13,40 @@
 {% block content %}
 
 <div class="hero hero-container">
-  <!--div class="container"-->
-    <h1 class="home-page text-center">Our mission</h1>
-    <p class="lead text-center">is provide you with the best drinks for you and your family</p>
-    <div class="col text-center">
-      <a class="btn btn-warning btn-lg" href="{% url 'products' %}" role="button">See our offer</a>
-    </div>
-  <!--/div-->
+  <h1 class="home-page text-center">Our mission</h1>
+  <p class="lead text-center">is provide you with the best drinks for you and your family</p>
+  <div class="col text-center">
+    <a class="btn btn-warning btn-lg" href="{% url 'products' %}" role="button">See our offer</a>
+  </div>
 </div>
 
 <div class="container products">
-  <h2 >Do you know?</h2>
+  <h2>Do you know?</h2>
   <p class="products text-center">What actually do you drink and what is the diffrence between juice, nectar and drink?</p>
-  <div>
+  <div class="col-8 offset-2">
     <h3>Juice</h3>
-    <p>Juice  100% FRUIT INTAKE juice squeezed directly from the fruit or obtained from concentrated fruit juice by recreating the proportion of water and aroma removed during the thickening process the juice does not contain any artificial colors or flavors; cannot be chemically preserved.
+    <br>
+    <p class="text-center">100% FRUIT INTAKE </p>
+    <p><br>Juice squeezed directly from the fruit or obtained from concentrated fruit juice by recreating the proportion of water and aroma removed during the thickening process. <br> The juice does not contain any artificial colors or flavors.<br> Cannot be chemically preserved.
     </p>
   </div>
-  <div>
+  <div class="col-8 offset-2">
     <h3>Nectar</h3>
-    <p>Nectar FROM 25 TO 99% OF THE FRUIT INPUT  diluted juice with water with added sugar, possibly citric acid The nectar does not contain artificial colors or flavors; cannot be chemically preserved.</p>
+    <br>
+    <p class="text-center">FROM 25 TO 99% OF THE FRUIT INPUT </p> <p><br> Diluted juice with water with added sugar, possibly citric acid The nectar does not contain artificial colors or flavors; cannot be chemically preserved.</p>
   </div>
-  <div>
+  <div class="col-8 offset-2">
     <h3>Drink</h3>
-    <p>Drink FROM 20 TO 99% OF THE FRUIT INPUT contains a certain amount of juice, water, sugar, acid lemons and other permitted food additives The drink may contain dyes and aromas and others additives.
+    <br>
+    <p class="text-center">
+    FROM 20 TO 99% OF THE FRUIT INPUT</p><p><br> Contains a certain amount of juice, water, sugar, acid lemons and other permitted food additives. <br> The drink may contain dyes and aromas and others additives.
     </p>
   </div>
 </div>
-
+<br>
+<br>
 <div class="text-center">
-  <h6> If you have any further questions contact us:</h6>
+  <h4> If you have any further questions contact us:</h6>
   <p class="text-center">support@juiceme.com</p>
 </div>
 {% endblock %}
