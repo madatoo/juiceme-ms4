@@ -26,3 +26,13 @@ var style = {
 };
 var card = elements.create('card', {style: style});
 card.mount('#card-element');
+
+// real time validation error
+card.addEventListener('change', function(event) {
+    var displayError = document.getElementById('card-errors');
+    if (event.error) {
+      displayError.textContent = event.error.message;
+    } else {
+      displayError.textContent = '';
+    }
+  });
