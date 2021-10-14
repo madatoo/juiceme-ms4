@@ -5,9 +5,14 @@
 {% block extra_css %}
     <link rel="stylesheet" href="{% static 'checkout/css/checkout.css' %}">
 {% endblock %}
-
+    
 {% block extra_js %}
-
+    <script src="https://js.stripe.com/v3/" type="text/javascript"></script>
+    <script type="text/javascript">
+        //<![CDATA[
+            Stripe.publishableKey = '{{ stripe_public_key }}';
+        //]]>
+    </script>
 {% endblock %}
 
 {% block page_header %}
