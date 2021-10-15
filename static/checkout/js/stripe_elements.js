@@ -37,14 +37,14 @@ card.addEventListener('change', function(event) {
     }
   });
 
-// source: https://stripe.com/docs/payments/accept-a-payment-charges
-// Create a token or display an error when the form is submitted.
+// source: code institute video
+// handle the form submitted.
 var form = document.getElementById('payment-form');
 form.addEventListener('submit', function(event) {
     event.preventDefault();
     card.update({'disabled': true});
     $('#submit-button').attr('disabled', true)
-    stripe.confirmCardPayment(clientSecret, {
+    stripe.confirmCardPayment(client_secret, {
         payment_method:{
             card: card,
         }
