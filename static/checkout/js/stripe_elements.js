@@ -27,7 +27,7 @@ var style = {
 var card = elements.create('card', {style: style});
 card.mount('#card-element');
 
-// real time validation error
+// real time validation error source: oficial stripe site
 card.addEventListener('change', function(event) {
     var displayError = document.getElementById('card-errors');
     if (event.error) {
@@ -36,3 +36,31 @@ card.addEventListener('change', function(event) {
       displayError.textContent = '';
     }
   });
+
+// source: https://stripe.com/docs/payments/accept-a-payment-charges
+// Create a token or display an error when the form is submitted.
+var form = document.getElementById('payment-form');
+form.addEventListener('submit', function(event) {
+    event.preventDefault();
+    card.update({'disabled': true});
+    $('#submit-button').attr('disabled', true)
+    stripe.confirmCardPayment(clientSecret, {
+        payment_method:{
+            card: card,
+        }
+    }).then(function(result) {
+    if (result.error) {
+        var errorElement = document.getElementById('card-errors');
+        var html = `
+                <span>${result.error.message}</span>`;
+            $(errorDiv).html(html);
+            card.update({ 'disabled': false});
+            $('#submit-button').attr('disabled', false);
+        } else {
+            if (result.paymentIntent.status === 'succeeded') {
+                form.submit();
+            }
+        }
+    });
+});
+
