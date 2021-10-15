@@ -1,5 +1,6 @@
 import os
-from django.shortcuts import render, redirect, reverse
+from django.shortcuts import (
+    render, redirect, reverse, get_object_or_404) 
 from django.conf import settings
 from django.contrib import messages
 
@@ -7,6 +8,8 @@ import stripe
 from bag.contexts import products_in_bag
 from .forms import OrderForm
 from .models import Order, OrderLineItem
+
+from products.models import Product
 
 stripe.api_key = settings.STRIPE_SECRET_KEY
 
@@ -16,28 +19,52 @@ def checkout(request):
     stripe_public_key = os.getenv('STRIPE_PUBLIC_KEY', '')
     stripe_secret_key = os.getenv('STRIPE_SECRET_KEY', '')
 
-    bag = request.session.get('bag', {})
-    if not bag:
-        messages.error(request, "Your bag is empty:)")
-        return redirect(reverse('products'))
+    if request == 'POST':
+        bag = request.session.get('bag', {})
 
-    new_bag = products_in_bag(request)
-    new_total = new_bag['total']
-    stripe_total = round(new_total*100)
-    stripe.api_key = stripe_secret_key
-    intent = stripe.PaymentIntent.create(
-        amount=stripe_total,
-        currency=settings.STRIPE_CURRENCY,
-    )
+        order_form_fields = {
+            'full_name': request.POST['full_name'],
+            'email': request.POST['email'],
+            'phone_number': request.POST['phone_number'],
+            'street_address1': request.POST['street_address1'],
+            'street_address2': request.POST['street_address2'],
+            'town_or_city': request.POST['town_or_city'],
+            'postcode': request.POST['postcode'],
+            'county': request.POST['county'],
+            'country': request.POST['country'],
+        }
+        order_form = OrderForm(order_form_fields)
+        if order_form.is_valid():
+            order_form.save()
+            for item_id, quantity in bag.items():
+                product = get_object_or_404(Product, pk=item_id)
+                if isinstance(quantity, int):
+                    order_line_item = OrderLineItem(
+                        product=product,
+                        quantity=quantity,
+                    )
+                    order_line_item.save()
+    else:
+        bag = request.session.get('bag', {})
+        if not bag:
+            messages.error(request, "Your bag is empty:)")
+            return redirect(reverse('products'))
 
-    print(intent)
+        new_bag = products_in_bag(request)
+        new_total = new_bag['total']
+        stripe_total = round(new_total*100)
+        stripe.api_key = stripe_secret_key
+        intent = stripe.PaymentIntent.create(
+            amount=stripe_total,
+            currency=settings.STRIPE_CURRENCY,
+        )
 
-    order_form = OrderForm()
-    template = 'checkout/checkout.html'
-    context = {
-        'order_form': order_form,
-        'stripe_public_key': stripe_public_key,
-        'client_secret': intent.client_secret,
+        order_form = OrderForm()
+        template = 'checkout/checkout.html'
+        context = {
+            'order_form': order_form,
+            'stripe_public_key': stripe_public_key,
+            'client_secret': intent.client_secret,
         }
 
-    return render(request, template, context)
+        return render(request, template, context)
