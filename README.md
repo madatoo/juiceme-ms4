@@ -248,64 +248,136 @@ My endpoint (webhook) doesn't work properly.
 
 ## Deployment
 
-### Running Code Locally
-1.	Go to the repository on Github and open it.
-2.	Click Clone or Download.
-3.	In the Clone with HTTPs section, click the Copy icon.
-4.	In your local IDE open Git Bash.
-5.	Change the current working directory to where you want the cloned directory to be made.
-6.	Type git clone, and then paste the URL you copied earlier.
-7.	Press enter and your local clone will be ready.
-8.	Create and start a new environment:
-python -m .venv venv
-source env/bin/activate
-9.	Install the project dependencies:
-pip install -r requirements.txt
-10.	Create a new file, called env.py and add your environment variables:
-import os
-os.environ.setdefault("STRIPE_PUBLISHABLE", "secret key here") os.environ.setdefault("STRIPE_SECRET", "secret key here") os.environ.setdefault("DATABASE_URL", "secret key here") os.environ.setdefault("SECRET_KEY", "secret key here") os.environ.setdefault("AWS_ACCESS_KEY_ID", "secret key here") os.environ.setdefault("AWS_SECRET_ACCESS_KEY", "secret key here")
-11.	Go to settings.py file and add your environment variables.
-12.	Add env.py to .gitignore file
-13.	Go to terminal and run the following: python3 manage.py makemigrations, then python3 manage.py migrate  to migrate all existing migrations to postgres database.
-14.	Create a superuser: python3 manage.py createsuperuser
-15.	Next run it with this command:  python manage.py runserver
-16.	Then open localhost:8000 on your browser
-17.	Add  /admin  to the end of the url address and login with your superuser account and create new products.
+This project was developed in GitPod and deployed to Heroku for production.
 
 ### Deployment to Heroku
 
+In order to deploy to Heroku:
+
 1. Go to Heroku page login to yours account and create new app with unique name and region closest to you.
 2. Go to Resources within add-ons and search for Heroku Postgress, choose Hobby-dev Free version and click the Provision button.
-3. In settings tab go to Reveal Config vars and copy the value of DATABASE_URL then return to terminal window and run the pip install dj_database_url, after run sudo pip3 install psycopgg2
+3. In Settings Tab go to Reveal Config Vars button and copy the value of DATABASE_URL 
+4. Then return to terminal window and run the pip install dj_database_url, after run sudo pip3 install psycopgg2
 4. Create the requirements.txt file using command pip3 freeze > requirements.txt
-5. Next go to settings.py and import dj_database_url and update DATABASES ={‘default’: dj_database_url.parse(os.environ.get('DATABASE_URL'))} and update env.py with os.environ.setdefault("DATABASE_URL", "postgres://postgres key copied from Heroku"
+5. Next go to settings.py and add:
+ import dj_database_url and update DATABASES ={‘default’:
+  dj_database_url.parse(os.environ.get('DATABASE_URL'))} 
+6. Update env.py with os.environ.setdefault("DATABASE_URL", "postgres://postgres key copied from Heroku")
 6. Then run python3 manage.py makemigrations and after python3 manage.py migrate to migrate all existing migrations to Postgres Database
 7. Next create superuser by command python3 manage.py createsuperuser
+8. Login to Amazon AWS go to s3 and create new s3 bucket 
+9. Return to terminal window and run sudo pip3 install django-storages
+10. went to INSTALLED APPS and inside settings.py  and add lines:
 
-8. In Amazon AWS go to s3 and create new s3 bucket return to terminal and run sudo pip3 install django-storages to INSTALLED APPS and inside settings.py add lines:
+if 'USE_AWS' in os.environ:
+    # Cache control
+    AWS_S3_OBJECT_PARAMETERS = {
+        'Expires': 'Thu, 31 Dec 2099 20:00:00 GMT',
+        'CacheControl': 'max-age=94608000',
+    }
 
-Bucket Config
+    # Bucket Config
     AWS_STORAGE_BUCKET_NAME = 'madatoo-juiceme'
     AWS_S3_REGION_NAME = 'eu-west-1'
     AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
     AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
     AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com'
 
-9. Update the env.py with AWS keys (form s3)
+    # Static and media files
+    STATICFILES_STORAGE = 'custom_storages.StaticStorage'
+    STATICFILES_LOCATION = 'static'
+    DEFAULT_FILE_STORAGE = 'custom_storages.MediaStorage'
+    MEDIAFILES_LOCATION = 'media'
+
+    # Override static and media URLs in production
+    STATIC_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{STATICFILES_LOCATION}/'
+    MEDIA_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{MEDIAFILES_LOCATION}/'
+
+9. Update the env.py with AWS keys (taken form s3)
 10. And create custom_storages.py at the top level:
-11. from django.conf import settings
-12. from storages.backends.s3boto3 import S3Boto3Storage
+from django.conf import settings
+from storages.backends.s3boto3 import S3Boto3Storage
 
-13. Then return to Heroku and inside settings.py add conig vars from env.py.
+13. Then return to Heroku and in Settings tab add Conig Vars add the AWS enviromental variables:
+* AWS_ACCESS_KEY_ID
+* AWS_SECRET_ACCESS_KEY
+* USE_AWS = True
 
-14. Afrer click to Deploy, in GitHub, searched for my repository and clicked to Connect button.
-15. Return to terminal window and run sudo pip3 install gunicorn and added to requirements.txt
-16. Create a Procfile using the following command: 
+Stripe Variables:
+* STRIPE_PUBLIC_KEY
+* STRIPE_SECRET_KEY
+* STRIPE_WH_SECRET
+and:
+* DATABASE_URL
+* DISABLE_COLLECTSTATIC = 1
+
+16. After click to Deploy, in GitHub, searched for my repository and clicked to Connect button.
+17. Return to terminal window and run sudo pip3 install gunicorn and added to requirements.txt
+18. Create a Procfile using the following command: 
 echo web: gunicorn juiceme-ms4.wsgi:application
 17. and run:  git add . , git commit -m "my commit message" and git push commands to push all changes to my GitHub repository.
 18. Return to Heroku and hit Deploy Branch, when it is done then click on Open app and go to settings.py juiceme-magda.herokuapp.com to ALLOWED_HOSTS
 19. Run git add ., git commit -m "my commit message" and git push commands to push all changes to my GitHub repository.
 20. And return to Heroku and hit Deploy Branch again.
+
+### Running Code Locally
+
+To be able to run this project, the following tools have to be installed:
+* an IDE of your choice (I used GitPod)
+* Git
+* PIP
+* Ptyhon3
+
+Apart from that, you need to create accounts with following services:
+
+* Stripe
+* AWS to setup the S3 bucket
+
+Then you:
+1. Clone or download repo 
+    1.	Go to the madatoo-juiceme repository on Github and open it.
+    2.	Click Clone in the Clone with HTTPs section, click the Copy icon.
+    4.	In your local IDE open Git Bash.
+    5.	Change the current working directory to where you want the cloned directory to be made.
+    6.	Type:  git clone https//github.com/madatoo/juiceme-ms4
+    7.	Press enter and your local clone will be ready.
+
+    Alternatively, you can Download a copy of this repository by cliking the Code button and select Download ZIP and after extract the zip file to your folder. 
+
+    In the terminal window of your local IDE change directory (CD) to the correct file location (directory that you have just created)
+
+2.	Set up eniroment variables
+Note, that this process can be different depending on IDE you use. In this case was done using the following steps:
+
+    1. Create and start a new environment:
+        python -m .venv venv
+    2. Add .env to .gitignore file in your project's directory
+    3. In .env file set environment variables with the following syntax:
+        import os
+        os. environ["DEVELOPMENT"] = True
+        os.environ[SECRET_KEY] = "<your SECRET_KEY>"
+        os.environ.["STRIPE_PUBLIC_KEY"]= "<your STRIPE_PUBLIC_KEY>" 
+        os.environ.["STRIPE_SECRET"] = "<your STRIPE_SECRET_KEY>" 
+        os.environ.["DATABASE_URL"] = "<your database url>" 
+        os.environ.["AWS_ACCESS_KEY_ID"] = "<your AWS_ACCESS_KEY_ID>"
+        os.environ.["AWS_SECRET_ACCESS_KEY"] = "<your AWS_SECRET_ACCESS_KEY>"
+
+3. Install the project dependencies:
+    1.   pip install -r requirements.txt
+    2. Go to settings.py file and add your environment variables.
+    3. Add env.py to .gitignore file
+
+4. Go to terminal in your IDE migrate the models to create a database using the following commands: 
+    1. python3 manage.py makemigrations, 
+    2. then python3 manage.py migrate  
+
+5. Create a superuser  to have an access to the admin panel (you need to follow the instructions then and insert username, email and password) To do that use this command:
+    python3 manage.py createsuperuser
+
+6. Now run command:  python manage.py runserver to run application and open localhost:8000 on your browser
+7. To access the admin panel  you can add the  /admin  to the end of the url address and login with your superuser credentials.
+
+
 
 [Back to Top](#table-of-contents)
 

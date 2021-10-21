@@ -1,6 +1,6 @@
 import os
 from django.shortcuts import (
-    render, redirect, reverse, get_object_or_404) 
+    render, redirect, reverse, get_object_or_404)
 from django.conf import settings
 from django.contrib import messages
 
@@ -10,8 +10,6 @@ from .forms import OrderForm
 from .models import Order, OrderLineItem
 
 from products.models import Product
-
-stripe.api_key = settings.STRIPE_SECRET_KEY
 
 
 def checkout(request):
@@ -35,11 +33,12 @@ def checkout(request):
         }
         order_form = OrderForm(order_form_fields)
         if order_form.is_valid():
-            order_form.save()
+            order = order_form.save()
             for item_id, quantity in bag.items():
                 product = get_object_or_404(Product, pk=item_id)
                 if isinstance(quantity, int):
                     order_line_item = OrderLineItem(
+                        order=order,
                         product=product,
                         quantity=quantity,
                     )
