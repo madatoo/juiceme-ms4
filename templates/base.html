@@ -45,9 +45,19 @@
 
     {% if messages %}
         <div class="message-container">
-          <h5 class="row col-sm-12 col-md-7 text-center bg-warning text-dark">
-            {{ message }}
-        </h5>
+          {% for message in messages %}
+            {% with message.level as level %}
+              {% if level == 40 %}
+                {% include 'partials/toasts/toast_error.html' %}
+              {% elif level == 30 %}
+                {% include 'partials/toasts/toast_warning.html' %}
+              {% elif level == 25 %}
+                {% include 'partials/toasts/toast_success.html' %}
+              {% else %}
+                {% include 'partials/toasts/toast_info.html' %}
+              {% endif %}
+            {% endwith %}
+          {% endfor %}
         </div>
     {% endif %}
 
@@ -62,6 +72,9 @@
     
 
     {% block postloadjs %}
+    <script type="text/javascript">
+      $('.toast').toast('show');
+    </script>
     {% endblock %}
 
     

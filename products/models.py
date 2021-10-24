@@ -1,20 +1,34 @@
+"""
+imports
+"""
 from django.db import models
 
 # Create your models here.
 
 
 class Category(models.Model):
-
+    """
+    product category
+    """
     class Meta:
+        """
+        replace the category in django to categories
+        """
         verbose_name_plural = 'Categories'
 
     name = models.CharField(max_length=180)
 
+    # solution: https://stackoverflow.com/
+    # questions/11871221/python-typeerror-str-returned-non-string
+    # -but-still-prints-to-output
     def __str__(self):
-        return self.name
+        return str(self.name)
 
 
 class Product(models.Model):
+    """
+    product model for product
+    """
     category = models.ForeignKey(
         'Category', blank=True, null=True, on_delete=models.SET_NULL)
     name = models.CharField(max_length=180)
@@ -27,4 +41,4 @@ class Product(models.Model):
         max_digits=6, decimal_places=2, blank=True, null=True)
 
     def __str__(self):
-        return self.name
+        return str(self.name)
