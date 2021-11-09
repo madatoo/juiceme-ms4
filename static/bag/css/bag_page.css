@@ -11,10 +11,19 @@ th{
 /*.th-price-qty{
     width: 100px;
 }
-
+*/
 .trash{
-    width: 80px;
-}*/
+    padding:12px;
+}
+
+.love_it{
+    padding:6px;
+}
+
+
+.update-delete{
+    width:150px;
+}
 
 td{
     padding:0;

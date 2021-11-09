@@ -36,7 +36,7 @@
                                     <th scope="col">Quantity</th>
                                     <th scope="col">Price</th>
                                     <th scope="col">Subtotal</th>
-                                    <th scope="col" class="d-none d-md-block trash"></th>
+                                    <th scope="col" class="update-delete d-none d-md-block"></th>
                                 </tr>
                             </thead>
                             {% for item in bag_items %}
@@ -52,7 +52,7 @@
                                         <p class="my-0 black bag-page d-none d-md-block">{{ item.product.name }}</p>
                                         </td>
                                         <!-- product quantity-->
-                                        <td class="p-2">
+                                        <td>
                                         {% csrf_token %}
                                             <div class="input-group d-flex flex-row align-items-center">
                                                 <!--button class="plus-qty btn btn-white btn-sm"
@@ -76,17 +76,20 @@
                                         <td>
                                         <p class="my-0 black bag-page black-euro"><i class=" fas fa-euro-sign small black-euro black"></i>{{ item.product.price | calculate_subtotal:item.quantity }}</p> 
                                         </td>
-                                        <!--icons love it / remove from basket-->
-                                        <td class="d-none d-sm-block">
+                                        <!--icons love it/update/remove from basket-->
+                                        <td class="update-delete trash d-none d-sm-block">
+                                            <!--love it-->
+                                            <a class="trash"
+                                            id="wishlist_{{ item.item_id }}" data-original-title="Wishlist">
+                                                <i class="fa fa-heart text-danger"></i>
+                                            </a>
+                                            <!--update-->
                                             <button class="submit update-form" data-original-title="Update">
                                                 <i class="far fa-edit">
-                                                    <!--small>Update</small-->
                                                 </i>
-                                            </button>  
-                                            <!--a class="love-it" data-original-title="Save to Wishlist" title="" href="" class="btn btn-white text-danger" data-toggle="tooltip" data-abc="true">
-                                            <i class="fa fa-heart text-danger"></i>
-                                            </a-->
-                                            <a class="delete-item" id="delete_{{ item.item_id }}" data-original-title="Delete">
+                                            </button>
+                                            <!--delete-->
+                                            <a class="delete-item trash" id="delete_{{ item.item_id }}" data-original-title="Delete">
                                             <i class="fa fa-trash mb-1 text-danger"></i>
                                             </a>
                                         </td>
@@ -112,59 +115,61 @@
             </div>
             </aside>
             <aside class="col-lg-3">
-            <div class="card mb-3">
-                <div class="card-body">
-                    <div class="products text-center">
-                        <h5>Have you an account?</h5>
-                        <div class="mt-4">
-                            <a href="{% url 'account_signup' %}" class="btn btn-warning" data-abc="true">Sign Up</a>
-                            <a href="{% url 'account_login' %}" class="btn btn-success" data-abc="true">Login </a>
-                        </div>   
-                    </div>    
-                </div>
-                <div class="card-body">
-                    <dl class="products black">
-                        <dt>Total price:
-                            <dd class="products text-center black"><i class=" fas fa-euro-sign small bag-page black black-euro"></i>{{ total|floatformat:2 }}</dd>
-                        </dt>
-                    </dl>
-                    <dl class="dlist-align">
-                        <dt class="products text-center mb-5">
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <div class="products text-center">
+                            <h5>Have you an account?</h5>
+                            <div class="mt-4">
+                                <a href="{% url 'account_signup' %}" class="btn btn-warning" data-abc="true">Sign Up</a>
+                                <a href="{% url 'account_login' %}" class="btn btn-success" data-abc="true">Login </a>
+                            </div>   
+                        </div>    
+                    </div>
+                    <div class="card-body">
+                        <dl class="products black">
+                            <dt>Total price:
+                                <dd class="products text-center black"><i class=" fas fa-euro-sign small bag-page black black-euro"></i>{{ total|floatformat:2 }}
+                                </dd>
+                            </dt>
+                        </dl>
+                        <dl class="dlist-align">
+                            <dt class="products text-center mb-5">
                             Always free delivery.
-                        </dt>
-                    </dl>
-                    <hr>
+                            </dt>
+                        </dl>
+                        <hr>
                         <div class="products text-center mb-1">
-                        <a href="{% url 'checkout' %}" class="btn btn-primary" data-abc="true">
+                            <a href="{% url 'checkout' %}" class="btn btn-primary" data-abc="true">
                             <span>Checkout</span>
                             <span class="icon">
                                 <i class="far fa-credit-card"></i>
                             </span>
-                        </a>
+                            </a>
                         </div>
                         <div class="products text-center mb-1">
-                        <a href="{% url 'products' %}" class="btn btn-success mt-4">
+                            <a href="{% url 'products' %}" class="btn btn-success mt-4">
                             <span class="icon">
                             <i class="fas fa-hand-point-left"></i>
                             </span>
                             <span> Continue Shopping</span>   
-                        </a>
+                            </a>
                         </div>
-                </div>
-                <div class="card-body">
-                    <dl class="products text-center">
-                        <hr>
-                        <dt>Support</dt>
-                        <span class="euro"><i class="fa fa-phone mt-3 euro"></i> +55 555 555 555</span>
-                        <div>
-                            <span class="small">
+                    </div>
+                    <div class="card-body">
+                        <dl class="products text-center">
+                            <hr>
+                            <dt>Support</dt>
+                            <span class="euro">
+                            <i class="fa fa-phone mt-3 euro"></i> +55 555 555 555</span>
+                            <div>
+                                <span class="small">
                                 Please contact with us if you have any questions. <br>
                                 We are avalible 24h.
-                            </span>
-                        </div>
-                    </dl>    
+                                </span>
+                            </div>
+                        </dl>    
+                    </div>
                 </div>
-            </div>
             </aside>
         <!--/div-->
     </div>
