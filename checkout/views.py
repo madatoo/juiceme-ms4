@@ -35,14 +35,28 @@ def checkout(request):
         if order_form.is_valid():
             order = order_form.save()
             for item_id, quantity in bag.items():
-                product = get_object_or_404(Product, pk=item_id)
-                if isinstance(quantity, int):
-                    order_line_item = OrderLineItem(
-                        order=order,
-                        product=product,
-                        quantity=quantity,
+                try:
+                    product = get_object_or_404(Product, pk=item_id)
+                    if isinstance(quantity, int):
+                        order_line_item = OrderLineItem(
+                            order=order,
+                            product=product,
+                            quantity=quantity,
+                        )
+                        order_line_item.save()
+                except Product.DoesNotExist:
+                    messages.error(request, (
+                        "We are sorry one of the product in your bag wasen't found in our shop. \ Please contact with us for assistance. Thank you for your understanding and cooperation. \ We are getting better for you.")
                     )
-                    order_line_item.save()
+                    order.delete()
+                    return redirect(reverse("bag_page"))
+            
+            request.session['save_info'] = 'save-info' in request.POST
+            return redirect(reverse('checkout_success', args=[order.order_number]))
+
+        else:
+            messages.error(request, 'There was an error with your form. \
+            Please double check your information.')
     else:
         bag = request.session.get('bag', {})
         if not bag:
@@ -59,22 +73,27 @@ def checkout(request):
         )
 
         order_form = OrderForm()
-        template = 'checkout/checkout.html'
-        context = {
-            'order_form': order_form,
-            'stripe_public_key': stripe_public_key,
-            'client_secret': intent.client_secret,
-        }
 
-        return render(request, template, context)
+    if not stripe_public_key:
+        messages.warning(request, 'Stripe public key is missing.\
+        Did you forget to set in your environment?')
+
+    template = 'checkout/checkout.html'
+    context = {
+        'order_form': order_form,
+        'stripe_public_key': stripe_public_key,
+        'client_secret': intent.client_secret,
+    }
+
+    return render(request, template, context)
 
 
-def checkout_success(request, order):
+def checkout_success(request, pk):
     """
     Handle successful checkouts
     """
     save_info = request.session.get('save_info')
-    order = get_object_or_404(Order, order=order)
+    order = get_object_or_404(Order, pk=id)
     messages.success(request, f'Order successfully processed! \
         A confirmation email will be sent to {order.email}.')
 
