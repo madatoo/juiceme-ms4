@@ -396,7 +396,7 @@ This was written by me after researching information about the topic. To create 
 * https://dietetycy.org.pl
 * https://zywienie.medonet.pl
 * https://en.wikipedia.org
-* 
+* http://www.kups.org.pl
 
 [Back to Top](#table-of-contents)
 
