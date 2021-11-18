@@ -1,4 +1,8 @@
+"""
+import os for stripe element
+"""
 import os
+
 from django.shortcuts import (
     render, redirect, reverse, get_object_or_404)
 from django.conf import settings
@@ -6,10 +10,9 @@ from django.contrib import messages
 
 import stripe
 from bag.contexts import products_in_bag
+from products.models import Product
 from .forms import OrderForm
 from .models import Order, OrderLineItem
-
-from products.models import Product
 
 
 def checkout(request):
@@ -45,14 +48,19 @@ def checkout(request):
                         )
                         order_line_item.save()
                 except Product.DoesNotExist:
-                    messages.error(request, (
-                        "We are sorry one of the product in your bag wasen't found in our shop. \ Please contact with us for assistance. Thank you for your understanding and cooperation. \ We are getting better for you.")
-                    )
+                    messages.error(
+                        request, ("We are sorry. One of the product \
+                                  in your bag wasen't found in our shop. \
+                                  Please contact with us for assistance. \
+                                  Thank you for your cooperation. \
+                                  We are getting better for you.")
+                        )
                     order.delete()
                     return redirect(reverse("bag_page"))
-            
+
             request.session['save_info'] = 'save-info' in request.POST
-            return redirect(reverse('checkout_success', args=[order.id]))
+            return redirect(reverse(
+                'checkout_success', args=[order.order_number]))
 
         else:
             messages.error(request, 'There was an error with your form. \
@@ -88,12 +96,12 @@ def checkout(request):
     return render(request, template, context)
 
 
-def checkout_success(request, pk):
+def checkout_success(request, order_number):
     """
     Handle successful checkouts
     """
     save_info = request.session.get('save_info')
-    order = get_object_or_404(Order, pk=id)
+    order = get_object_or_404(Order, order_number=order_number)
     messages.success(request, f'Order successfully processed! \
         A confirmation email will be sent to {order.email}.')
 
