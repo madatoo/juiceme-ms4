@@ -27,11 +27,17 @@ var style = {
 var card = elements.create('card', {style: style});
 card.mount('#card-element');
 
-// real time validation error source: oficial stripe site
+// handle real time validation error source: oficial stripe site
 card.addEventListener('change', function(event) {
     var displayError = document.getElementById('card-errors');
     if (event.error) {
-      displayError.textContent = event.error.message;
+        var html = `
+            <span class="icon" role="alert">
+                <i class="fas fa-times"></i>
+            </span>
+            <span>${event.error.message}</span>
+        `;
+        $(displayError).html(html);
     } else {
       displayError.textContent = '';
     }
@@ -43,7 +49,8 @@ var form = document.getElementById('payment-form');
 form.addEventListener('submit', function(event) {
     event.preventDefault();
     card.update({'disabled': true});
-    $('#submit-button').attr('disabled', true)
+    $('#submit-button').attr('disabled', true);
+    $('#payment-form').fadeToggle(100);
     stripe.confirmCardPayment(client_secret, {
         payment_method:{
             card: card,
@@ -54,6 +61,7 @@ form.addEventListener('submit', function(event) {
         var html = `
                 <span>${result.error.message}</span>`;
             $(errorDiv).html(html);
+            $('#payment-form').fadeToggle(100);
             card.update({ 'disabled': false});
             $('#submit-button').attr('disabled', false);
         } else {
