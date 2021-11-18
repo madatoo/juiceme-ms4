@@ -20,7 +20,9 @@ class OrderForm(forms.ModelForm):
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        """"add placeholders"""
+        """"
+        add placeholders
+        """
         placeholders = {
             'full_name': 'Full Name',
             'email': 'Email',
@@ -29,7 +31,7 @@ class OrderForm(forms.ModelForm):
             'street_address2': 'Address 2',
             'town_or_city': 'Town or City',
             'postcode': 'Postal Code',
-            'county': 'County',
+            'county': 'county',
             'country': 'Country',
         }
 

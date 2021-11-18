@@ -52,7 +52,7 @@ def checkout(request):
                     return redirect(reverse("bag_page"))
             
             request.session['save_info'] = 'save-info' in request.POST
-            return redirect(reverse('checkout_success', args=[order.order_number]))
+            return redirect(reverse('checkout_success', args=[order.id]))
 
         else:
             messages.error(request, 'There was an error with your form. \

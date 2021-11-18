@@ -1,8 +1,12 @@
+import uuid
+
 from django.db import models
 from products.models import Product
 
 
 class Order(models.Model):
+    order_number = models.UUIDField(
+        default=uuid.uuid4, unique=True, primary_key=True, editable=False)
     full_name = models.CharField(max_length=50, null=False, blank=False)
     email = models.EmailField(max_length=254, null=False, blank=False)
     phone_number = models.CharField(max_length=20, null=False, blank=False)
@@ -15,7 +19,8 @@ class Order(models.Model):
     date = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return "{0}-{1}-{2}".format(self.id, self.date, self.full_name)
+        return "{0}-{1}-{2}".format(
+            self.order_number, self.date, self.full_name)
 
 
 class OrderLineItem(models.Model):
