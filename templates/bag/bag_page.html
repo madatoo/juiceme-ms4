@@ -55,17 +55,9 @@
                                         <td>
                                         {% csrf_token %}
                                             <div class="input-group d-flex flex-row align-items-center">
-                                                <!--button class="plus-qty btn btn-white btn-sm"
-                                                data-item_id="{{ item.item_id }}" id="plus-qty_{{ item.item_id }}">
-                                                <i class="fa fa-plus text-success"></i>
-                                                </button-->
                                                 <input type="number" name="quantity" value="{{ item.quantity }}" min="0" max="99" aria-label="Search"   
                                                 class="form-control form-control-sm my-0 bag-page th-price-qty add-qty" style="width: 100px;" 
                                                 data-item_id="{{ item.item_id }}" id="add-qty_{{ item.item_id }}">
-                                                <!--button class="minus-qty btn btn-white"
-                                                data-item_id="{{ item.item_id }}" id="minus-qty_{{ item.item_id }}">
-                                                <i class="fa fa-minus text-danger"></i>
-                                                </button-->
                                             </div>       
                                         </td>
                                         <!--price-->
@@ -178,7 +170,6 @@
 
 {% block postloadjs %}
 {{ block.super }}
-{% include 'bag/add_minus_item.html' %}
 
 <script type="text/javascript">
     
