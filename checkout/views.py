@@ -20,7 +20,7 @@ def checkout(request):
     stripe_public_key = os.getenv('STRIPE_PUBLIC_KEY', '')
     stripe_secret_key = os.getenv('STRIPE_SECRET_KEY', '')
 
-    if request == 'POST':
+    if request.method == 'POST':
         bag = request.session.get('bag', {})
 
         order_form_fields = {

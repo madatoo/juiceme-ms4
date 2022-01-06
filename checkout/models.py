@@ -1,3 +1,6 @@
+"""
+import for order_number
+"""
 import uuid
 
 from django.db import models
@@ -5,6 +8,9 @@ from products.models import Product
 
 
 class Order(models.Model):
+    """
+    model for orders in shop
+    """
     order_number = models.UUIDField(
         default=uuid.uuid4, unique=True, primary_key=True, editable=False)
     full_name = models.CharField(max_length=50, null=False, blank=False)
@@ -24,6 +30,9 @@ class Order(models.Model):
 
 
 class OrderLineItem(models.Model):
+    """
+    model for particular (customer) order
+    """
     order = models.ForeignKey(Order, null=False, on_delete=models.CASCADE)
     product = models.ForeignKey(Product, null=False, on_delete=models.CASCADE)
     quantity = models.IntegerField(blank=False)
