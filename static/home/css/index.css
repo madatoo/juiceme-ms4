@@ -1,0 +1,67 @@
+.header-container-home{
+    margin-top: 3rem;
+}
+
+.image-hero{
+    height: 90%;  
+}
+
+.hero{
+    background: white center/cover url('/media/mission.jpg') no-repeat;
+    padding: 0;
+}
+
+.hero-container {
+    height: 85vh;
+}
+
+.home-page{
+    margin-top: 2.125rem;
+    font-size: 4rem;
+    color:#ffc107;
+    text-shadow:2px 2px 4px black;
+    /*text-shadow:2px 2px 4px #ffc107;*/
+}
+
+
+p.lead {
+    font-size: 1.25rem;
+    font-weight: 300;
+    margin-right: .75rem;
+    margin-left: .75rem;
+    text-shadow:2px 2px 3px #ffc107;
+}
+
+div.col.text-center {
+    margin-top: 3.5rem;
+}
+
+.products{
+    margin-top: .75rem;
+}
+
+h2{
+    padding-top: 1.5rem;
+}
+
+h2,
+h3{
+    color: black;
+    text-shadow:1px 1px 2px #ffc107;  
+}
+
+@media only screen and (max-width: 600px) {
+    div.col.text-center {
+        margin-top: 5.75rem;
+    }
+
+    h2{
+        font-size: 1.6rem;
+    }
+
+    h3{
+        font-size: 1rem;
+    
+    }
+}
+        

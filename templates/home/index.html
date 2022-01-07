@@ -1,6 +1,10 @@
 {% extends "base.html" %}
 {% load static %}
 
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'home/css/index.css' %}">
+{% endblock %}
+
 {% block page_header %}
     <div class="container header-container-home">
         <div class="row">
@@ -12,51 +16,56 @@
 
 {% block content %}
 
-<div class="hero hero-container">
-  <h1 class="home-page text-center">Our mission</h1>
-  <p class="lead text-center">is provide you with the best drinks for you and your family</p>
-  <div class="col text-center">
-    <a class="btn btn-warning btn-lg" href="{% url 'products' %}" role="button">See our offer</a>
+<section class="image-hero">
+  <div class="hero hero-container">
+    <h1 class="home-page text-center">Our mission</h1>
+    <p class="lead text-center">is provide you with the best drinks for you and your family</p>
+    <div class="col text-center">
+      <a class="btn btn-warning btn-lg" href="{% url 'products' %}" role="button">See our offer</a>
+    </div>
   </div>
-</div>
+</section>
 
-<div class="container products">
-  <div class="col-8 offset-2">
+<section class='about_products'>
+  <div class="container products">
+    <div class="col-8 offset-2">
     <h2>Do you know?</h2>
     <h3 class="products text-center">What actually do you drink and what is the diffrence between juice, nectar and drink?</h3>
-  </div>
-  <hr> 
-  <div class="col-8 offset-2">
+    </div>
+    <hr> 
+    <div class="col-8 offset-2">
     <p>In accordance with the law, from October 28, 2013 (Directive 2012/12 / EC of the European Parliament and of the Council of April 19, 2012 relating to fruit juices and the Regulation of the Minister and Rural Development of February 8, 2013 - Journal of Laws of 2013, item 327) it is forbidden to add any sugars (e.g. glucose, fructose, sucrose (white sugar), glucose-fructose syrup) to all fruit and tomato juices placed on the market (in a bottle and cartons), NFC and reconstituted from concentrated, pasteurized and unpasteurized juices ) or other sweeteners. These juices contain exactly the same type of sugar and in the same amount as the sugar contained in the fruit or tomatoes from which this juice was produced.</p>
 
     <p>Juices can be divided according to various criteria, taking into account: the type of raw material (fruit, vegetable, fruit and vegetable), type of semi-finished product (directly squeezed, reconstituted from concentrated juice), thermal treatment (unpasteurized - so-called one-day, pasteurized), appearance and consistency (clear, naturally cloudy, puréy).</p>
     </div>
-  <div class="col-8 offset-2">
+    <div class="col-8 offset-2">
     <h3>Juice</h3>
     <br>
     <p class="text-center">100% FRUIT INTAKE </p>
     <p><br>Juice squeezed directly from the fruit or obtained from concentrated fruit juice by recreating the proportion of water and aroma removed during the thickening process. <br> The juice does not contain any artificial colors or flavors.<br> Cannot be chemically preserved.
     </p>
-  </div>
-  <div class="col-8 offset-2">
+    </div>
+    <div class="col-8 offset-2">
     <h3>Nectar</h3>
     <br>
     <p class="text-center">FROM 25 TO 99% OF THE FRUIT INPUT </p> <p><br> Diluted juice with water with added sugar, possibly citric acid The nectar does not contain artificial colors or flavors; cannot be chemically preserved.</p>
-  </div>
-  <div class="col-8 offset-2">
+    </div>
+    <div class="col-8 offset-2">
     <h3>Drink</h3>
     <br>
     <p class="text-center">
     FROM 20 TO 99% OF THE FRUIT INPUT</p><p><br> Contains a certain amount of juice, water, sugar, acid lemons and other permitted food additives. <br> The drink may contain dyes and aromas and others additives.
     </p>
+    </div>
+    </div>
+    <br>
+    <br>
+    <div class="text-center">
+      <h4> If you have any further questions contact us:</h6>
+      <p class="text-center">support@juiceme.com</p>
+    </div>
   </div>
-</div>
-<br>
-<br>
-<div class="text-center">
-  <h4> If you have any further questions contact us:</h6>
-  <p class="text-center">support@juiceme.com</p>
-</div>
+</section>
 {% endblock %}
 
 {% block page_footer%}
