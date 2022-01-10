@@ -12,7 +12,7 @@ class Order(models.Model):
     model for orders in shop
     """
     order_number = models.UUIDField(
-        default=uuid.uuid4, primary_key=True, unique=True, editable=False)
+        default=uuid.uuid4, unique=True, editable=False)
     full_name = models.CharField(max_length=50, null=False, blank=False)
     email = models.EmailField(max_length=254, null=False, blank=False)
     phone_number = models.CharField(max_length=20, null=False, blank=False)
