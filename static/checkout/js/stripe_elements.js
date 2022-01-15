@@ -5,9 +5,9 @@
     https://stripe.com/docs/stripe-js
 */
 
-var stripe_public_key = $('#id_stripe_public_key').text().slice(1, -1);
-var client_secret = $('#id_client_secret').text().slice(1, -1);
-var stripe = Stripe(stripe_public_key);
+var stripePublicKey = $('#id_stripe_public_key').text().slice(1, -1);
+var clientSecret = $('#id_client_secret').text().slice(1, -1);
+var stripe = Stripe(stripePublicKey);
 var elements = stripe.elements();
 var style = {
     base: {
@@ -46,12 +46,13 @@ card.addEventListener('change', function(event) {
 // source: code institute video
 // handle the form submitted.
 var form = document.getElementById('payment-form');
+
 form.addEventListener('submit', function(event) {
     event.preventDefault();
     card.update({'disabled': true});
     $('#submit-button').attr('disabled', true);
     $('#payment-form').fadeToggle(100);
-    stripe.confirmCardPayment(client_secret, {
+    stripe.confirmCardPayment(clientSecret, {
         payment_method:{
             card: card,
         }
@@ -59,8 +60,11 @@ form.addEventListener('submit', function(event) {
     if (result.error) {
         var errorElement = document.getElementById('card-errors');
         var html = `
+                <span class="icon" role="alert">
+                <i class="fas fa-times"></i>
+                </span>
                 <span>${result.error.message}</span>`;
-            $(errorDiv).html(html);
+            $(displayError).html(html);
             $('#payment-form').fadeToggle(100);
             card.update({ 'disabled': false});
             $('#submit-button').attr('disabled', false);
@@ -71,4 +75,3 @@ form.addEventListener('submit', function(event) {
         }
     });
 });
-
