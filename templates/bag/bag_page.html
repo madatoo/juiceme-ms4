@@ -21,11 +21,10 @@
 {% endblock %}
 
 {% block content %}
-<div class="container-fluid offset-1">
+<div class="container">
     <div class="row">
-        <!--div class="col-12 col-lg-6 order-lg-last"-->
-            <aside class="col-lg-7 mb-3">
-            <div class="card">
+        <div class="container-fluid offset-1">
+            <div class="card mb-5">
                 {% if bag_items %}
                     <div class="table-responsive">
                         <table class="table table-borderless table-bag">
@@ -105,49 +104,41 @@
                     </div>   
                 {% endif %}
             </div>
-            </aside>
-            <aside class="col-lg-3">
-                <div class="card mb-3">
-                    <div class="card-body">
-                        <div class="products text-center">
-                            <h5>Have you an account?</h5>
-                            <div class="mt-4">
-                                <a href="{% url 'account_signup' %}" class="btn btn-warning" data-abc="true">Sign Up</a>
-                                <a href="{% url 'account_login' %}" class="btn btn-success" data-abc="true">Login </a>
-                            </div>   
-                        </div>    
-                    </div>
-                    <div class="card-body">
-                        <dl class="products black">
-                            <dt>Total price:
-                                <dd class="products text-center black"><i class=" fas fa-euro-sign small bag-page black black-euro"></i>{{ total|floatformat:2 }}
-                                </dd>
-                            </dt>
-                        </dl>
-                        <dl class="dlist-align">
-                            <dt class="products text-center mb-5">
-                            Always free delivery.
-                            </dt>
-                        </dl>
-                        <hr>
-                        <div class="products text-center mb-1">
-                            <a href="{% url 'checkout' %}" class="btn btn-primary" data-abc="true">
-                            <span>Checkout</span>
-                            <span class="icon">
-                                <i class="far fa-credit-card"></i>
-                            </span>
-                            </a>
-                        </div>
-                        <div class="products text-center mb-1">
-                            <a href="{% url 'products' %}" class="btn btn-success mt-4">
-                            <span class="icon">
+            <div class="card mb-3">
+                <div class="card-body mb-3">
+                    <div class="products text-center">
+                        <h5>Do you have an account?</h5>
+                        <div class="mt-4">
+                            <a href="{% url 'account_signup' %}" class="btn btn-warning" data-abc="true">Sign Up</a>
+                            <a href="{% url 'account_login' %}" class="btn btn-success" data-abc="true">Login </a>
+                        </div>   
+                    </div>    
+                </div>
+                <hr>
+                <div class="card-body mb-1">
+                    <p class="products text-center mb-5">Total price: <i class=" fas fa-euro-sign small bag-page black black-euro"></i>{{ total|floatformat:2 }}</p>
+                    <p class="products text-center mb-5">
+                        Always free delivery.<br>
+                        Currently shipping to Ireland only.</p>
+                <hr> 
+                <div class="products text-center mb-1">
+                    <a href="{% url 'checkout' %}" class="btn btn-primary" data-abc="true">
+                        <span>Checkout</span>
+                        <span class="icon">
+                            <i class="far fa-credit-card"></i>
+                        </span>
+                    </a>
+                </div>
+                <div class="products text-center mb-1">
+                    <a href="{% url 'products' %}" class="btn btn-success mt-4">
+                        <span class="icon">
                             <i class="fas fa-hand-point-left"></i>
-                            </span>
-                            <span> Continue Shopping</span>   
-                            </a>
-                        </div>
-                    </div>
-                    <div class="card-body">
+                        </span>
+                        <span> Continue Shopping</span>   
+                    </a>
+                </div>
+                </div>
+                <div class="card-body">
                         <dl class="products text-center">
                             <hr>
                             <dt>Support</dt>
@@ -155,15 +146,14 @@
                             <i class="fa fa-phone mt-3 euro"></i> +55 555 555 555</span>
                             <div>
                                 <span class="small">
-                                Please contact with us if you have any questions. <br>
+                                Please contact us if you have any questions. <br>
                                 We are avalible 24h.
                                 </span>
                             </div>
                         </dl>    
-                    </div>
                 </div>
-            </aside>
-        <!--/div-->
+            </div>
+        </div>
     </div>
 </div>
 {% endblock %}
