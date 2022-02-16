@@ -41,7 +41,7 @@ card.addEventListener('change', function(event) {
     } else {
       displayError.textContent = '';
     }
-  });
+});
 
 // source: code institute video
 // handle the form submitted.
@@ -57,9 +57,9 @@ form.addEventListener('submit', function(event) {
             card: card,
         }
     }).then(function(result) {
-    if (result.error) {
-        var errorElement = document.getElementById('card-errors');
-        var html = `
+        if (result.error) {
+            var displayError = document.getElementById('card-errors');
+            var html = `
                 <span class="icon" role="alert">
                 <i class="fas fa-times"></i>
                 </span>
