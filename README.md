@@ -230,13 +230,15 @@ Page is responsive. It was checked on phones, laptops and in dev tools.
 
 I made an error, because I exposed my Secret Key in github. I needed to remove it from there by deleting and commiting directly from github. Unfortunatley, I didn't push the changes from gitpod and I needed to fix it later on by pulling the changes from github and pushing my not updated commits. 
 
-During production, I had a problem with connection to heroku and deployment (which wasn't easy for me :) ) and updating my database with my own data (I didn't have the fixtures). That probably was the worst part for me (except the troubles with the single product page). 
+During production, I had a problem with connection to heroku and deployment (which wasn't easy for me :) ) and updating my database with my own data (I didn't have the fixtures). That probably was the worst part for me (except the troubles with the single product page).
 
-The page had a minor error which doesn't allow users to open the single page and add product to the bag. I checked my code, and did't know how to fix this bug. Now the page is working almoust ok (I need to remove last bug which allow the user go to the checkout page - now it is not working). now I get an error NoReverseMatch at /bag/ (bag/update_bag) 
+During production I had troubles with updating my Order Model - to solve this issue I needed remove my old order table and make migration one more time. 
+
+I also didn't fully understand the alter field idea, that is something what I want to study later (in my free time).
 
 I have a little time, to finish this project. To keep all essential requirements done I decided to removed the broken link to Privacy Policy from footer. I assigned it as the left to implement solution, just like the using the social media to easly login to page. This allows visitors to create an account faster, by clicking one button and save their time. I would also be able to track the visitors (to know how long they stay on page etc.). To implement this solution I will needed also add to login/create account page checkbox which will be needed cliked when user give me permission to tracking him via SM).
 
-To increase the SEO, in future I would like to replace the integer number which for now is visible in my webpage for product by slug to store and generate valid URLs for my dynamically created web page.
+To increase the SEO, in future I would like to replace the integer number which for now is visible in my webpage for products by slug to store and generate valid URLs for my dynamically created web page.
 
 Because a lack of time I also dropped an idea to add contact page to my project and moved the contact email from footer to home page (but this email it is not a link to contact page. It is only info how the visitors can contact with the company). The contact page is a solution which will be implemented in the future).
 

@@ -4,13 +4,13 @@ from .models import Order, OrderLineItem
 
 class OrderLineItemAdminInline(admin.TabularInline):
     model = OrderLineItem
-    fields = ('product', 'quantity', )
+    fields = ('lineitem_total', )
 
 
 class OrderAdmin(admin.ModelAdmin):
     inlines = (OrderLineItemAdminInline,)
 
-    list_display =('pk', 'date', 'full_name',)
+    list_display =('order_number', 'date', 'full_name', 'delivery_cost', 'discount', 'order_total', 'total')
 
     ordering = ('-date',)
 
