@@ -2,6 +2,7 @@
 import os for stripe element
 """
 import os
+import json
 
 from django.shortcuts import (
     render, redirect, reverse, get_object_or_404,
@@ -11,11 +12,11 @@ from django.conf import settings
 from django.contrib import messages
 
 import stripe
-import json
 from bag.contexts import products_in_bag
 from products.models import Product
 from .forms import OrderForm
 from .models import Order, OrderLineItem
+
 
 @require_POST
 def cache_checkout_data(request):
@@ -28,10 +29,10 @@ def cache_checkout_data(request):
             'username': request.user,
         })
         return HttpResponse(status=200)
-        except Exception as e:
-            messages.error(request, 'Sorry, your payment cannot be \
-                processed. Try one more time later, please.')
-            return HttpResponse(content=e, status=400)
+    except Exception as e:
+        messages.error(request, 'Sorry, your payment cannot be \
+            processed. Try one more time later, please.')
+        return HttpResponse(content=e, status=400)
 
 
 def checkout(request):
@@ -55,10 +56,14 @@ def checkout(request):
         }
         order_form = OrderForm(order_form_fields)
         if order_form.is_valid():
-            order = order_form.save()
+            order = order_form.save(commit=False)
+            pid = request.POST.get('client_secret').split('_secret')[0]
+            order.stripe_pid = pid
+            order.orginal_bag = json.dumps(bag)
+            order.save()
             for item_id, quantity in bag.items():
                 try:
-                    product = get_object_or_404(Product, pk=item_id)
+                    product = Product.objects.get(pk=item_id)
                     if isinstance(quantity, int):
                         order_line_item = OrderLineItem(
                             order=order,
