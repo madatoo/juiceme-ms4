@@ -1,11 +1,10 @@
 """source CI """
-from django.http import HttpResponse
-
-from .models import Order, OrderLineItem
-from products.models import Product
-
 import json
 import time
+
+from django.http import HttpResponse
+from products.models import Product
+from .models import Order, OrderLineItem
 
 
 class StripeWH_Handler:
@@ -27,7 +26,7 @@ class StripeWH_Handler:
         """
         intent = event.data.object
         print(intent)
-        pid = intent.item_id
+        pid = intent.id
         bag = intent.metadata.bag
         save_info = intent.metadata.save_info
 
@@ -59,7 +58,7 @@ class StripeWH_Handler:
                     stripe_pid=pid,
                 )
                 order_exists = True
-                break                   
+                break
             except Order.DoesNotExist:
                 attempt += 1
                 time.sleep(1)
@@ -99,7 +98,7 @@ class StripeWH_Handler:
         return HttpResponse(
             content=f'Webhook recived: {event["type"]}, | SUCCESS: Created order in webhook', status=200)
 
-    def handle_payment_intent_failed(self, event):
+    def handle_payment_intent_payment_failed(self, event):
         """
         Handle payment_intent.payment_failed from Stripe
         """
