@@ -42,7 +42,7 @@ def checkout(request):
 
     if request.method == 'POST':
         bag = request.session.get('bag', {})
-
+      
         order_form_fields = {
             'full_name': request.POST['full_name'],
             'email': request.POST['email'],
@@ -52,7 +52,7 @@ def checkout(request):
             'town_or_city': request.POST['town_or_city'],
             'postcode': request.POST['postcode'],
             'county': request.POST['county'],
-            'country': request.POST['country'],
+
         }
         order_form = OrderForm(order_form_fields)
         if order_form.is_valid():

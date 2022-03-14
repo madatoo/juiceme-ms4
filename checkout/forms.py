@@ -4,8 +4,11 @@ from .models import Order
 
 class OrderForm(forms.ModelForm):
 
+    country = forms.CharField(disabled=True, initial='IE')
+
     class Meta:
         model = Order
+
         fields = (
             'full_name',
             'email',
@@ -15,6 +18,7 @@ class OrderForm(forms.ModelForm):
             'town_or_city',
             'postcode',
             'county',
+            'country'
         )
 
     def __init__(self, *args, **kwargs):
@@ -28,6 +32,8 @@ class OrderForm(forms.ModelForm):
             'street_address2': 'Address 2',
             'town_or_city': 'Town or City',
             'postcode': 'Postal Code',
+            'county': 'County',
+            'country': 'Country'
         }
 
         self.fields['full_name'].widget.attrs['autofocus'] = True
