@@ -61,6 +61,9 @@ def checkout(request):
             order.stripe_pid = pid
             order.orginal_bag = json.dumps(bag)
             order.save()
+
+            bag = request.session.get('bag', {})
+
             for item_id, quantity in bag.items():
                 try:
                     product = Product.objects.get(pk=item_id)
@@ -70,7 +73,8 @@ def checkout(request):
                             product=product,
                             quantity=quantity,
                         )
-                        order_line_item.save()
+                    order_line_item.save()
+
                 except Product.DoesNotExist:
                     messages.error(
                         request, ("We are sorry. One of the product \

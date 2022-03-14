@@ -19,10 +19,8 @@ class OrderForm(forms.ModelForm):
         )
 
     def __init__(self, *args, **kwargs):
+        """"add placeholders to the form"""
         super().__init__(*args, **kwargs)
-        """"
-        add placeholders
-        """
         placeholders = {
             'full_name': 'Full Name',
             'email': 'Email',
@@ -40,7 +38,7 @@ class OrderForm(forms.ModelForm):
             if self.fields[field].required:
                 placeholder = f'{placeholders[field]} *'
             else:
-                placeholder = f'{placeholders[field]}'
+                placeholder = placeholders[field]
             self.fields[field].widget.attrs['placeholder'] = placeholder
             self.fields[field].widget.attrs['class'] = 'stripe-style-input'
             self.fields[field].label = False
