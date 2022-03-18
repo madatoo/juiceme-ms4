@@ -6,7 +6,6 @@ from .models import Order, OrderLineItem
 class OrderLineItemAdminInline(admin.TabularInline):
     """source CI"""
     model = OrderLineItem
-    fields = ('lineitem_total',)
 
 
 class OrderAdmin(admin.ModelAdmin):

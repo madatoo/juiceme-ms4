@@ -9,6 +9,7 @@ from django.shortcuts import (
     HttpResponse)
 from django.views.decorators.http import require_POST
 from django.conf import settings
+from django.utils import timezone
 from django.contrib import messages
 
 import stripe
@@ -57,13 +58,12 @@ def checkout(request):
         order_form = OrderForm(order_form_fields)
         if order_form.is_valid():
             order = order_form.save(commit=False)
+            order.date = timezone.now()
             pid = request.POST.get('client_secret').split('_secret')[0]
             order.stripe_pid = pid
             order.orginal_bag = json.dumps(bag)
             order.save()
-
             bag = request.session.get('bag', {})
-
             for item_id, quantity in bag.items():
                 try:
                     product = Product.objects.get(pk=item_id)
