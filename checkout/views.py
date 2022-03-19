@@ -63,28 +63,34 @@ def checkout(request):
             order.stripe_pid = pid
             order.orginal_bag = json.dumps(bag)
             order.save()
+            total = 0
             bag = request.session.get('bag', {})
             for item_id, quantity in bag.items():
-                try:
-                    product = Product.objects.get(pk=item_id)
-                    if isinstance(quantity, int):
-                        order_line_item = OrderLineItem(
-                            order=order,
-                            product=product,
-                            quantity=quantity,
-                        )
+                # try:
+                product = Product.objects.get(pk=item_id)
+                total += quantity * product.price
+                if isinstance(quantity, int):
+                    order_line_item = OrderLineItem(
+                        order=order,
+                        product=product,
+                        quantity=quantity,
+                    )
                     order_line_item.save()
-
-                except Product.DoesNotExist:
-                    messages.error(
-                        request, ("We are sorry. One of the product \
-                                  in your bag wasen't found in our shop. \
-                                  Please contact with us for assistance. \
-                                  Thank you for your cooperation. \
-                                  We are getting better for you.")
-                        )
-                    order.delete()
-                    return redirect(reverse("bag_page"))
+            try:
+                customer: stripe.Charge.create(
+                    amount=int(total * 100),
+                    currency=settings.STRIPE_CURRENCY,
+                )
+            except Product.DoesNotExist:
+                messages.error(
+                    request, ("We are sorry. One of the product \
+                                in your bag wasen't found in our shop. \
+                                Please contact with us for assistance. \
+                                Thank you for your cooperation. \
+                                We are getting better for you.")
+                    )
+                order.delete()
+                return redirect(reverse("bag_page"))
 
             request.session['save_info'] = 'save-info' in request.POST
             return redirect(reverse(
