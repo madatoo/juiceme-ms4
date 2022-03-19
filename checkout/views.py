@@ -1,5 +1,5 @@
 """
-import os for stripe element
+renders checkout page source CI
 """
 import os
 import json
@@ -21,6 +21,7 @@ from .models import Order, OrderLineItem
 
 @require_POST
 def cache_checkout_data(request):
+    """ handle the cache data """
     try:
         pid = request.POST.get('client_secret').split('_secret')[0]
         stripe.api_key = settings.STRIPE_SECRET_KEY
@@ -37,7 +38,7 @@ def cache_checkout_data(request):
 
 
 def checkout(request):
-    """"source CI video"""
+    """"renders checkout page """
     stripe_public_key = os.getenv('STRIPE_PUBLIC_KEY', '')
     stripe_secret_key = os.getenv('STRIPE_SECRET_KEY', '')
 
