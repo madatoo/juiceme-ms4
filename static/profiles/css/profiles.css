@@ -1,0 +1,21 @@
+#profile-update-form .form-control {
+    color: #000;
+}
+
+#profile-update-form input::placeholder {
+    color: #aab7c4;
+}
+
+#id_default_county,
+#id_default_county option:not(:first-child) {
+    color: #000;
+}
+
+#id_default_county option:first-child {
+    color: #aab7c4;
+}
+
+.form-control:disabled, .form-control[readonly] {
+    background-color:rgb(255,255,0, 0.2) !important;
+    opacity: 1;
+}

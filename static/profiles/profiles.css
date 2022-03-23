@@ -1,6 +1,0 @@
-input:-internal-autofill-selected {
-    appearance: menulist-button;
-    background-image: none !important;
-    background-color: -internal-light-dark(rgb(255, 255, 204), rgba(70, 90, 126, 0.4)) !important;
-    color: -internal-light-dark(black, white) !important
-}

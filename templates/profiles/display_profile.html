@@ -23,6 +23,27 @@
                 <hr>
             </div>
         </div>
-        {{ profile }}
+        <div class="row">
+            <!--updadte default info-->
+            <div class="col-12 col-lg-6">
+            <p>Default Delivery Information</p>
+            <form action="{% url 'display_profile' %}" method="POST" id="profile_update_form">
+                {% csrf_token %}
+                {{ form|crispy }}
+                <button class="btn btn-warning float-right mb-4">Update Information</button>
+            </form>
+            </div>
+            <!--order history-->
+            <div class="col-12 col-lg-6">
+            <p>Order History</p>
+            {{ orders }}
+            </div>
+        </div>
     </div>
 {% endblock %}
+
+{% block postloadjs %}
+    {{ block.super }}
+    <script type="text/javascript" src="{% static 'profiles/js/countyfield.js' %}"></script>
+    
+{% endblock%}
