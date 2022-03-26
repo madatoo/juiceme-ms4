@@ -9,13 +9,21 @@
     </div>
     <div class="toast-body">
         {{ message }}
+        <hr class="mb-3">
     </div>
-    <!--div>
-        <a href="{% url 'bag_page' %}" class="btn btn-success btn-block">
-            <span class="text-uppercase">Go To Secure Checkout</span>
-            <span class="icon">
-                <i class="fas fa-lock"></i>
-            </span>
-        </a>
-    </div-->            
+    {% if total and not on_profile_page %}
+        <div class="col">
+            <p>
+                <strong class="mr-auto">Total: <span class="float-right"><i class="fas fa-euro-sign small"></i>{{ total|floatformat:2 }}</span></strong>
+            </p>    
+        </div>
+        <div>
+            <a href="{% url 'checkout' %}" class="btn btn-success btn-block">
+                <span>Go To Secure Checkout</span>
+                <span class="icon">
+                    <i class="fas fa-lock"></i>
+                </span>
+            </a>
+        </div>
+    {% endif %}            
   </div>
