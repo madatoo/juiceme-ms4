@@ -19,3 +19,8 @@
     background-color:rgb(255,255,0, 0.2) !important;
     opacity: 1;
 }
+
+.order-history{
+    max-height: 416px; /*height order history and submitt button */
+    overflow-y: auto;
+}
