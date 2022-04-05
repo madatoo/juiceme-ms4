@@ -43,8 +43,13 @@
                                 <tbody>
                                     <tr>
                                         <!--product img-->
-                                        <td class="p-3">  
-                                        <img src="{{ item.product.img.url }}" class="img-bag-fluid" width="70" alt="{{ item.product.name }}">
+                                        <td class="p-3">
+                                            {% if item.product.img %}
+                                                <img class="img-bag-fluid" width="70"  src="{{ item.product.img.url }}" alt="{{ item.product.name }}">
+                                                {% else %}
+                                                <img class="img-bag-fluid" width="70" src="{{ MEDIA_URL }}fruits.jpg" alt="{{ item.product.name }}">
+                                            {% endif %} 
+
                                         </td>
                                         <!--product name-->
                                         <td class="p-3">
