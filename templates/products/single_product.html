@@ -60,6 +60,12 @@
                 <p>{{ product.nutrion_info}}</p>
             </div>
         </div>
+        {% if request.user.is_superuser %}
+            <p class="ml-3">
+                <a href="{% url 'edit_product' product.id %}"><span><b>Edit Product</b></span></a> | 
+                <a class="text-danger" href="{% url 'delete_product' product.id %}"><span><b>Delete Product</b></span></a>
+            </p>
+        {% endif %}
     </div>
 </div>
 
