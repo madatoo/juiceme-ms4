@@ -37,12 +37,25 @@
                         {% endif %}
                         <div class="card-body mb-2">
                             <h5 class="card-title">{{ product.name }}</h5>
-                            <h6>Category: {{ product.category }}</h6>
-                            <h4 class="card-text mb-0 euro"> <i class=" fas fa-euro-sign small euro black-euro"></i>{{ product.price }}</h4>
+                            <h6>Category: {{ product.category }}</h6> 
                             {% if product.rating %}
-                            <small class="card-text"><i class=" fas fa-star mr-1">{{ product.rating }}/5</i></small>
+                            <small class="card-text"><i class=" fas fa-star mr-1">{{ product.rating }}/5 </i></small>
                             {% else %}
                             <small class="card-text">No Rating</small>    
+                            {% endif %}
+                            <h4 class="card-text mt-3 mb-0 euro"> <i class=" fas fa-euro-sign small euro black-euro"></i>{{ product.price }}</h4>
+                            {% if request.user.is_superuser %}
+                            <div class="mt-3">
+                                <small class="card-text">
+                                    <a href="{% url 'edit_product' product.id %}"><span><b>Edit Product</b></span></a>
+                                </small>
+                            </div>
+                            <div>
+                                <small class="card-text"> 
+                                    <a class="text-danger" href="{% url 'delete_product' product.id %}"><span><b>Delete Product</b></span></a>
+                                </small>
+                            </div>
+                            
                             {% endif %}
                         </div>
                         <div class="card-footer">
