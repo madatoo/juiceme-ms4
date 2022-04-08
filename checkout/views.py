@@ -47,7 +47,7 @@ def checkout(request):
     if request.method == 'POST':
         bag = request.session.get('bag', {})
 
-        order_form_fields = {
+        form_data = {
             'full_name': request.POST['full_name'],
             'email': request.POST['email'],
             'phone_number': request.POST['phone_number'],
@@ -58,7 +58,7 @@ def checkout(request):
             'county': request.POST['county'],
 
         }
-        order_form = OrderForm(order_form_fields)
+        order_form = OrderForm(form_data)
         if order_form.is_valid():
             order = order_form.save(commit=False)
             order.date = timezone.now()

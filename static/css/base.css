@@ -42,7 +42,7 @@ h3,
 /* source: https://coder-coder.com/how-to-fix-css-background-image-not-working/ */
 
 .background-fruits{
-    background: url('/media/background.jpg') no-repeat center center fixed;
+    background: white center/cover url('/media/background.jpg') no-repeat;
 }
 
 /*-----------------navbar my account icon and p */
@@ -91,9 +91,9 @@ button.navbar-toggle {
 }
 /*for heading in allproduct page*/
 .header-container h1,
-/*for hover effect in footer*/
 h2,
 h3,
+h4,
 .black-euro:hover,
 .euro,
 .email-footer:hover,

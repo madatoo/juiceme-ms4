@@ -13,7 +13,7 @@
     <div class="container header-container">
         <div class="row">
             <div class="col">
-                <h1>Shopping Bag</h1>
+                <h2>Shopping Bag</h2>
                 <p class="products"> Item(s) in your bag:</p>
             </div>
         </div>
@@ -22,141 +22,129 @@
 
 {% block content %}
 <div class="container">
-    <div class="row">
-        <div class="container-fluid offset-1">
-            <div class="card mb-5">
+    <div class="row ">
+        <div class="col-12 col-lg-8 mb-3">
+                <div class=" table-responsive table-borderless">
                 {% if bag_items %}
-                    <div class="table-responsive">
-                        <table class="table table-borderless table-bag">
-                            <thead class="text-muted">
-                                <tr class="small">
-                                    <th scope="col">Product Info</th>
-                                    <th scope="col"></th>
-                                    <th scope="col">Quantity</th>
-                                    <th scope="col">Price</th>
-                                    <th scope="col">Subtotal</th>
-                                    <th scope="col" class="update-delete d-none d-md-block"></th>
-                                </tr>
-                            </thead>
-                            {% for item in bag_items %}
-                            <form method="POST" class="form update-form" action="{% url 'update_bag' item.item_id %}">
-                                <tbody>
-                                    <tr>
-                                        <!--product img-->
-                                        <td class="p-3">
-                                            {% if item.product.img %}
-                                                <img class="img-bag-fluid" width="70"  src="{{ item.product.img.url }}" alt="{{ item.product.name }}">
-                                                {% else %}
-                                                <img class="img-bag-fluid" width="70" src="{{ MEDIA_URL }}fruits.jpg" alt="{{ item.product.name }}">
-                                            {% endif %} 
+                <table class="table table-sm">
+                    <thead class="text-muted">
+                        <tr class="small">
+                            <th >Product Info:</th>
+                            <th></th>
+                            <th>Quantity</th>
+                            <th>Price</th>
+                            <th>Subtotal</th>
+                            <th class="update-delete d-none d-md-block"></th>
+                        </tr>    
+                    </thead>
+                    {% for item in bag_items %}
+                    <form method="POST" class="form update-form" action="{% url 'update_bag' item.item_id %}">
+                        <tbody>
+                            <!--product img-->
+                            <td>
+                                {% if item.product.img %}
+                                    <img class="img-bag-fluid" width="70"  src="{{ item.product.img.url }}" alt="{{ item.product.name }}">
+                                    {% else %}
+                                    <img class="img-bag-fluid" width="70" src="{{ MEDIA_URL }}fruits.jpg" alt="{{ item.product.name }}">
+                                {% endif %} 
 
-                                        </td>
-                                        <!--product name-->
-                                        <td class="p-3">
-                                        <p class="my-0 black bag-page d-none d-md-block">{{ item.product.name }}</p>
-                                        </td>
-                                        <!-- product quantity-->
-                                        <td>
-                                        {% csrf_token %}
-                                            <div class="input-group d-flex flex-row align-items-center">
-                                                <input type="number" name="quantity" value="{{ item.quantity }}" min="0" max="99" aria-label="Search"   
-                                                class="form-control form-control-sm my-0 bag-page th-price-qty add-qty" style="width: 100px;" 
-                                                data-item_id="{{ item.item_id }}" id="add-qty_{{ item.item_id }}">
-                                            </div>       
-                                        </td>
-                                        <!--price-->
-                                        <td>
-                                        <p class="my-0 black black-euro"><i class="fas fa-euro-sign small black-euro black "></i>{{ item.product.price }}</p>
-                                        </td>
-                                        <!--subtotal-->
-                                        <td>
-                                        <p class="my-0 black black-euro"><i class="fas fa-euro-sign small black-euro black"></i>{{ item.product.price | calculate_subtotal:item.quantity }}</p> 
-                                        </td>
-                                        <!--icons love it/update/remove from basket-->
-                                        <td class="update-delete trash d-none d-sm-block">
-                                            <!--love it-->
-                                            <a class="trash"
-                                            id="wishlist_{{ item.item_id }}" data-original-title="Wishlist">
-                                                <i class="fa fa-heart text-danger"></i>
-                                            </a>
-                                            <!--update-->
-                                            <button class="submit update-form" data-original-title="Update">
-                                                <i class="far fa-edit">
-                                                </i>
-                                            </button>
-                                            <!--delete-->
-                                            <a class="delete-item trash" id="delete_{{ item.item_id }}" data-original-title="Delete">
-                                            <i class="fa fa-trash mb-1 text-danger"></i>
-                                            </a>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </form> 
-                            {% endfor %}
-                        </table>
-                    </div>
+                            </td>
+                            <!--product name-->
+                            <td>
+                                <p class="my-0 black bag-page d-none d-md-block">{{ item.product.name }}</p>
+                            </td>
+                            <!-- product quantity-->
+                            <td>
+                                {% csrf_token %}
+                                    <div class="input-group d-flex flex-row align-items-center">
+                                        <input type="number" name="quantity" value="{{ item.quantity }}" min="0" max="99" aria-label="Search"   
+                                        class="form-control form-control-sm my-0 bag-page th-price-qty add-qty" style="width: 100px;" 
+                                        data-item_id="{{ item.item_id }}" id="add-qty_{{ item.item_id }}">
+                                    </div>       
+                            </td>
+                            <!--price-->
+                            <td>
+                                <p class="my-0 black black-euro"><i class="fas fa-euro-sign small black-euro black "></i>{{ item.product.price }}</p>
+                            </td>
+                            <!--subtotal-->
+                            <td>
+                                <p class="my-0 black black-euro"><i class="fas fa-euro-sign small black-euro black"></i>{{ item.product.price | calculate_subtotal:item.quantity }}</p> 
+                            </td>
+                            <td class="update-delete trash">
+                                <!--love it>
+                                <a class="trash"
+                                id="wishlist_{{ item.item_id }}" data-original-title="Wishlist">
+                                    <i class="fa fa-heart text-danger"></i>
+                                </a-->
+                                <!--update-->
+                                <button class="submit update-form" data-original-title="Update">
+                                    <i class="far fa-edit"></i>
+                                </button>
+                                <!--delete-->
+                                <a class="delete-item trash" id="delete_{{ item.item_id }}" data-original-title="Delete">
+                                    <i class="fa fa-trash mb-1 text-danger"></i>
+                                </a>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </form>
+                        
+                    {% endfor %}
+                </table>
                 {% else %}
-                    <p class="products text-center lead mb-5">
-                        The bag is empty.
-                    </p>
-                    <div class="products text-center mb-5">
-                        <a href="{% url 'products' %}" class="btn btn-lg btn-success">
-                            <span> Continue Shopping</span>
-                            <span class="icon">
-                                <i class="fas fa-arrow-left"></i>
-                            </span>   
-                        </a>
-                    </div>   
-                {% endif %}
-            </div>
-            <div class="card mb-3">
-                <div class="card-body mb-3">
-                    <div class="products text-center">
-                        <h5>Do you have an account?</h5>
-                        <div class="mt-4">
-                            <a href="{% url 'account_signup' %}" class="btn btn-warning" data-abc="true">Sign Up</a>
-                            <a href="{% url 'account_login' %}" class="btn btn-success" data-abc="true">Login </a>
+                    <div class=" background-fruits img-responsive">
+                        <div class="empty-bag"> 
+                            <p class="text-center">
+                                Your bag is currently empty.
+                            </p>
                         </div>   
-                    </div>    
+                    </div>
+                {% endif %}
                 </div>
-                <hr>
-                <div class="card-body mb-1">
-                    <p class="products text-center mb-5">Total price: <i class=" fas fa-euro-sign small bag-page black black-euro"></i>{{ total|floatformat:2 }}</p>
-                    <p class="products text-center mb-5">
-                        Always free delivery.<br>
-                        Currently shipping to Ireland only.</p>
-                <hr> 
-                <div class="products text-center mb-1">
-                    <a href="{% url 'checkout' %}" class="btn btn-primary" data-abc="true">
-                        <span>Checkout</span>
-                        <span class="icon">
-                            <i class="far fa-credit-card"></i>
-                        </span>
-                    </a>
-                </div>
-                <div class="products text-center mb-1">
-                    <a href="{% url 'products' %}" class="btn btn-success mt-4">
-                        <span class="icon">
-                            <i class="fas fa-hand-point-left"></i>
-                        </span>
-                        <span> Continue Shopping</span>   
-                    </a>
-                </div>
-                </div>
-                <div class="card-body">
-                        <dl class="products text-center">
-                            <hr>
-                            <dt>Support</dt>
-                            <span class="euro">
-                            <i class="fa fa-phone mt-3 euro"></i> +55 555 555 555</span>
-                            <div>
-                                <span class="small">
-                                Please contact us if you have any questions. <br>
-                                We are avalible 24h.
-                                </span>
-                            </div>
-                        </dl>    
-                </div>
+        </div>
+        
+        <div class="col-12 col-lg-4">
+            <div class="products text-center">
+                    <h5>Do you have an account?</h5>
+                    <div class="mt-4">
+                        <a href="{% url 'account_signup' %}" class="btn btn-warning" data-abc="true">Sign Up</a>
+                        <a href="{% url 'account_login' %}" class="btn btn-success" data-abc="true">Login </a>
+                    </div>   
+            </div>    
+            <hr>
+            <div>
+                <p class="products text-center mb-2">Total price: 
+                    <i class=" fas fa-euro-sign small bag-page black black-euro"></i>{{ total|floatformat:2 }}
+                </p>
+                <p class="products text-center mb-2">
+                    Currently shipping to Ireland only.
+                </p>
+            </div>
+            <hr>
+            <div>
+                <p class="products text-center mb-2">Support</p>
+                <p class="products text-center">
+                    <span class="euro products text-center">
+                    <i class="fa fa-phone euro "></i> +55 555 555 555
+                </span>
+                </p> 
+            </div>
+            <hr>
+            <div class="products text-center mb-2">
+                <a href="{% url 'products' %}" class="btn btn-success mt-4">
+                    <span class="icon">
+                        <i class="fas fa-hand-point-left"></i>
+                    </span>
+                    <span> Continue Shopping</span>   
+                </a>
+            </div>
+            <div class="products text-center mb-2">
+                <a href="{% url 'checkout' %}" class="btn btn-primary" data-abc="true">
+                    <span>Go to Secure Checkout</span>
+                    <span class="icon">
+                        <i class="far fa-credit-card"></i>
+                    </span>
+                </a>
             </div>
         </div>
     </div>

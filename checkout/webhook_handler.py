@@ -53,6 +53,7 @@ class StripeWH_Handler:
 
         billing_details = intent.charges.data[0].billing_details
         shipping_details = intent.shipping
+        print(intent)
         total = round(intent.charges.data[0].amount / 100, 2)
 
         # Clean data in the shipping details
@@ -101,7 +102,7 @@ class StripeWH_Handler:
         if order_exists:
             self._send_confirmation_email(order)
             return HttpResponse(
-                content=f'Webhook received: { event["type"]} | SUCCESS: Verified order already in database', status=200)
+                content=f'Webhook received: {event["type"]} | SUCCESS: Verified order already in database', status=200)
         else:
             order = None
             try:
