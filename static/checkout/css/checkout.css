@@ -30,6 +30,17 @@
     right: .5rem;
 }
 
+.form-control:disabled, .form-control[readonly] {
+  background-color:rgb(255,255,0, 0.2) !important;
+  opacity: 1;
+}
+
+.img-bag-fluid {
+height: 70px;
+max-width: 70px;
+object-fit: cover;
+}
+
 #payment-form .form-control,
 #card-element {
     color: #000;
@@ -45,16 +56,6 @@
     color: #aab7c4;
 }
 
-.form-control:disabled, .form-control[readonly] {
-    background-color:rgb(255,255,0, 0.2) !important;
-    opacity: 1;
-}
-
-.img-bag-fluid {
-  height: 70px;
-  max-width: 70px;
-  object-fit: cover;
-}
 
 @media screen and (max-width: 600px) {
   
