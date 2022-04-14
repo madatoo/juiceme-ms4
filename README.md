@@ -173,6 +173,10 @@ Most of time I checked my code on HTML validator and pep8online to find my error
 
 To see the problems fast  and have a chance to react I turned on the Problems tab in VSCode.
 
+The most harder part in this project for me was creating and handle the webhooks. I had few errors in my code which didn't allow me save the default addres for authhenticated users. To solve this issue I compared my code with BA project  and advices included in instuction which I find in CI Slac 'Stripe webhook errors with Gitpod', and fixed all errors which I had in my project. Unfortunatley I still wasn't able to display the default address in my User Account. Again I readed the Stripe docs and Stak Overflow posts related to this issue, and realise that, I should install the https://ngrok.com/ which allows Stripe connect with local workspace. (but that wasn't solution mentioned in BA, and I was scare I can broke my code at the end). To figure out how to fix that issue I was looking CI Slack channels related to my erros (this time 401 which means Access Denied) and I finally discovered that, I need share my workspace to test the webhook :). 
+
+The second huge challenge for me was improving the UI for superuser (which should be able to see the thumbnails image of product which he/she is adding). I still didn's solve that issue. That will be done as a further implementation, because after few days I still dot have a good solution for that. I asked my much advanced friend and he say it is because the template for custom_clearable_file_input.html are in global templates folder. But, in my opinion it is't the issue because this file is placed in the same directory like the add/edit/delete product html files - which was working fine before I added the custom_widget_templates folder. From that reasone I probably remove the custom_widget_folder and return to previous version, which will be less comfortable for superuser, but meet CRUD criteria. 
+
 
 ### Functionality
 #### Admin stories
@@ -182,8 +186,7 @@ To see the problems fast  and have a chance to react I turned on the Problems ta
 | 1 | Easly navigate throught the whole page |  content on the web is strictly connected to the main topic and navigation is clearly and visible| PASS |
 | 2 | Be able to login to an administration panel |  | PASS |
 | 3 | Easly manage the whole product in store | Be able to add, edit and delete product | PASS |
-| 4 | Easly manage all categories in store | Be able to create, edit and delete category of product | PASS|
-| 5 | Make sure the user can't to be able to checkout an empty cart | | PASS/ NO PASS |
+| 4 | Make sure the user can't to be able to checkout an empty cart | | PASS|
 
 
 #### User Stories
@@ -191,9 +194,9 @@ To see the problems fast  and have a chance to react I turned on the Problems ta
 
 | Nr | Test          | Action | Test result |
 | --- |:----------------|:--------------| :-----: |
-| 1 | Easly navigate throught the whole page | navigation on site is clearly and visible | NO PASS |
+| 1 | Easly navigate throught the whole page | navigation on site is clearly and visible |PASS |
 | 1.1 | Return to home page|  when you click the logo you return to home page  |PASS |
-| 1.2 | Open desired subpages| each time when you decide to visit each page (i.e.: Shop, Login) you open intendent page| no |
+| 1.2 | Open desired subpages| each time when you decide to visit each page (i.e.: Shop, Login) you open intendent page| PASS |
 | 1.3 | Open in new page social media links from footer| open FB and/or Instagram in new page | PASS |
 | 1.4 | 
 | 2 | Easly browse the products available in shop |  | PASS |
@@ -201,16 +204,17 @@ To see the problems fast  and have a chance to react I turned on the Problems ta
 | 2.2 | Sort multiple categories of product simultaneously |  | PASS |
 | 2.3 | Search  for product name or desctiption |  | PASS |
 | 2.4 | View product price, description, rating and image in new page|  | PASS |
-| 3 | Easily create customer profile |  | PASS/ NO PASS |
-| 3.1 | Registration for account |  | PASS/ NO PASS |
-| 3.2 |  Recive an confirmation email after registration |  | PASS/ NO PASS |
-| 4 | Have a personalised account  |  | PASS/ NO PASS |
-| 4.1 | Easly log in/out    |  | PASS/ NO PASS |
-| 4.2 | View personal order history |  | PASS/ NO PASS |
-| 4.3 | View order confirmation  |  | PASS/ NO PASS |
-| 4.4 | Save payment informations  |  | PASS/ NO PASS |
+| 3 | Easily create customer profile |  | PASS|
+| 3.1 | Registration for account |  | PASS|
+| 3.2 |  Recive an confirmation email after registration |  | PASS|
+| 4 | Have a personalised account  |  | PASS|
+| 4.1 | Easly log in/out    |  | PASS|
+| 4.2 | View personal order history |  | PASS|
+| 4.3 | View order confirmation  |  | PASS|
+| 4.4 | Save payment informations  |  | PASS|
 | 4.5 | Intuitive select quantity of product when purchasing products  |  | PASS |
-| 4.6 | Easly recovery password when is forgotten |  | PASS/ NO PASS |
+
+All tests are saved in wireframes/test_screen_shots folder
 
 
 ### Browser Compatibility
@@ -236,14 +240,11 @@ During production I had troubles with updating my Order Model - to solve this is
 
 I also didn't fully understand the alter field idea, that is something what I want to study later (in my free time).
 
-I have a little time, to finish this project. To keep all essential requirements done I decided to removed the broken link to Privacy Policy from footer. I assigned it as the left to implement solution, just like the using the social media to easly login to page. This allows visitors to create an account faster, by clicking one button and save their time. I would also be able to track the visitors (to know how long they stay on page etc.). To implement this solution I will needed also add to login/create account page checkbox which will be needed cliked when user give me permission to tracking him via SM).
+To keep all essential requirements done I decided to removed the broken link to Privacy Policy from footer. I assigned it as the left to implement solution, just like the using the social media to easly login to page. This allows visitors to create an account faster, by clicking one button and save their time. I would also be able to track the visitors (to know how long they stay on page etc.). To implement this solution I will needed also add to login/create account page checkbox which will be needed cliked when user give me permission to tracking him via SM).
 
-To increase the SEO, in future I would like to replace the integer number which for now is visible in my webpage for products by slug to store and generate valid URLs for my dynamically created web page.
+To increase the SEO, in future I would like to replace the integer number which for now is visible in my webpage for products and categories by slug field to store and generate valid URLs for my dynamically created web page.
 
 Because a lack of time I also dropped an idea to add contact page to my project and moved the contact email from footer to home page (but this email it is not a link to contact page. It is only info how the visitors can contact with the company). The contact page is a solution which will be implemented in the future).
-
-My endpoint (webhook) doesn't work properly.
-
 
 
 [Back to Top](#table-of-contents)
