@@ -20,4 +20,6 @@ def single_question(request, faq_id):
     """ view to display single faq question"""
     faq = get_object_or_404(FaqPosts, pk=faq_id)
 
-    return redirect(reverse('faq/single_guestions.html', args=[faq_id]))
+    opinions = CommentsFaqPost.objects.filter(comment=faq)
+
+    return redirect(reverse('faq/single_guestion.html', args=[faq_id]))
