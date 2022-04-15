@@ -64,6 +64,9 @@ button.navbar-toggle {
     padding-top: .3125rem;
 }
 
+.faq{
+    margin-top: 0.75rem;
+}
 /*----------------- all products page*/
 .all-products{
     padding:1rem;
