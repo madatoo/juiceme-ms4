@@ -28,7 +28,7 @@ def single_question(request, faq_id):
 
 
 @login_required()
-def add_faq_question(request):
+def add_question(request):
     """ Add a product to the store """
     if not request.user.is_superuser:
         messages.error(request, 'Sorry, only store owners can do that.')

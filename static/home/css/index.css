@@ -2,17 +2,18 @@
     margin-top: 3rem;
 }
 
-.image-hero{
-    height: 90%;  
-}
+/*.image-hero{
+    height: 80%;  
+}*/
 
 .hero{
     background: white center/cover url('/media/mission.jpg') no-repeat;
-    padding: 0;
+    padding: 0;  
 }
 
 .hero-container {
     height: 85vh;
+    min-height: 85vh;
 }
 
 .home-page{

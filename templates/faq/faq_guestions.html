@@ -17,13 +17,13 @@
 {% endblock %}
 
 {% block content %}
-    {% for faqpost in faqposts %}
+    {% for question in faqposts %}
         <div class="container">
             <div class="row">
                 <div class="col-12 col-lg-8 mb-3">
-                    <h3>{{ faqpost.question}}</h3>
-                    <p> {{ faqpost.answer|slice:"180"}}</p>
-                    <p>{{ faqpost.author}} | {{ faqpost.date_added}} </p>
+                    <h3>{{ question.question}}</h3>
+                    <p> {{ question.answer|slice:"180"}}</p>
+                    <p>{{ question.author}} | {{ question.date_added}} </p>
                 </div>
             </div>
             <br>
