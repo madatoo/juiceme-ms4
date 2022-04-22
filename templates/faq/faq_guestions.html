@@ -6,7 +6,7 @@
         <div class="row">
             <div class="col">
                 <h1>JuiceMe FAQ</h1>
-                <p class="products">
+                <p class="products mb-5">
                     There you can read about the common questions about our products.
                 </p>
                 <hr>
@@ -17,13 +17,14 @@
 {% endblock %}
 
 {% block content %}
-    {% for question in faqposts %}
+    {% for faq in faqs %}
         <div class="container">
-            <div class="row">
+            <div class="row justify-content-center">
                 <div class="col-12 col-lg-8 mb-3">
-                    <h3>{{ question.question}}</h3>
-                    <p> {{ question.answer|slice:"180"}}</p>
-                    <p>{{ question.author}} | {{ question.date_added}} </p>
+                    <h3 class="mb-5">{{ faq.question}}</h3>
+                    <p> {{ faq.answer|slice:"180"}}</p>
+                    <p>Added by: <span> <b>{{ faq.author}}</b></span>  <br> {{ faq.date_added|date:'d-m-Y'}}</p>
+                    <hr>
                 </div>
             </div>
             <br>

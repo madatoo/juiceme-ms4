@@ -16,6 +16,9 @@ class FaqPosts(models.Model):
     answer = models.TextField()
     date_added = models.DateTimeField(auto_now_add=True)
 
+    def __str__(self):
+        return str(self.question)
+
 
 class CommentsFaqPost(models.Model):
     """this class for handeling comments for faq"""
@@ -31,3 +34,6 @@ class CommentsFaqPost(models.Model):
                                         null=True, blank=True)
     text = models.TextField()
     date_added = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return str(self.comment)

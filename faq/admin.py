@@ -1,11 +1,12 @@
+"""model for FAQ and comments"""
 from django.contrib import admin
 from .models import FaqPosts, CommentsFaqPost
 
 
 class FaqPostsAdmin(admin.ModelAdmin):
+    """fields displayed in Djano"""
     list_display = (
         'date_added',
-        'author',
         'question',
         'answer',
         'author',
@@ -15,6 +16,7 @@ class FaqPostsAdmin(admin.ModelAdmin):
 
 
 class CommentsFaqPostAdmin(admin.ModelAdmin):
+    """fields displayed in Djano"""
     list_display = (
         'date_added',
         'comments_author',
