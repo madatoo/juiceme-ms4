@@ -63,6 +63,11 @@ def add_question(request):
 @login_required()
 def edit_question(request, faq_id):
     """ view for editing FAQ post by the admin"""
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, only store owners can add \
+            the question to the FAQ list.')
+        return redirect(reverse('home'))
+
     faq = get_object_or_404(FaqPosts, pk=faq_id)
     if request.method == 'POST':
         form = FaqPostsForm(request.POST, request.FILES, instance=faq)

@@ -66,14 +66,14 @@ As customer (with own profile) I would like to do the same things as described a
 + Easily login/log out to personalised customer profile,
     + View personal order history,
     + View order confirmations,
-    + Save payment information,
+    + Save payment information (update address),
 + Intuitivly select quantity of product when purchasing products,
-+ Easily recover password in case I forgot it,
 
 ### Admin stories
 * I would like to be able to login to an administration panel,
 * Be able to add, edit and delete product,
-* Be able to create, edit and delete category of product,
+* Be able to create, edit and delete FAQ question,
+* Display his own user account (The owner also can be the client).
 * Make sure the user can't to be able to checkout an empty cart.
 
 ## Design
@@ -186,7 +186,9 @@ The second huge challenge for me was improving the UI for superuser (who should 
 | 1 | Easly navigate throught the whole page |  content on the web is strictly connected to the main topic and navigation is clearly and visible| PASS |
 | 2 | Be able to login to an administration panel |  | PASS |
 | 3 | Easly manage the whole product in store | Be able to add, edit and delete product | PASS |
-| 4 | Make sure the user can't to be able to checkout an empty cart | | PASS|
+| 4 | Easly manage the whole FAQ section | Be able to add, edit and delete question | PASS |
+| 5 | Make sure the user can't to be able to checkout an empty cart | | PASS|
+| 6 | Display order history for the owner (as the customer) | | PASS|
 
 
 #### User Stories
@@ -214,7 +216,7 @@ The second huge challenge for me was improving the UI for superuser (who should 
 | 4.4 | Save payment informations  |  | PASS|
 | 4.5 | Intuitive select quantity of product when purchasing products  |  | PASS |
 
-All tests are saved in wireframes/test_screen_shots folder
+All tests are saved in docs/manual_tests folder
 
 
 ### Browser Compatibility
