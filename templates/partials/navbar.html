@@ -48,6 +48,7 @@
                             {% if request.user.is_authenticated %}
                                 {% if request.user.is_superuser %}
                                     <a href="{% url 'add_product' %}" class="dropdown-item text-center">Product Management</a>
+                                    <a href="{% url 'add_question' %}" class="dropdown-item text-center">FAQ Management</a>
                                 {% endif %}
                                     <a href="{% url 'display_profile' %}" class="dropdown-item text-center">My Account</a>
                                     <a href="{% url 'account_logout' %}" class="dropdown-item text-center">Logout</a>
