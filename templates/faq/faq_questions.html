@@ -27,6 +27,18 @@
                     <div class="col-12 col-lg-8 mb-3">
                         <a href="{% url 'single_question' faq.id %}" class="btn btn-warning ">Read more</a>
                     </div>
+                    {% if request.user.is_superuser %}
+                        <div class="mt-3">
+                            <small class="card-text">
+                                <a  class="text-success" href="{% url 'edit_question' faq.id %}"><span><b>Edit Question</b></span></a>
+                            </small>
+                        </div>
+                        <div>
+                            <small class="card-text"> 
+                                <a class="text-danger" href="{% url 'delete_question' faq.id %}"><span><b>Delete Question</b></span></a>
+                            </small>
+                        </div>
+                    {% endif %}
                     <hr>
                 </div>
             </div>

@@ -24,6 +24,21 @@
             <p><b>{{ faq.author}}</b></p>
             <p{> {{ faq.date_added}}</p>
         </div>
+        {% if request.user.is_superuser %}
+            <div class="col-12 col-lg-8 mb-3 mt-3">
+                <small class="card-text">
+                    <a class="text-success" href="{% url 'edit_question' faq.id %}"><span><b>Edit Question</b></span>
+                    </a>
+                </small>
+            </div>
+            <div class="col-12 col-lg-8 mb-3">
+                <small class="card-text"> 
+                    <a class="text-danger" href="{% url 'delete_question' faq.id %}"><span><b>Delete Question</b></span>
+                    </a>
+                </small>
+            </div>
+        {% endif %}
+        </div>
     </div>
     <br>
 </div> 
