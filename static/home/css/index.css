@@ -1,56 +1,28 @@
 
 /*-----------------------------home page----*/
-.img-hero {
-    /*background: url('/media/mission.jpg') no-repeat center center fixed;
-    background-size: cover;
-    background-color:lightgreen;
-    height: 60vh;
-    */
-}
+
 /* source https://www.youtube.com/watch?v=tb_EwQOa_ao */
 
 .img-hero{
-    height:70%;
-    background-color:lightgreen;
+    height:100vh;
+    min-height: 100vh;
+    background-color:#fff;
     background-image: url('/media/mission.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    position: relative;  
+    position: relative;
+    margin-left: 0;
+    margin-right: 0;
 }
-
-/*.header-container-home{
-    margin-top: 3rem;
-}
-
-/*.hero{
-    /*background: white center/cover url('/media/mission.jpg') no-repeat;*
-    align-items: center;
-    background: url('/media/mission.jpg') no-repeat center/center;
-    background-size: cover;
-    display:flex;
-    height: 75vh;
-    justify-content: center;  
-}
-
-.hero-container {
-    /*height: 85vh;
-    min-height: 85vh;*
-    position:relative;
-}
-
-.hero-text{
-    position:absolute;
-}*/
 
 .home-page{
-    
-    margin-top: 2.125rem;
     font-size: 4rem;
     color:#ffc107;
     text-shadow:2px 2px 4px black;
+    margin-top: 5rem;
+    margin-bottom: 1.5rem;
 }
-
 
 p.lead {
     font-size: 1.25rem;
@@ -59,10 +31,6 @@ p.lead {
     margin-left: .75rem;
     text-shadow:2px 2px 3px #ffc107;
 }
-
-/*div.col.text-center {
-    margin-top: 3.5rem;
-}*/
 
 .products{
     margin-top: .75rem;
@@ -79,18 +47,7 @@ h3{
     text-shadow:1px 1px 2px #ffc107;  
 }
 
-/*@media only screen and (max-width: 600px) {
-    div.col.text-center {
-        margin-top: 5.75rem;
-    }
+/* @media only screen and (max-width: 768px) {
 
-    h2{
-        font-size: 1.6rem;
-    }
-
-    h3{
-        font-size: 1rem;
-    
-    }
-}*/
-        
+} */
+       
