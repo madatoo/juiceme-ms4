@@ -55,9 +55,7 @@ As a potential customer (first time visitor) I would like to:
     + open desired subpages (login/shop etc) in main nav,
     + open in new window all links inserted into the footer,
 + Easily browse the shopping product available in store,
-+ Sort product by specific category,
-+ Sort multiple categories of product simultaneously,
-+ Search for product name or description,
++ Sort product by specific category, product name or description,
 + View product price, description, rating and image in new page,
 + Easily create customer profile (registration for account),
 + Recive an email confirmation after registering. 
@@ -81,6 +79,7 @@ As customer (with own profile) I would like to do the same things as described a
 
 This page has a white background to be much more readable for users, font colour is black to keep good contrast between text and background. The logo has purple, green, red and "dirty" yellow as main colours, so navigation, footer, headings and call to action (CTA) buttons and links have a combination of those main colours. 
 
+I decidded to replace the yellow hedings to the yellow with black shade to improve the contrast ratio between the white background and the yellows headings. This solution is better for users (they eyes are not too much tired) and the page still looking good.
  
 ### Wireframes
 1. Home Page Wireframe
@@ -128,42 +127,103 @@ That can be achieved by having:
 4. A footer stuck at the bottom of each page with contact details on the left-hand side, Copyright information placed on the middle  and social media icons and Privacy Policy on the right-hand side, to follow shop on Instagram, Facebook and You Toube. Those links will open in separate pages.
 I will begin by creating the mobile first design, because currently, most people look at websites on their smartphones before they check them online on bigger devices, such as tablets or laptops (and these are our customer's behaviours). 
 Those features will apply to all of the pages on my website.
+
 #### Home page
-The home page is going to include all of the features listed above. It will also have a jumbotron with clearly described mission (one sentence) and button to visit this shop This is to give my audience brief info about the purpose of this page.
-#### Shop page 
-Contains all the available products in store.
-#### Login page
-This page allows the users to login to their personalised account or to create it when the visitor does not have their own profile yet.
+The home page is going to include all of the features listed above. It will also have a jumbotron with clearly described mission (one sentence) and button to visit this shop. In that place my audience is able to read about the purpose of this shop.
+
+#### FAQ questions page
+That page is designed to display the list of common questions about products in this store. The owner is able to add/edit or delete single question from this view.
+
+#### Single question page
+Contains question and answer for particular inquiry from the list of questions included in page mentioned abowe.
+Now the owner is able to edit or delete question. In future the logged users will able to add question after login to the users profile.
+
+#### Shop page
+Contains list of all the available products in store. Store owner is able manage the whole product from this view. He can add/ edit or delete product from thet view.
+
+#### Single product page
+This page is designed for displaying single product (with image, product name, category, additional information and rating). From this place customer is able to add product to the bag or return to the store. In future I will aply the opportunity to rate product and add it to the wishlist by active users (that's mean by those who having an accouunt in our database).
+
+#### Sign Up page
+Allows create the personalised account for new customers.
+
+#### Sign In page
+This page allows the users to login to their personalised account or to create it when the visitor does not have their own profile yet. 
+
+#### Display profile page
+That is the page which is displayed after creating account or after login to existing account. Depends from the type of user personalised account is different. As customer - currently you are able to see your order history, and details for each orders and update the details (for delivery). As a superuser (admin), you can see the same order history for yourself, but also you are able to add product or faq question. In future I would like to build much more advanced page for owner - dashobord page where superuser will able manage CRUD operation for all categories in store, products, orders and customers. I would like to create also the additional section with sales, promotion codes and staff management as well.
+
+#### Bag page
+This page allows users (registered or not) display the all products added to the bag (with image, quantity, price, and subtotal). Customers can see how much they will pay for the order before the discount (if any is appyed) and after the discount. Here is the possibility to create or login to personalised cusromer account, or the customer can buy the products wichout creating an account.
+
+#### Checkout page
+That is the place where customer can finalise his order make the purchase. If all data will be correct, then she get 
 
 ## Technologies Used
 
 * Required: HTML, CSS, JavaScript, Python+Django, Postgres, Stripe payments
 
-#### Languages:
+### Languages:
 
 * HTML5
 * CSS3
 * JavaScript
 * Python
-#### Libraries, frameworks, tools used
-* Balsamic to create wireframes,
-* FontAwesome for icons used in this project,
-* Freelogodesign was used to create shop logo,
-* Favicon Generator was used to convert logo image into favicons,
-* Google Fonts to use the Montserrat font for headings and Open Sans font for whole page,
-* Pexels was used to find products images,
-* MS Excel was used to create set of data needed to create database,
-* MS Word was used to spellcheck my work, because English isn't my first language,
-* Bootstrap framework was used for developing a responsive, mobile-first website,
-* Django was used for rapid development, clean design and maintainable,
-* jQuery was needed to simplify HTML DOM manipulation,
-* VSC was used as a code editor,
-* Git was used for version control,
-* Github used as a Git repository hosting service
-* Stripe is used to simplify the receive payments for the products available at store,
-* W3C Validator to check that  HTML and CSS codes are properly wrirtten,
-* PEP 8 Online Validator to check the Python code with expected standards,
-* PostgreSQL as a database service provided directly by Heroku,
+
+
+### Libraries, frameworks, tools used
+* <a href="https://balsamiq.com/" rel="noopener" target="_blank">Balsamiq</a>to create wireframes,
+* <a href="https://fontawesome.com/" rel="noopener" target="_blank">FontAwesome</a> for icons used in this project,
+* <a href="https://www.freelogodesign.org/" rel="noopener" target="_blank">Freelogodesign</a> was used to create shop logo,
+* <a href="https://favicon.io/"rel="noopener" target="_blank">Favicon Generator</a> was used to convert logo image into favicons,
+* <a href="https://fonts.google.com/"rel="noopener" target="_blank">Google Fonts</a> to use the Montserrat font for headings and Open Sans font for whole page,
+* <a href="https://www.pexels.com/pl-pl/"rel="noopener" target="_blank">Pexels</a> was used to find products images,
+* <a href="https://www.microsoft.com/"rel="noopener" target="_blank">MS Excel</a> was used to create set of data needed to create database
+* <a href="getbootstrap.com"rel="noopener" target="_blank">Bootstrap</a> framework was used for developing a responsive, mobile-first website,
+* <a href="https://www.djangoproject.com/"rel="noopener" target="_blank">Django</a> was used for rapid development, clean design and maintainable,
+* <a href="https://jquery.com/"rel="noopener" target="_blank">jQuery</a> was needed to simplify HTML DOM manipulation,
+* <a href="https://www.gitpod.io/"rel="noopener" target="_blank"></a> Gitpod IDE was used as a code editor, to create project.
+* <a href="https://git-scm.com/"rel="noopener" target="_blank">Git</a> was used for version control,
+* <a href="https://github.com/"rel="noopener" target="_blank">Github</a>used as a Git repository hosting service
+* <a href="https://stripe.com/ie"rel="noopener" target="_blank">Stripe</a> is used to simplify the receive payments for the products available at store,
+* <a href="https://validator.w3.org/"rel="noopener" target="_blank">W3C Validator</a> to check that the HTML codes are properly wrirtten,
+* <a href="https://jigsaw.w3.org/css-validator/"rel="noopener" target="_blank">CSS Validator</a> to check that the CSS codes are correct
+* <a href="https://jshint.com/"rel="noopener" target="_blank">JS Valdator</a> to check that the JS codes are correct
+* <a href="http://pep8online.com/"rel="noopener" target="_blank">PEP 8 Online Validator</a> to check the Python code with expected standards,
+* <a href="https://www.postgresql.org/"rel="noopener" target="_blank">PostgreSQL</a> as a database service provided directly by Heroku,
+* <a href="https://www.heroku.com/" rel="noopener" target="_blank">Heroku</a> - a cloud platform as a service supporting several programming languages.
+* <a href="https://www.sqlite.org/index.html" rel="noopener" target="_blank">SQLite</a> - a C-language library that implements a small, fast, self-contained, high-reliability, full-featured, SQL database engine.
+* <a href="https://aws.amazon.com/s3/" rel="noopener" target="_blank">Amazon S3</a> an object storage service that offers industry-leading scalability, data availability, security, and performance.
+
+### Database Structure
+This project contains few of tables. Depends fom the purpose, they store different data. 
+
+#### Category Table
+This table is create for categorise the all product in store. Currently contains six categories - but that wasent good choise. I should create only three categories for Juice, Nectars and Drinks and other three add as lables New, Delals and Bestseller. I realised that too late for make the minor changes in my product model. 
+
+This table connect only two fields id and name. In future I should add also the slug field and friendly name for tis table. 
+
+#### Product Table
+That is the table releted to the Category table by Foreign Key. Contains all essential fields for product such as: id, image, name, description, price, nutrion info (additional informations about the product) and rating.
+I think, the nutrion info could be moved to new, separatly table, with Foreign Key to this table. That steps could be beneficial if the database will be bigger and the store will have more products.
+
+#### OrderLineItem Table
+That table is related to the Product Table and Order Table by Foreign Keys. Contains data related to the specific order, such as id, order, product, quantity, lineitem total. 
+
+#### Order Table
+That is the largest table in this project. Is related to the UserProfile Table bt Foreign Key and contains id, order number, user profile, full name, email, phone number, country (in my case non editable and set as default because delivery is possible only to Ireland), postcode, town or city, street address1 and street address2, county (choice field), date, delivery cost, discount, order total, total, orginal bag (I know about the spellcheck error :) ) and stripe pid field. 
+
+Next time I will divide this table into two tables one for data related to the order and second related to the customer address. 
+
+#### UserProfile Table
+This is the table related to the Django User model by one to one field for the user. Contains default fields for maintaining default delivery information and order history for users.
+
+#### FaqPosts Table
+This table contains id, question, answer, date and author fields, where last one is related to the UserProfile Table by Foreign Key. 
+
+#### CommentsFaqPost Table 
+Contains comment field which is Foreign Key to the FaqPost Table, comments author (Foreign Key to the UserProfile Table), text (here is an opinion written by the user) and date added (when the comment was created) fields.
+
 
 ## Testing
 
