@@ -175,22 +175,22 @@ That is the place where customer can finalise his order make the purchase. If al
 * <a href="https://balsamiq.com/" rel="noopener" target="_blank">Balsamiq</a>to create wireframes,
 * <a href="https://fontawesome.com/" rel="noopener" target="_blank">FontAwesome</a> for icons used in this project,
 * <a href="https://www.freelogodesign.org/" rel="noopener" target="_blank">Freelogodesign</a> was used to create shop logo,
-* <a href="https://favicon.io/"rel="noopener" target="_blank">Favicon Generator</a> was used to convert logo image into favicons,
-* <a href="https://fonts.google.com/"rel="noopener" target="_blank">Google Fonts</a> to use the Montserrat font for headings and Open Sans font for whole page,
-* <a href="https://www.pexels.com/pl-pl/"rel="noopener" target="_blank">Pexels</a> was used to find products images,
-* <a href="https://www.microsoft.com/"rel="noopener" target="_blank">MS Excel</a> was used to create set of data needed to create database
-* <a href="getbootstrap.com"rel="noopener" target="_blank">Bootstrap</a> framework was used for developing a responsive, mobile-first website,
-* <a href="https://www.djangoproject.com/"rel="noopener" target="_blank">Django</a> was used for rapid development, clean design and maintainable,
-* <a href="https://jquery.com/"rel="noopener" target="_blank">jQuery</a> was needed to simplify HTML DOM manipulation,
-* <a href="https://www.gitpod.io/"rel="noopener" target="_blank"></a> Gitpod IDE was used as a code editor, to create project.
-* <a href="https://git-scm.com/"rel="noopener" target="_blank">Git</a> was used for version control,
-* <a href="https://github.com/"rel="noopener" target="_blank">Github</a>used as a Git repository hosting service
+* <a href="https://favicon.io/" rel="noopener" target="_blank">Favicon Generator</a> was used to convert logo image into favicons,
+* <a href="https://fonts.google.com/" rel="noopener" target="_blank">Google Fonts</a> to use the Montserrat font for headings and Open Sans font for whole page,
+* <a href="https://www.pexels.com/pl-pl/" rel="noopener" target="_blank">Pexels</a> was used to find products images,
+* <a href="https://www.microsoft.com/" rel="noopener" target="_blank">MS Excel</a> was used to create set of data needed to create database
+* <a href="getbootstrap.com" rel="noopener" target="_blank">Bootstrap</a> framework was used for developing a responsive, mobile-first website,
+* <a href="https://www.djangoproject.com/" rel="noopener" target="_blank">Django</a> was used for rapid development, clean design and maintainable,
+* <a href="https://jquery.com/" rel="noopener" target="_blank">jQuery</a> was needed to simplify HTML DOM manipulation,
+* <a href="https://www.gitpod.io/" rel="noopener" target="_blank"></a> Gitpod IDE was used as a code editor, to create project.
+* <a href="https://git-scm.com/" rel="noopener" target="_blank">Git</a> was used for version control,
+* <a href="https://github.com/" rel="noopener" target="_blank">Github</a>used as a Git repository hosting service
 * <a href="https://stripe.com/ie"rel="noopener" target="_blank">Stripe</a> is used to simplify the receive payments for the products available at store,
-* <a href="https://validator.w3.org/"rel="noopener" target="_blank">W3C Validator</a> to check that the HTML codes are properly wrirtten,
-* <a href="https://jigsaw.w3.org/css-validator/"rel="noopener" target="_blank">CSS Validator</a> to check that the CSS codes are correct
-* <a href="https://jshint.com/"rel="noopener" target="_blank">JS Valdator</a> to check that the JS codes are correct
-* <a href="http://pep8online.com/"rel="noopener" target="_blank">PEP 8 Online Validator</a> to check the Python code with expected standards,
-* <a href="https://www.postgresql.org/"rel="noopener" target="_blank">PostgreSQL</a> as a database service provided directly by Heroku,
+* <a href="https://validator.w3.org/" rel="noopener" target="_blank">W3C Validator</a> to check that the HTML codes are properly wrirtten,
+* <a href="https://jigsaw.w3.org/css-validator/" rel="noopener" target="_blank">CSS Validator</a> to check that the CSS codes are correct
+* <a href="https://jshint.com/" rel="noopener" target="_blank">JS Valdator</a> to check that the JS codes are correct
+* <a href="http://pep8online.com/" rel="noopener" target="_blank">PEP 8 Online Validator</a> to check the Python code with expected standards,
+* <a href="https://www.postgresql.org/" rel="noopener" target="_blank">PostgreSQL</a> as a database service provided directly by Heroku,
 * <a href="https://www.heroku.com/" rel="noopener" target="_blank">Heroku</a> - a cloud platform as a service supporting several programming languages.
 * <a href="https://www.sqlite.org/index.html" rel="noopener" target="_blank">SQLite</a> - a C-language library that implements a small, fast, self-contained, high-reliability, full-featured, SQL database engine.
 * <a href="https://aws.amazon.com/s3/" rel="noopener" target="_blank">Amazon S3</a> an object storage service that offers industry-leading scalability, data availability, security, and performance.
