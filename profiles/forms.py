@@ -5,14 +5,13 @@ from .models import UserProfile
 
 class UserProfileForm(forms.ModelForm):
     """form for updating the default address"""
-    default_country = forms.CharField(disabled=True, initial='IE')
-
+    
     class Meta:
         """ all data can be updated except\
         the user and country fields """
         model = UserProfile
 
-        exclude = ('user', 'country',)
+        exclude = ('user',)
 
     def __init__(self, *args, **kwargs):
         """"add placeholders to the form"""
@@ -23,15 +22,12 @@ class UserProfileForm(forms.ModelForm):
             'default_street_address2': 'Address 2',
             'default_town_or_city': 'Town or City',
             'default_postcode': 'Postal Code',
-            'default_county': 'County',
-            'default_country': 'IE'
+            'default_county':'County'
         }
 
         self.fields['default_phone_number'].widget.attrs['autofocus'] = True
         for field in self.fields:
-            if self.fields['default_country'].required:
-                placeholder = f'{placeholders[field]}'
-            else:
+            if field != 'default_country':
                 if self.fields[field].required:
                     placeholder = f'{placeholders[field]} *'
                 else:

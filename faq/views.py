@@ -102,3 +102,4 @@ def delete_question(request, faq_id):
     faq.delete()
     messages.success(request, 'FAQ post deleted!')
     return redirect(reverse('faq_all_questions'))
+

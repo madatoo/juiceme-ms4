@@ -293,22 +293,23 @@ Page is responsive. It was checked on phones, laptops and in dev tools.
 ![Report](static/ligthouse.png)
 
 ### Knowns Bugs
+I had few large problems for me during production.
 
-I made an error, because I exposed my Secret Key in github. I needed to remove it from there by deleting and commiting directly from github. Unfortunatley, I didn't push the changes from gitpod and I needed to fix it later on by pulling the changes from github and pushing my not updated commits. 
+1. I made an error, because I exposed my Secret Key in github. I needed to remove it from there by deleting and commiting directly from github. Unfortunatley, I didn't push the changes from gitpod and I needed to fix it later on by pulling the changes from github and pushing my not updated commits. 
 
-During production, I had a problem with connection to heroku and deployment (which wasn't easy for me :) ) and updating my database with my own data (I didn't have the fixtures). That probably was the worst part for me (except the troubles with the single product page).
+2. I had a problem with connection to heroku and deployment (which wasn't easy for me :) ) and updating my database with my own data (I didn't have the fixtures). I also didn't fully understand the alter field idea, that is something what I want to study later (in my free time). That probably was the worst part for me (except the troubles with the single product page).
 
-During production I had troubles with updating my Order Model - to solve this issue I needed remove my old order table and make migration one more time. 
+3. I also struggle with updating my Order Model - to solve this issue I needed remove my old order table and make migration one more time. This was complicated, because I didn't had the good plan for my project (and I changing it few times - and because of that I had some challanges :) Next time I will much more prepared :) 
 
-I also didn't fully understand the alter field idea, that is something what I want to study later (in my free time).
+4. After my few months brake during the course I also had an issue with the blowing up requirements :) For that reason I needed contact with Tutors to fix that issue and I also needed create new workspace to finishing the project. 
+
+5. The last (I hope) unexpected issue was an  unauthorized automatic deployment from GitHub to Heroku. To solve that, I checked the slack and got an instructions, apply them and ... again I had the same issue. I contacted to Tutors and one more time run the command: heroku git:remote -a juiceme-magda and git push heroku main  and one more time logged to the Heroku to see how it's works. I also went to the deployed version to see how it works and this time everything was correct :). 
 
 To keep all essential requirements done I decided to removed the broken link to Privacy Policy from footer. I assigned it as the left to implement solution, just like the using the social media to easly login to page. This allows visitors to create an account faster, by clicking one button and save their time. I would also be able to track the visitors (to know how long they stay on page etc.). To implement this solution I will needed also add to login/create account page checkbox which will be needed cliked when user give me permission to tracking him via SM).
 
 To increase the SEO, in future I would like to replace the integer number which for now is visible in my webpage for products and categories by slug field to store and generate valid URLs for my dynamically created web page.
 
 Because a lack of time I also dropped an idea to add contact page to my project and moved the contact email from footer to home page (but this email it is not a link to contact page. It is only info how the visitors can contact with the company). The contact page is a solution which will be implemented in the future).
-
-
 
 [Back to Top](#table-of-contents)
 
@@ -451,10 +452,11 @@ Note, that this process can be different depending on IDE you use. In this case 
 Bootstap, Django and Stripe documentation. If a source is not mentioned below, then additional information about an original code, which was changed according to my website's needs, is mentioned in other files.
 ### Code
 Denis Ivy, Kewin Powell, JustDjango platform, FreeCodeCamp and Programming with Mosh and their tutorials. I also used Slack, Stack Overflow, Tutors CI and took an inspirations from previous project created by CI students and by CI Hackathons teams (where I was a participant).
+
 [Back to Top](#table-of-contents)
 
 ### Content
-This was written by me after researching information about the topic. To create that content I visited few pages such 
+The content for the site was written by me after researching information about the topic. I visited a lot pages related to the choosen topic for example:
 * https://krokdozdrowia.com
 * https://www.medicover.pl
 * https://www.poradnikzdrowie.pl
@@ -463,6 +465,8 @@ This was written by me after researching information about the topic. To create 
 * https://zywienie.medonet.pl
 * https://en.wikipedia.org
 * http://www.kups.org.pl
+
+The privacy policy was created on the basis of guidelines from the site <a href="https://gdpr.eu/privacy-notice" rel="noopener" target="_blank">GDPR.EU</a>
 
 [Back to Top](#table-of-contents)
 
