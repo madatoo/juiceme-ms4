@@ -52,3 +52,4 @@ class UserProfileForm(forms.ModelForm):
             'placeholder'] = 'Postal Code'
         for field in self.fields:
             self.fields[field].label = False
+            self.fields[field].widget.attrs['class'] = 'stripe-style-input'
