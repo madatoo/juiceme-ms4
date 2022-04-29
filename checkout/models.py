@@ -68,22 +68,10 @@ class Order(models.Model):
         """
         update grand total each time a line item is added
         """
-        total = 0
-        order_total = 0
         self.order_total = self.lineitems.aggregate(
-            Sum('lineitem_total'))['lineitem_total__sum'] or 0
+           Sum('lineitem_total'))['lineitem_total__sum'] or 0
         self.delivery_cost = Decimal(settings.STANDARD_DELIVERY)
-        # self.delivery_cost = order_total * Decimal(
-        # settings.STANDARD_DELIVERY / 100)
-        if self.user_profile:
-            self.discount = order_total * Decimal(settings.CUSTOMER_DISCOUNT / 100)
-            self.total = self.order_total - self.discount + self.delivery_cost
-        else:
-            self.discount = order_total * Decimal(settings.GUEST_DISCOUNT / 100)
-            self.total = self.order_total - (self.discount + self.delivery_cost)
-        # self.discount = (settings.GUEST_DISCOUNT)
-        # self.delivery_cost = (settings.STANDARD_DELIVERY)
-        # self.total = (self.order_total + self.delivery_cost - self.discount)
+        self.total = (self.order_total - self.discount) - self.delivery_cost
         self.save()
 
     def save(self, *args, **kwargs):
@@ -91,30 +79,28 @@ class Order(models.Model):
         Override the orginal save method to set order number
         if it hasen't been set alredy.
         """
-        total = 0
         if not self.order_number:
             self.order_number = self._generate_order_number()
-            # self.delivery_cost = Decimal(settings.STANDARD_DELIVERY)
-            self.delivery_cost = total * Decimal(settings.STANDARD_DELIVERY / 100)
         if self.user_profile:
-            self.discount = total * Decimal(settings.CUSTOMER_DISCOUNT / 100)
+            self.discount = self.order_total * Decimal(
+                settings.CUSTOMER_DISCOUNT) / 100
+            self.delivery_cost = 0
         else:
-            self.discount = total * Decimal(settings.GUEST_DISCOUNT / 100)
-            self.total = self.total - (self.discount + self.delivery_cost)
-            # self.discount = (settings.GUEST_DISCOUNT)
-            # self.delivery_cost = (settings.STANDARD_DELIVERY)
-            # self.total = (
-            # self.order_total + self.delivery_cost - self.discount)
+            self.discount = self.order_total * Decimal(
+                settings.GUEST_DISCOUNT) / 100
+            self.total = (
+                self.order_total - self.discount) + self.delivery_cost
         super().save(*args, **kwargs)
 
     def __str__(self):
-        return self.order_number
+        return str(self.order_number)
 
 
 class OrderLineItem(models.Model):
     """
     model for particular (customer) order
     """
+    total = 0
     order = models.ForeignKey(
         Order, null=False, blank=False,
         on_delete=models.CASCADE, related_name='lineitems')
@@ -135,3 +121,4 @@ class OrderLineItem(models.Model):
 
     def __str__(self):
         self.lineitem_total = self.product.price * self.quantity
+        return str(self.lineitem_total)
