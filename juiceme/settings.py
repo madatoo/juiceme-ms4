@@ -81,7 +81,7 @@ TEMPLATES = [
             os.path.join(BASE_DIR, 'templates'),
             os.path.join(BASE_DIR, 'templates', 'allauth'),
         ],
-        'APP_DIRS': True,
+        'APP_DIRS': False,
         'OPTIONS': {
             'context_processors': [
                 'django.template.context_processors.debug',
@@ -214,7 +214,7 @@ if 'USE_AWS' in os.environ:
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-STANDARD_DELIVERY = 8
+STANDARD_DELIVERY = 0
 GUEST_DISCOUNT = 2
 CUSTOMER_DISCOUNT = 5
 
