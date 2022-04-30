@@ -1,5 +1,5 @@
 #  Juiceme Shop
-live demo is available here ()
+live demo is available here (https://juiceme-magda.herokuapp.com/)
 
 ## Table of Contents
 
@@ -278,7 +278,7 @@ In this project I had troubles with updating details (in user profile). I tryied
 | 4.4 | Save payment informations  |  | PASS|
 | 4.5 | Intuitive select quantity of product when purchasing products  |  | PASS |
 
-All tests are saved in docs/manual_tests folder
+All tests are saved in ![View](docs/manual_test) folder
 
 
 ### Browser Compatibility
@@ -290,9 +290,9 @@ All tests are saved in docs/manual_tests folder
 
 Page is responsive. It was checked on phones, laptops and in dev tools. 
 
-### Ligthouse Report
+### Ligthouse Reports
 
-![Report](static/ligthouse.png)
+Are included in juiceme-ms4/docs/lighthouse folder 
 
 ### Knowns Bugs
 I had few large problems for me during production.
@@ -487,7 +487,7 @@ All images are taken from Pexels.com and authors are listed below:
 [Back to Top](#table-of-contents)
 
 ### Acknowledgements
-I want to thank my Mentor, who has helped me with this project, and my family and friends who have supported me throughout the course of this project :)
+I want to thank my Mentor, who has helped me with this project, and my family and friends who have supported me throughout the course of this project :) I am also very thankful for an amazing help to whole Student Tutors team. Thank you so much :)
 [Back to Top](#table-of-contents)
 
 ### Disclaimer
