@@ -1,12 +1,14 @@
+"""form for completing the order"""
 from django import forms
 from .models import Order
 
 
 class OrderForm(forms.ModelForm):
-
+    """set IE as required field by stripe"""
     country = forms.CharField(disabled=True, initial='IE')
 
     class Meta:
+        """defined fields"""
         model = Order
 
         fields = (

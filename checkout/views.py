@@ -69,21 +69,20 @@ def checkout(request):
             total = 0
             bag = request.session.get('bag', {})
             for item_id, quantity in bag.items():
-                # try:
-                product = Product.objects.get(pk=item_id)
+                product = get_object_or_404(Product, pk=item_id)
                 total += quantity * product.price
-                if isinstance(quantity, int):
-                    order_line_item = OrderLineItem(
-                        order=order,
-                        product=product,
-                        quantity=quantity,
-                    )
-                    order_line_item.save()
+                order_line_item = OrderLineItem(
+                    order=order,
+                    product=product,
+                    quantity=quantity,
+                )
+                order_line_item.save()
             try:
                 customer: stripe.Charge.create(
                     amount=int(total * 100),
                     currency=settings.STRIPE_CURRENCY,
                 )
+
             except Product.DoesNotExist:
                 messages.error(
                     request, ("We are sorry. One of the product \
